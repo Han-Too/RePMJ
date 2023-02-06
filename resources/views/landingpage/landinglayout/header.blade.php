@@ -1,5 +1,3 @@
-
-
 <!-- Topbar Start -->
 <div class="container-fluid bg-light p-0">
     <div class="row gx-0 d-none d-lg-flex">
@@ -34,7 +32,8 @@
     <a href="{{ route('/') }}" class="navbar-brand d-flex align-items-center">
         <h1 class="m-0">
             {{-- <i class="fa fa-building text-primary me-3"></i>Putra Mandiri Jaya --}}
-            <img src="{{ asset('landing/img/LOGO.png') }}" alt="logopmj" height="80" width="auto"> Putra Mandiri Jaya
+            <img src="{{ asset('landing/img/LOGO.png') }}" alt="logopmj" height="80" width="auto"> Putra Mandiri
+            Jaya
         </h1>
     </a>
     <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -63,9 +62,39 @@
                     <a href="{{ route('menaratangkiair') }}" class="dropdown-item">Menara Tangki Air</a>
                 </div>
             </div>
-            <a class="nav-item nav-link" href="{{ route('login') }}">Login</a>
+            @guest
+                @if (Route::has('login'))
+                        <a class="nav-item nav-link" href="{{ route('login') }}">Login</a>
+                @endif
+
+                {{-- @if (Route::has('register'))
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    </li>
+                @endif --}}
+            @else
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        Menu
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('admin') }}">
+                            Admin Panel
+                        </a>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
+            @endguest
         </div>
     </div>
 </nav>
 <!-- Navbar End -->
-
