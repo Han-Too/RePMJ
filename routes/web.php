@@ -1,18 +1,30 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
+use App\Http\Controllers\CanopyController;
 
 // ---------------------------ADMIN PAGE------------------------
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 Route::get('/admin', function () {
     return view('adminpage.dashboard');
 })->name('admin')->middleware('is_admin');
 // Route::post('/login', [LoginController::class, 'login'])->name('login')->middleware('is_admin');
+
+// ---------------------CANOPY ADMIN---------------------
+Route::get('/admin/canopy', [CanopyController::class, 'index'])->name('admin.canopy.index')->middleware('is_admin');
+Route::get('/admin/canopy/create', [CanopyController::class, 'create'])->name('admin.canopy.create')->middleware('is_admin');
+Route::post('/admin/canopy/store', [CanopyController::class, 'store'])->name('admin.canopy.store')->middleware('is_admin');
+Route::get('/admin/canopy/{id}/edit', [CanopyController::class, 'edit'])->name('admin.canopy.edit')->middleware('is_admin');
+Route::put('/admin/canopy/{id}/update', [CanopyController::class, 'update'])->name('admin.canopy.update')->middleware('is_admin');
+Route::get('/admin/canopy/{id}/destroy', [CanopyController::class, 'destroy'])->name('admin.canopy.destroy')->middleware('is_admin');
+Route::get('/admin/canopy/{id}/preview', [CanopyController::class, 'show'])->name('admin.canopy.preview')->middleware('is_admin');
+
 
 // ----------------------ADMIN SIDEBAR--------------------
 Route::get('/admin/daftarbarang', function () {

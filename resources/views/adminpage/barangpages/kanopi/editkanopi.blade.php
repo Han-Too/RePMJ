@@ -1,7 +1,7 @@
 @extends('adminpage.index')
 
 @extends('adminpage.adminlayout.headhtml')
-@section('headjudul', 'Kanopi')
+@section('headjudul', 'Edit Kanopi')
 
 @section('tambahan')
     <style>
@@ -39,7 +39,10 @@
                         <div class="card-body pt-3">
                             <div id="kt_account_settings_profile_details" class="collapse show">
                                 <!--begin::Form-->
-                                <form id="kt_account_profile_details_form" class="form">
+                                <form id="" class="form" action='/admin/canopy/{{$postcanopy->id}}/update' method='post'
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    @method('PUT')
                                     <!--begin::Card body-->
                                     <div class="card-body border-top p-9">
                                         <!--begin::Input group-->
@@ -63,8 +66,8 @@
                                                         title="Change avatar">
                                                         <i class="bi bi-pencil-fill fs-7"></i>
                                                         <!--begin::Inputs-->
-                                                        <input type="file" name="avatar" accept=".png, .jpg, .jpeg" />
-                                                        <input type="hidden" name="avatar_remove" />
+                                                        <input type="file" name="foto" accept=".png, .jpg, .jpeg" />
+                                                        <input type="hidden" name="foto_remove" />
                                                         <!--end::Inputs-->
                                                     </label>
                                                     <!--end::Label-->
@@ -102,23 +105,9 @@
                                             <!--end::Label-->
                                             <!--begin::Col-->
                                             <div class="col-lg-8 fv-row">
-                                                <input type="text" name="company"
+                                                <input type="text" name="judul"
                                                     class="form-control form-control-lg form-control-solid"
-                                                    placeholder="Isikan Produk" value="" />
-                                            </div>
-                                            <!--end::Col-->
-                                        </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Input group-->
-                                        <div class="row mb-6">
-                                            <!--begin::Label-->
-                                            <label class="col-lg-4 col-form-label required fw-semibold fs-6">Jenis Material</label>
-                                            <!--end::Label-->
-                                            <!--begin::Col-->
-                                            <div class="col-lg-8 fv-row">
-                                                <input type="text" name="company"
-                                                    class="form-control form-control-lg form-control-solid"
-                                                    placeholder="Isikan Jenis Material" value="" />
+                                                    placeholder="Isikan Produk" value="{{old('judul', $postcanopy->judul)}}" />
                                             </div>
                                             <!--end::Col-->
                                         </div>
@@ -128,15 +117,43 @@
                                             <!--begin::Label-->
                                             <label class="col-lg-4 col-form-label fw-semibold fs-6">
                                                 <span class="required">Harga</span>
-                                                <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip"
-                                                    title="Phone number must be active"></i>
                                             </label>
                                             <!--end::Label-->
                                             <!--begin::Col-->
                                             <div class="col-lg-8 fv-row">
-                                                <input type="tel" name="phone"
+                                                <input type="tel" name="harga" onKeyUp="rupiahrp(this)" onKeyPress="return isNumber(event)"
                                                     class="form-control form-control-lg form-control-solid"
-                                                    placeholder="Isikan Harga" value="" />
+                                                    placeholder="Isikan Harga" value="{{old('harga', $postcanopy->harga)}}"  id="inputBiayaDonasi" />
+                                            </div>
+                                            <!--end::Col-->
+                                        </div>
+                                        <!--end::Input group-->
+                                        <!--begin::Input group-->
+                                        <div class="row mb-6">
+                                            <!--begin::Label-->
+                                            <label class="col-lg-4 col-form-label required fw-semibold fs-6">Jenis
+                                                Material</label>
+                                            <!--end::Label-->
+                                            <!--begin::Col-->
+                                            <div class="col-lg-8 fv-row">
+                                                <input type="text" name="bahan"
+                                                    class="form-control form-control-lg form-control-solid"
+                                                    placeholder="Isikan Jenis Material" value="{{old('bahan', $postcanopy->bahan)}}" />
+                                            </div>
+                                            <!--end::Col-->
+                                        </div>
+                                        <!--end::Input group-->
+                                        <!--begin::Input group-->
+                                        <div class="row mb-6">
+                                            <!--begin::Label-->
+                                            <label class="col-lg-4 col-form-label required fw-semibold fs-6">Jenis
+                                                Produk</label>
+                                            <!--end::Label-->
+                                            <!--begin::Col-->
+                                            <div class="col-lg-8 fv-row">
+                                                <input type="text" name="jenis_produk"
+                                                    class="form-control form-control-lg form-control-solid"
+                                                    placeholder="Isikan Jenis Produk" value="{{old('jenis_produk', $postcanopy->jenis_produk)}}" />
                                             </div>
                                             <!--end::Col-->
                                         </div>
@@ -145,20 +162,12 @@
                                         <div class="row mb-6">
                                             <!--begin::Label-->
                                             <label
-                                                class="col-lg-4 col-form-label required fw-semibold fs-6">Status</label>
+                                                class="col-lg-4 col-form-label required fw-semibold fs-6">Deskripsi</label>
                                             <!--end::Label-->
                                             <!--begin::Col-->
                                             <div class="col-lg-8 fv-row">
-                                                <!--begin::Input-->
-                                                <select name="status" aria-label="Status"
-                                                    data-control="select2" data-placeholder="Pilih Status"
-                                                    class="form-select form-select-solid form-select-lg">
-                                                    <option value="">Select a Status</option>
-                                                    <option value="tersedia">Tersedia</option>
-                                                    <option value="tidaktersedia">Tidak Tersedia</option>
-                                                    
-                                                </select>
-                                                <!--end::Input-->
+                                                <textarea name="deskripsi" class="form-control form-control-lg form-control-solid" placeholder="Jelaskan Deskripsi"
+                                                >{{old('deskripsi', $postcanopy->deskripsi)}}</textarea>
                                             </div>
                                             <!--end::Col-->
                                         </div>
@@ -166,17 +175,27 @@
                                         <!--begin::Input group-->
                                         <div class="row mb-6">
                                             <!--begin::Label-->
-                                            <label class="col-lg-4 col-form-label required fw-semibold fs-6">Jenis Material</label>
+                                            <label class="col-lg-4 col-form-label required fw-semibold fs-6">Status</label>
                                             <!--end::Label-->
                                             <!--begin::Col-->
                                             <div class="col-lg-8 fv-row">
-                                                <textarea name="company"
-                                                    class="form-control form-control-lg form-control-solid"
-                                                    placeholder="Isikan Jenis Material" value=""></textarea>
+                                                <!--begin::Input-->
+                                                <select name="status" aria-label="Status" data-control="select2"
+                                                    data-placeholder="Pilih Status"
+                                                    class="form-select form-select-solid form-select-lg">
+                                                    <option value="tersedia"
+                                                    <?php if($postcanopy->status == "tersedia")echo "selected" ?>
+                                                    >Tersedia</option>
+                                                    <option value="tidaktersedia"
+                                                    <?php if($postcanopy->status == "tidaktersedia")echo "selected" ?>
+                                                    >Tidak Tersedia</option>
+                                                </select>
+                                                <!--end::Input-->
                                             </div>
                                             <!--end::Col-->
                                         </div>
                                         <!--end::Input group-->
+
                                     </div>
                                     <!--end::Card body-->
                                     <!--begin::Actions-->
@@ -211,5 +230,25 @@
 @endsection
 
 @section('script')
-    <script></script>
+    <script>
+        function isNumber(evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode != 46) {
+                return false;
+            }
+            return true;
+        }
+
+        function formatNumber(num) {
+            return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+        }
+
+        function rupiahrp(objek, separator) {
+            var nilai_1 = objek.value;
+            var nilai_2 = nilai_1.replace(/,/g, "");
+            var nilai_3 = formatNumber(nilai_2);
+            objek.value = nilai_3;
+        }
+    </script>
 @endsection
