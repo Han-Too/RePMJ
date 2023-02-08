@@ -29,7 +29,7 @@
                         <!--begin::Header-->
                         <div class="card-header border-0 pt-5">
                             <h3 class="card-title align-items-start flex-column">
-                                <span class="card-label fw-bold fs-3 mb-1">Tambah Produk Kanopi</span>
+                                <span class="card-label fw-bold fs-3 mb-1">Tambah Produk Pagar</span>
                                 {{-- <span class="text-muted mt-1 fw-semibold fs-7">Tambah atau Edit Data Kanopi</span> --}}
                             </h3>
 
@@ -39,7 +39,7 @@
                         <div class="card-body pt-3">
                             <div id="kt_account_settings_profile_details" class="collapse show">
                                 <!--begin::Form-->
-                                <form id="" class="form" action='/admin/canopy/store' method='post'
+                                <form id="" class="form" action='/admin/pagar/store' method='post'
                                     enctype="multipart/form-data">
                                     @csrf
                                     @method('POST')
@@ -153,7 +153,7 @@
                                             <div class="col-lg-8 fv-row">
                                                 <input type="text" name="jenis_produk"
                                                     class="form-control form-control-lg form-control-solid"
-                                                    placeholder="Isikan Jenis Produk" value="Canopy" />
+                                                    placeholder="Isikan Jenis Produk" value="Pagar" />
                                             </div>
                                             <!--end::Col-->
                                         </div>

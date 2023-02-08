@@ -39,7 +39,7 @@
                         <div class="card-body pt-3">
                             <div id="kt_account_settings_profile_details" class="collapse show">
                                 <!--begin::Form-->
-                                <form id="" class="form" action='/admin/canopy/{{$postcanopy->id}}/update' method='post'
+                                <form id="" class="form" action='/admin/pagar/{{$postpagar->id}}/update' method='post'
                                     enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
@@ -107,7 +107,7 @@
                                             <div class="col-lg-8 fv-row">
                                                 <input type="text" name="judul"
                                                     class="form-control form-control-lg form-control-solid"
-                                                    placeholder="Isikan Produk" value="{{old('judul', $postcanopy->judul)}}" />
+                                                    placeholder="Isikan Produk" value="{{old('judul', $postpagar->judul)}}" />
                                             </div>
                                             <!--end::Col-->
                                         </div>
@@ -123,7 +123,7 @@
                                             <div class="col-lg-8 fv-row">
                                                 <input type="tel" name="harga" onKeyUp="rupiahrp(this)" onKeyPress="return isNumber(event)"
                                                     class="form-control form-control-lg form-control-solid"
-                                                    placeholder="Isikan Harga" value="{{old('harga', $postcanopy->harga)}}"  id="inputBiayaDonasi" />
+                                                    placeholder="Isikan Harga" value="{{old('harga', $postpagar->harga)}}"  id="inputBiayaDonasi" />
                                             </div>
                                             <!--end::Col-->
                                         </div>
@@ -138,7 +138,7 @@
                                             <div class="col-lg-8 fv-row">
                                                 <input type="text" name="bahan"
                                                     class="form-control form-control-lg form-control-solid"
-                                                    placeholder="Isikan Jenis Material" value="{{old('bahan', $postcanopy->bahan)}}" />
+                                                    placeholder="Isikan Jenis Material" value="{{old('bahan', $postpagar->bahan)}}" />
                                             </div>
                                             <!--end::Col-->
                                         </div>
@@ -153,7 +153,7 @@
                                             <div class="col-lg-8 fv-row">
                                                 <input type="text" name="jenis_produk"
                                                     class="form-control form-control-lg form-control-solid"
-                                                    placeholder="Isikan Jenis Produk" value="{{old('jenis_produk', $postcanopy->jenis_produk)}}" />
+                                                    placeholder="Isikan Jenis Produk" value="{{old('jenis_produk', $postpagar->jenis_produk)}}" />
                                             </div>
                                             <!--end::Col-->
                                         </div>
@@ -167,7 +167,7 @@
                                             <!--begin::Col-->
                                             <div class="col-lg-8 fv-row">
                                                 <textarea name="deskripsi" class="form-control form-control-lg form-control-solid" placeholder="Jelaskan Deskripsi"
-                                                >{{old('deskripsi', $postcanopy->deskripsi)}}</textarea>
+                                                >{{old('deskripsi', $postpagar->deskripsi)}}</textarea>
                                             </div>
                                             <!--end::Col-->
                                         </div>
@@ -184,10 +184,10 @@
                                                     data-placeholder="Pilih Status"
                                                     class="form-select form-select-solid form-select-lg">
                                                     <option value="tersedia"
-                                                    <?php if($postcanopy->status == "tersedia")echo "selected" ?>
+                                                    <?php if($postpagar->status == "tersedia")echo "selected" ?>
                                                     >Tersedia</option>
                                                     <option value="tidaktersedia"
-                                                    <?php if($postcanopy->status == "tidaktersedia")echo "selected" ?>
+                                                    <?php if($postpagar->status == "tidaktersedia")echo "selected" ?>
                                                     >Tidak Tersedia</option>
                                                 </select>
                                                 <!--end::Input-->

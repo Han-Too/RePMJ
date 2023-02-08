@@ -83,10 +83,9 @@
                                                         <!--end::Avatar-->
                                                         <!--begin::Name-->
                                                         <div class="d-flex justify-content-start flex-column">
-                                                            <a href="{{ route('kanopidetail') }}"
-                                                                class="text-dark fw-bold  mb-1 fs-6">
+                                                            <span class="text-dark fw-bold  mb-1 fs-6">
                                                                 {{ $postcanopy->judul }}
-                                                            </a>
+                                                            </span>
                                                             <span class="text-muted  fw-semibold text-muted d-block fs-7">
                                                                 <span class="text-dark">Kode</span>:
                                                                 {{ $postcanopy->id }}</span>

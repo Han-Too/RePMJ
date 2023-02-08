@@ -112,7 +112,7 @@
                         </div>
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href="../../demo1/dist/pages/faq/classic.html">
+                            <a class="menu-link" href="{{ route('admin.pagar.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -122,7 +122,7 @@
                         </div>
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href="../../demo1/dist/pages/faq/classic.html">
+                            <a class="menu-link" href="{{ route('admin.pintubesi.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -132,7 +132,7 @@
                         </div>
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href="../../demo1/dist/pages/faq/classic.html">
+                            <a class="menu-link" href="{{ route('admin.pintukasanyamuk.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -142,7 +142,7 @@
                         </div>
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href="../../demo1/dist/pages/faq/classic.html">
+                            <a class="menu-link" href="{{ route('admin.teralispintu.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -152,7 +152,7 @@
                         </div>
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href="../../demo1/dist/pages/faq/classic.html">
+                            <a class="menu-link" href="{{ route('admin.teralisjendela.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -162,7 +162,7 @@
                         </div>
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href="../../demo1/dist/pages/faq/classic.html">
+                            <a class="menu-link" href="{{ route('admin.railingbalkon.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -172,7 +172,7 @@
                         </div>
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href="../../demo1/dist/pages/faq/classic.html">
+                            <a class="menu-link" href="{{ route('admin.railingtangga.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -182,7 +182,7 @@
                         </div>
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href="../../demo1/dist/pages/faq/classic.html">
+                            <a class="menu-link" href="{{ route('admin.pintuhenderson.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -192,7 +192,7 @@
                         </div>
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href="../../demo1/dist/pages/faq/classic.html">
+                            <a class="menu-link" href="{{ route('admin.tanggaputar.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -202,7 +202,7 @@
                         </div>
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href="../../demo1/dist/pages/faq/classic.html">
+                            <a class="menu-link" href="{{ route('admin.tanggabesi.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -212,7 +212,7 @@
                         </div>
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href="../../demo1/dist/pages/faq/classic.html">
+                            <a class="menu-link" href="{{ route('admin.menaraair.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>

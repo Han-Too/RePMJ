@@ -1,7 +1,7 @@
 @extends('adminpage.index')
 
 @extends('adminpage.adminlayout.headhtml')
-@section('headjudul', 'Kanopi')
+@section('headjudul', 'Pagar')
 
 @section('tambahan')
     <style>
@@ -29,13 +29,13 @@
                         <!--begin::Header-->
                         <div class="card-header border-0 pt-5">
                             <h3 class="card-title align-items-start flex-column">
-                                <span class="card-label fw-bold fs-3 mb-1">List Produk Kanopi</span>
-                                <span class="text-muted mt-1 fw-semibold fs-7">Tambah atau Edit Data Kanopi</span>
+                                <span class="card-label fw-bold fs-3 mb-1">List Produk Pagar</span>
+                                <span class="text-muted mt-1 fw-semibold fs-7">Tambah atau Edit Data Pagar</span>
                             </h3>
                             <!--begin::Toolbar-->
                             <div class="card-toolbar">
                                 <!--begin::Menu-->
-                                <a href="/admin/canopy/create"
+                                <a href="/admin/pagar/create"
                                     class="btn btn-icon btn-success btn-active-color-primary justify-content-center">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen023.svg-->
                                     <span class="svg-icon svg-icon-1 svg-icon-gray-300 me-n1">
@@ -71,41 +71,40 @@
                                     <!--end::Table head-->
                                     <!--begin::Table body-->
                                     <tbody>
-                                        @forelse ($kanopi as $key => $postcanopy)
+                                        @forelse ($pagar as $key => $postpagar)
                                             <tr>
                                                 <td class="text-start">
                                                     <div class="d-flex align-items-center">
                                                         <!--begin::Avatar-->
                                                         <div class="symbol symbol-45px me-5">
                                                             <img alt="Pic"
-                                                                src="{{ asset('Images/uploads/canopy') }}/{{ $postcanopy->foto }}" />
+                                                                src="{{ asset('Images/uploads/pagar') }}/{{ $postpagar->foto }}" />
                                                         </div>
                                                         <!--end::Avatar-->
                                                         <!--begin::Name-->
                                                         <div class="d-flex justify-content-start flex-column">
-                                                            <a href="{{ route('kanopidetail') }}"
-                                                                class="text-dark fw-bold  mb-1 fs-6">
-                                                                {{ $postcanopy->judul }}
-                                                            </a>
+                                                            <span  class="text-dark fw-bold  mb-1 fs-6">
+                                                                {{ $postpagar->judul }}
+                                                            </span>
                                                             <span class="text-muted  fw-semibold text-muted d-block fs-7">
                                                                 <span class="text-dark">Kode</span>:
-                                                                {{ $postcanopy->id }}</span>
+                                                                {{ $postpagar->id }}</span>
                                                         </div>
                                                         <!--end::Name-->
                                                     </div>
                                                 </td>
                                                 <td class="text-start">
                                                     <span class="text-dark fw-bold  d-block mb-1 fs-6">
-                                                        {{ $postcanopy->bahan }}
+                                                        {{ $postpagar->bahan }}
                                                     </span>
                                                 </td>
                                                 <td class="text-start">
                                                     <span class="text-dark fw-bold  d-block mb-1 fs-6">
-                                                        Rp. {{ $postcanopy->harga }}
+                                                        Rp. {{ $postpagar->harga }}
                                                     </span>
                                                 </td>
                                                 <td class="text-start">
-                                                    @if ($postcanopy->status == 'tersedia')
+                                                    @if ($postpagar->status == 'tersedia')
                                                         <span class="badge badge-light-success">Tersedia</span>
                                                     @else
                                                         <span class="badge badge-light-danger">Tidak Tersedia</span>
@@ -126,7 +125,7 @@
                                                         </span>
                                                         <!--end::Svg Icon-->
                                                     </a>
-                                                    <a href="/admin/canopy/{{ $postcanopy->id }}/edit"
+                                                    <a href="/admin/canopy/{{ $postpagar->id }}/edit"
                                                         class="btn btn-icon btn-bg-light btn-active-color-success btn-sm me-1">
                                                         <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
                                                         <span class="svg-icon svg-icon-3">
@@ -142,7 +141,7 @@
                                                         </span>
                                                         <!--end::Svg Icon-->
                                                     </a>
-                                                    <button onclick="deleteConfirmation({{$postcanopy->id}})" id="delete-canopy"
+                                                    <button onclick="deleteConfirmation({{$postpagar->id}})" id="delete-canopy"
                                                         class="btn btn-icon btn-bg-light btn-active-color-success btn-sm">
                                                         <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
                                                         <span class="svg-icon svg-icon-3">
@@ -230,7 +229,7 @@
 
                     $.ajax({
                         type: "get",
-                        url: `{{ url('/admin/canopy/${id}/destroy') }}`,
+                        url: `{{ url('/admin/pagar/${id}/destroy') }}`,
                         success: function(data) {
                             setTimeout(function() {
                                 location.reload(1);

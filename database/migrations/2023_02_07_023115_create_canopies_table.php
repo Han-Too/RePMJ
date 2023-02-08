@@ -17,7 +17,7 @@ class CreateCanopiesTable extends Migration
             $table->id();
             $table->string('foto');
             $table->string('judul');
-            $table->integer('harga');
+            $table->string('harga');
             $table->string('bahan');
             $table->text('deskripsi');
             $table->string('jenis_produk');
