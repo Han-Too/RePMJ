@@ -22,8 +22,22 @@ class MenaraAirController extends Controller
     public function index()
     {
         $postmenaraair = MenaraAir::orderBy('created_at', 'desc')->get();
-        return view('adminpage.barangpages.menaraair.menaraair', compact('postmenaraair'));
+        return view('adminpage.barangpages.menara', compact('postmenaraair'));
     }
+
+
+    public function landingindex()
+    {
+        $postmenaraair = MenaraAir::orderBy('created_at', 'desc')->get();
+        return view('landingpage.barang.barangmenaratangkiair', compact('postmenaraair'));
+    }
+
+    public function landingdetail($id)
+    {
+        $postmenaraair = MenaraAir::find($id);
+        return view('landingpage.barang.detailbarang.menaraair', compact('postmenaraair'));
+    }
+
 
     /**
      * Show the form for creating a new resource.

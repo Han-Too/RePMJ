@@ -22,6 +22,17 @@ class TeralisPintuController extends Controller
         return view('adminpage.barangpages.teralispintu.teralispintu', compact('teralispintu'));
     }
 
+    public function landingindex()
+    {
+        $teralispintu = TeralisPintu::orderBy('created_at', 'desc')->get();
+        return view('landingpage.barang.barangtralispintu', compact('teralispintu'));
+    }
+
+    public function landingdetail($id)
+    {
+        $teralispintu = TeralisPintu::find($id);
+        return view('landingpage.barang.detailbarang.teralispintu', compact('teralispintu'));
+    }
     /**
      * Show the form for creating a new resource.
      *

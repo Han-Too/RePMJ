@@ -76,21 +76,20 @@
             List Produk @yield('judul')
         </div>
         <div class="row g-4 justify-content-center">
-            @for ($i = 0; $i < 9; $i++)
+            @foreach ($pintu as $key => $pintu)
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item bg-light overflow-hidden h-100">
-                        <img class="img-fluid" src="landing/img/barang/pintubesi2.jpg" alt="" />
+                        <img class="img-fluid" src="{{ asset('Images/uploads/pintubesi') }}/{{ $pintu->foto }}" alt="" />
                         <div class="service-text position-relative text-center h-100 p-4">
-                            <h5 class="mb-3">Pembuatan Barang</h5>
+                            <h5 class="mb-3">{{ $pintu->judul }}</h5>
                             <p>
-                                Tempor erat elitr rebum at clita dolor diam ipsum sit diam
-                                amet diam et eos
+                                {{ $pintu->deskripsi }}
                             </p>
-                            <a class="small" href="">READ MORE<i class="fa fa-arrow-right ms-3"></i></a>
+                            <a class="small" href="/detailbarangpintu/{{ $pintu->id }}">READ MORE<i class="fa fa-arrow-right ms-3"></i></a>
                         </div>
                     </div>
                 </div>
-            @endfor
+            @endforeach
         </div>
     </div>
 @endsection

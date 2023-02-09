@@ -22,6 +22,16 @@ class TanggaPutarController extends Controller
         $posttanggaputar = TanggaPutar::orderBy('created_at', 'desc')->get();
         return view('adminpage.barangpages.tanggaputar.tanggaputar', compact('posttanggaputar'));
     }
+    public function landingindex()
+    {
+        $posttanggaputar = TanggaPutar::orderBy('created_at', 'desc')->get();
+        return view('landingpage.barang.barangtanggaputar', compact('posttanggaputar'));
+    }
+    public function landingdetail($id)
+    {
+        $tanggaputar = TanggaPutar::find($id);
+        return view('landingpage.barang.detailbarang.tanggaputar', compact('tanggaputar'));
+    }
 
     /**
      * Show the form for creating a new resource.

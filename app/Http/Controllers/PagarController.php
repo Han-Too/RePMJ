@@ -21,6 +21,17 @@ class PagarController extends Controller
         return view('adminpage.barangpages.pagarbesi.pagar', compact('pagar'));
     }
 
+    public function landingindex()
+    {
+        $pagar = Pagar::orderBy('created_at', 'desc')->get();
+        return view('landingpage.barang.barangpagar', compact('pagar'));
+    }
+
+    public function landingdetail($id)
+    {
+        $pagar = Pagar::find($id);
+        return view('landingpage.barang.detailbarang.pagar', compact('pagar'));
+    }
     /**
      * Show the form for creating a new resource.
      *

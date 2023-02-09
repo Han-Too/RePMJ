@@ -42,7 +42,7 @@
                 <h1 class="mb-5">@yield('judul')</h1>
                 Yak, selain untuk dekorasi pada tangga rumah manfaat dari railing tangga juga sebagai pelindung. Railing
                 tangga biasanya dipasang sejajar dengan tangga di bagian kanan dan kiri untuk pelindung tubuh agar tidak
-                terjatuh. Seperti fungsi dari railing balkon fungsi utama nya adalah pengaman bagi penghuni rumah. 
+                terjatuh. Seperti fungsi dari railing tangga fungsi utama nya adalah pengaman bagi penghuni rumah. 
                 <br>
                 Berikut manfaat dari railing tangga besi minimalis:
                 <ul><br>
@@ -67,21 +67,20 @@
             List Produk @yield('judul')
         </div>
         <div class="row g-4 justify-content-center">
-            @for ($i = 0; $i < 9; $i++)
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item bg-light overflow-hidden h-100">
-                        <img class="img-fluid" src="landing/img/barang/railingtangga.jpg" alt="" />
-                        <div class="service-text position-relative text-center h-100 p-4">
-                            <h5 class="mb-3">Pembuatan Barang</h5>
-                            <p>
-                                Tempor erat elitr rebum at clita dolor diam ipsum sit diam
-                                amet diam et eos
-                            </p>
-                            <a class="small" href="">READ MORE<i class="fa fa-arrow-right ms-3"></i></a>
-                        </div>
+            @foreach ($postrailingtangga as $key => $railingtangga)
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="service-item bg-light overflow-hidden h-100">
+                    <img class="img-fluid" src="{{ asset('Images/uploads/railingtangga') }}/{{ $railingtangga->foto }}" alt="" />
+                    <div class="service-text position-relative text-center h-100 p-4">
+                        <h5 class="mb-3">{{ $railingtangga->judul }}</h5>
+                        <p>
+                            {{ $railingtangga->deskripsi }}
+                        </p>
+                        <a class="small" href="/detailbarangrailingtangga/{{ $railingtangga->id }}">READ MORE<i class="fa fa-arrow-right ms-3"></i></a>
                     </div>
                 </div>
-            @endfor
+            </div>
+            @endforeach
         </div>
     </div>
 @endsection

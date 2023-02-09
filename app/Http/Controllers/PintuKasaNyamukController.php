@@ -21,6 +21,17 @@ class PintuKasaNyamukController extends Controller
         return view('adminpage.barangpages.pintukasanyamuk.pintu', compact('postpintu'));
     }
 
+    public function landingindex()
+    {
+        $pintu = PintuKasaNyamuk::orderBy('created_at', 'desc')->get();
+        return view('landingpage.barang.barangpintukasa', compact('pintu'));
+    }
+
+    public function landingdetail($id)
+    {
+        $pintu = PintuKasaNyamuk::find($id);
+        return view('landingpage.barang.detailbarang.pintukasanyamuk', compact('pintu'));
+    }
     /**
      * Show the form for creating a new resource.
      *

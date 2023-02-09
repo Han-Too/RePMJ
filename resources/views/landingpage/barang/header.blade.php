@@ -6,7 +6,7 @@
         <nav aria-label="breadcrumb animated slideInDown">
             <ol class="breadcrumb justify-content-center mb-0">
                 <li class="breadcrumb-item">
-                    <a href="{{ route('home') }}" style="color: white;">
+                    <a href="{{ route('/') }}" style="color: white;">
                         <span class="text-hover">Home &nbsp;</span>
                     </a>
                 </li>

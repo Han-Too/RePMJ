@@ -21,6 +21,18 @@ class PintuBesiController extends Controller
         return view('adminpage.barangpages.pintubesi.pintu', compact('postpintu'));
     }
 
+
+    public function landingindex()
+    {
+        $pintu = PintuBesi::orderBy('created_at', 'desc')->get();
+        return view('landingpage.barang.barangpintu', compact('pintu'));
+    }
+
+    public function landingdetail($id)
+    {
+        $pintu = PintuBesi::find($id);
+        return view('landingpage.barang.detailbarang.pintubesi', compact('pintu'));
+    }
     /**
      * Show the form for creating a new resource.
      *

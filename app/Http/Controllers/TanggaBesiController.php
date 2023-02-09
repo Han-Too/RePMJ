@@ -28,6 +28,18 @@ class TanggaBesiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function landingindex()
+    {
+        $posttanggabesi = TanggaBesi::orderBy('created_at', 'desc')->get();
+        return view('landingpage.barang.barangtanggabesi', compact('posttanggabesi'));
+    }
+
+    public function landingdetail($id)
+    {
+        $tanggabesi = TanggaBesi::find($id);
+        return view('landingpage.barang.detailbarang.tanggabesi', compact('tanggabesi'));
+    }
     public function create()
     {
         return view('adminpage.barangpages.tanggabesi.addtanggabesi');

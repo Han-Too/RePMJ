@@ -23,6 +23,17 @@ class RailingTanggaController extends Controller
         return view('adminpage.barangpages.railingtangga.railingtangga', compact('postrailingtangga'));
     }
 
+    public function landingindex()
+    {
+        $postrailingtangga = RailingTangga::orderBy('created_at', 'desc')->get();
+        return view('landingpage.barang.barangrailingtangga', compact('postrailingtangga'));
+    }
+
+    public function landingdetail($id)
+    {
+        $railingtangga = RailingTangga::find($id);
+        return view('landingpage.barang.detailbarang.railingtangga', compact('railingtangga'));
+    }
     /**
      * Show the form for creating a new resource.
      *

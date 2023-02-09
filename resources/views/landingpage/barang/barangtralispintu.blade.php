@@ -73,21 +73,20 @@
             List Produk @yield('judul')
         </div>
         <div class="row g-4 justify-content-center">
-            @for ($i = 0; $i < 9; $i++)
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item bg-light overflow-hidden h-100">
-                        <img class="img-fluid" src="landing/img/barang/tralispintu.jpg" alt="" />
-                        <div class="service-text position-relative text-center h-100 p-4">
-                            <h5 class="mb-3">Pembuatan Barang</h5>
-                            <p>
-                                Tempor erat elitr rebum at clita dolor diam ipsum sit diam
-                                amet diam et eos
-                            </p>
-                            <a class="small" href="">READ MORE<i class="fa fa-arrow-right ms-3"></i></a>
-                        </div>
+            @foreach ($teralispintu as $key => $teralispintu)
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="service-item bg-light overflow-hidden h-100">
+                    <img class="img-fluid" src="{{ asset('Images/uploads/teralispintu') }}/{{ $teralispintu->foto }}" alt="" />
+                    <div class="service-text position-relative text-center h-100 p-4">
+                        <h5 class="mb-3">{{ $teralispintu->judul }}</h5>
+                        <p>
+                            {{ $teralispintu->deskripsi }}
+                        </p>
+                        <a class="small" href="/detailbarangteralispintu/{{ $teralispintu->id }}">READ MORE<i class="fa fa-arrow-right ms-3"></i></a>
                     </div>
                 </div>
-            @endfor
+            </div>
+            @endforeach
         </div>
     </div>
 @endsection

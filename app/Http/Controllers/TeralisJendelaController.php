@@ -22,6 +22,17 @@ class TeralisJendelaController extends Controller
         return view('adminpage.barangpages.teralisjendela.teralisjendela', compact('teralisjendela'));
     }
 
+    public function landingindex()
+    {
+        $teralisjendela = TeralisJendela::orderBy('created_at', 'desc')->get();
+        return view('landingpage.barang.barangtralisjendela', compact('teralisjendela'));
+    }
+
+    public function landingdetail($id)
+    {
+        $teralisjendela = TeralisJendela::find($id);
+        return view('landingpage.barang.detailbarang.teralisjendela', compact('teralisjendela'));
+    }
     /**
      * Show the form for creating a new resource.
      *

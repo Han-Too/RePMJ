@@ -24,6 +24,17 @@ class PintuHendersonController extends Controller
         return view('adminpage.barangpages.pintuhenderson.pintu', compact('postpintu'));
     }
 
+    public function landingindex()
+    {
+        $postpintu = PintuHenderson::orderBy('created_at', 'desc')->get();
+        return view('landingpage.barang.baranghenderson', compact('postpintu'));
+    }
+
+    public function landingdetail($id)
+    {
+        $pintu = PintuHenderson::find($id);
+        return view('landingpage.barang.detailbarang.pintuhenderson', compact('pintu'));
+    }
     /**
      * Show the form for creating a new resource.
      *

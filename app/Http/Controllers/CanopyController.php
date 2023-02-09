@@ -21,6 +21,17 @@ class CanopyController extends Controller
         return view('adminpage.barangpages.kanopi.kanopi', compact('kanopi'));
     }
 
+    public function landingindex()
+    {
+        $kanopi = Canopy::orderBy('created_at', 'desc')->get();
+        return view('landingpage.barang.barangkanopi', compact('kanopi'));
+    }
+
+    public function landingdetail($id)
+    {
+        $kanopi = Canopy::find($id);
+        return view('landingpage.barang.detailbarang.kanopi', compact('kanopi'));
+    }
     /**
      * Show the form for creating a new resource.
      *

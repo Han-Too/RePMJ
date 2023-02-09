@@ -23,6 +23,17 @@ class RailingBalkonController extends Controller
         return view('adminpage.barangpages.railingbalkon.railingbalkon', compact('postrailingbalkon'));
     }
 
+    public function landingindex()
+    {
+        $postrailingbalkon = RailingBalkon::orderBy('created_at', 'desc')->get();
+        return view('landingpage.barang.barangrailingbalkon', compact('postrailingbalkon'));
+    }
+
+    public function landingdetail($id)
+    {
+        $railingbalkon = RailingBalkon::find($id);
+        return view('landingpage.barang.detailbarang.railingbalkon', compact('railingbalkon'));
+    }
     /**
      * Show the form for creating a new resource.
      *

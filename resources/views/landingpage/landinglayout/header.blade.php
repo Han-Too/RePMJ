@@ -52,8 +52,8 @@
                     <a href="{{ route('pagarbesi') }}" class="dropdown-item">Pagar Besi</a>
                     <a href="{{ route('pintubesi') }}" class="dropdown-item">Pintu Besi</a>
                     <a href="{{ route('pintukasa') }}" class="dropdown-item">Pintu Kasa Nyamuk</a>
-                    <a href="{{ route('tralisjendela') }}" class="dropdown-item">Teralis Jendela</a>
-                    <a href="{{ route('tralispintu') }}" class="dropdown-item">Teralis Pintu</a>
+                    <a href="{{ route('teralisjendela') }}" class="dropdown-item">Teralis Jendela</a>
+                    <a href="{{ route('teralispintu') }}" class="dropdown-item">Teralis Pintu</a>
                     <a href="{{ route('railingbalkon') }}" class="dropdown-item">Railing Balkon</a>
                     <a href="{{ route('railingtangga') }}" class="dropdown-item">Railing Tangga</a>
                     <a href="{{ route('henderson') }}" class="dropdown-item">Pintu Henderson</a>

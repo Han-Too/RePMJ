@@ -172,42 +172,34 @@ Route::get('/testing', function () {
 });
 
 // -----------------------LANDING BARANG----------------------
-Route::get('/kanopi', function () {
-    return view('landingpage.barang.barangkanopi');
-})->name('kanopi');
-Route::get('/pagarbesi', function () {
-    return view('landingpage.barang.barangpagar');
-})->name('pagarbesi');
-Route::get('/pintubesi', function () {
-    return view('landingpage.barang.barangpintu');
-})->name('pintubesi');
-Route::get('/pintukasa', function () {
-    return view('landingpage.barang.barangpintukasa');
-})->name('pintukasa');
-Route::get('/tralisjendela', function () {
-    return view('landingpage.barang.barangtralisjendela');
-})->name('tralisjendela');
-Route::get('/tralispintu', function () {
-    return view('landingpage.barang.barangtralispintu');
-})->name('tralispintu');
-Route::get('/railingbalkon', function () {
-    return view('landingpage.barang.barangrailingbalkon');
-})->name('railingbalkon');
-Route::get('/railingtangga', function () {
-    return view('landingpage.barang.barangrailingtangga');
-})->name('railingtangga');
-Route::get('/henderson', function () {
-    return view('landingpage.barang.baranghenderson');
-})->name('henderson');
-Route::get('/tanggaputar', function () {
-    return view('landingpage.barang.barangtanggaputar');
-})->name('tanggaputar');
-Route::get('/tanggabesi', function () {
-    return view('landingpage.barang.barangtanggabesi');
-})->name('tanggabesi');
-Route::get('/menaratangkiair', function () {
-    return view('landingpage.barang.barangmenaratangkiair');
-})->name('menaratangkiair');
+Route::get('/kanopi', [CanopyController::class, 'landingindex'])->name('kanopi');
+Route::get('/menaratangkiair', [MenaraAirController::class, 'landingindex'])->name('menaratangkiair');
+Route::get('/pagarbesi', [PagarController::class, 'landingindex'])->name('pagarbesi');
+Route::get('/pintubesi', [PintuBesiController::class, 'landingindex'])->name('pintubesi');
+Route::get('/pintukasa', [PintuKasaNyamukController::class, 'landingindex'])->name('pintukasa');
+Route::get('/teralisjendela', [TeralisJendelaController::class, 'landingindex'])->name('teralisjendela');
+Route::get('/teralispintu', [TeralisPintuController::class, 'landingindex'])->name('teralispintu');
+Route::get('/railingbalkon', [RailingBalkonController::class, 'landingindex'])->name('railingbalkon');
+Route::get('/railingtangga', [RailingTanggaController::class, 'landingindex'])->name('railingtangga');
+Route::get('/henderson', [PintuHendersonController::class, 'landingindex'])->name('henderson');
+Route::get('/tanggaputar', [TanggaPutarController::class, 'landingindex'])->name('tanggaputar');
+Route::get('/tanggabesi', [TanggaBesiController::class, 'landingindex'])->name('tanggabesi');
+
+
+
+// -------------------DETAIL BARANG-------------------
+Route::get('/detailbarangkanopi/{id}', [CanopyController::class, 'landingdetail'])->name('detailkanopi');
+Route::get('/detailbarangmenaraair/{id}', [MenaraAirController::class, 'landingdetail'])->name('detailmenaraair');
+Route::get('/detailbarangpagar/{id}', [PagarController::class, 'landingdetail'])->name('detailpagar');
+Route::get('/detailbarangpintu/{id}', [PintuBesiController::class, 'landingdetail'])->name('detailpintu');
+Route::get('/detailbarangpintukasanyamuk/{id}', [PintuKasaNyamukController::class, 'landingdetail'])->name('detailpintukasanyamuk');
+Route::get('/detailbarangteralisjendela/{id}', [TeralisJendelaController::class, 'landingdetail'])->name('detailteralisjendela');
+Route::get('/detailbarangteralispintu/{id}', [TeralisPintuController::class, 'landingdetail'])->name('detailteralispintu');
+Route::get('/detailbarangrailingbalkon/{id}', [RailingBalkonController::class, 'landingdetail'])->name('detailrailingbalkon');
+Route::get('/detailbarangrailingtangga/{id}', [RailingTanggaController::class, 'landingdetail'])->name('detailrailingtangga');
+Route::get('/detailbaranghenderson/{id}', [PintuHendersonController::class, 'landingdetail'])->name('detailhenderson');
+Route::get('/detailbarangtanggaputar/{id}', [TanggaPutarController::class, 'landingdetail'])->name('detailtanggaputar');
+Route::get('/detailbarangtanggabesi/{id}', [TanggaBesiController::class, 'landingdetail'])->name('detailtanggabesi');
 
 
 Route::get('/detailbarang', function () {

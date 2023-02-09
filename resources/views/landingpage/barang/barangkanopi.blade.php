@@ -72,21 +72,20 @@
             List Produk @yield('judul')
         </div>
         <div class="row g-4 justify-content-center">
-            @for ($i = 0; $i < 9; $i++)
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item bg-light overflow-hidden h-100">
-                        <img class="img-fluid" src="{{ asset('landing/img/barang/kanopi1.jpg') }}" alt="" />
-                        <div class="service-text position-relative text-center h-100 p-4">
-                            <h5 class="mb-3">Pembuatan Barang</h5>
-                            <p>
-                                Tempor erat elitr rebum at clita dolor diam ipsum sit diam
-                                amet diam et eos
-                            </p>
-                            <a class="small" href="{{ route('detailbarang') }}">READ MORE<i class="fa fa-arrow-right ms-3"></i></a>
-                        </div>
+            @foreach ($kanopi as $key => $postcanopy)
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="service-item bg-light overflow-hidden h-100">
+                    <img class="img-fluid" src="{{ asset('Images/uploads/canopy') }}/{{ $postcanopy->foto }}" alt="" />
+                    <div class="service-text position-relative text-center h-100 p-4">
+                        <h5 class="mb-3">{{ $postcanopy->judul }}</h5>
+                        <p>
+                            {{ $postcanopy->deskripsi }}
+                        </p>
+                        <a class="small" href="/detailbarangkanopi/{{ $postcanopy->id }}">READ MORE<i class="fa fa-arrow-right ms-3"></i></a>
                     </div>
                 </div>
-            @endfor
+            </div>
+            @endforeach
         </div>
     </div>
 @endsection
