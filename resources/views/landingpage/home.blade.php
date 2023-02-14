@@ -4,7 +4,7 @@
 
 @section('tambahan')
     <style>
-        
+
     </style>
 @endsection
 
@@ -13,34 +13,32 @@
     <div class="container-fluid p-0 mb-5 wow fadeIn" data-wow-delay="0.1s">
         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="w-100" src="landing/img/las.png" alt="Image" />
-                    <div class="carousel-caption">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-12 col-lg-10">
-                                    {{-- <h5 class="text-light text-uppercase mb-3 animated slideInDown">
-                                        Welcome to Apex
-                                    </h5> --}}
-                                    <h1 class="display-2 text-light mb-3 animated slideInDown">
-                                        Putra Mandiri Jaya
-                                    </h1>
-                                    <div class="fs-4"> Murah dan Berkualitas </div><br>
-                                    <a href="" class="btn btn-primary py-3 px-5">Selengkapnya</a>
+                @foreach ($jumbotron as $key => $jumbo)
+                    <div class="carousel-item <?php echo $key === 0 ? 'active' : ''; ?>  ">
+                        <img class="w-100" src="{{ asset('Images/uploads/jumbotron') }}/{{ $jumbo->foto }}"
+                            alt="{{ $jumbo->judul }}" />
+                        <div class="carousel-caption">
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-12 col-lg-10">
+                                        <h1 class="display-2 text-light mb-3 animated slideInDown">
+                                            Putra Mandiri Jaya
+                                        </h1>
+                                        <div class="fs-4"> Dikerjakan Oleh Profesional Dibidangnya </div><br>
+                                        {{-- <a href="" class="btn btn-primary py-3 px-5">Selengkapnya</a> --}}
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="carousel-item">
+                @endforeach
+
+                {{-- <div class="carousel-item">
                     <img class="w-100" src="landing/img/las2.png" alt="Image" />
                     <div class="carousel-caption">
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-12 col-lg-10">
-                                    {{-- <h5 class="text-light text-uppercase mb-3 animated slideInDown">
-                                        Welcome to Apex
-                                    </h5> --}}
                                     <h1 class="display-2 text-light mb-3 animated slideInDown">
                                         Putra Mandiri Jaya
                                     </h1>
@@ -50,7 +48,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -302,7 +300,8 @@
                     </div>
                 </div>
                 <div class="col-lg-5 col-md-6 wow fadeIn align-items-center" data-wow-delay="0.5s">
-                    <a href="#" class="btn btn-success py-5 w-100 fw-bolder fs-2" style="border-radius: 200px">Hubungi Kami</a>
+                    <a href="#" class="btn btn-success py-5 w-100 fw-bolder fs-2"
+                        style="border-radius: 200px">Hubungi Kami</a>
                 </div>
             </div>
         </div>
@@ -360,7 +359,7 @@
     </div>
     <!-- Team End -->
 
-    
+
     <!-- Testimonial Start -->
     <div class="container-xxl py-5">
         <div class="container">
