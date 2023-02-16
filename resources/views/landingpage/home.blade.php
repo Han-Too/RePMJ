@@ -67,16 +67,16 @@
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="position-relative overflow-hidden ps-5 pt-5 h-100" style="min-height: 400px">
-                        <img class="position-absolute w-100 h-100" src="landing/img/LOGO.png" alt="PMJ"
-                            style="object-fit: cover" />
-                        <div class="position-absolute top-0 start-0 bg-white pe-3 pb-3" style="width: 200px; height: 200px">
+                    <div class="position-relative overflow-hidden  h-100" style="min-height: 400px">
+                        <img class="position-absolute w-100 h-100" src="{{ asset('landing/img/LOGO.png') }}" alt="PMJ"
+                            style="object-fit:contain" />
+                        {{-- <div class="position-absolute top-0 start-0 bg-white pe-3 pb-3" style="width: 200px; height: 200px">
                             <div class="d-flex flex-column justify-content-center text-center bg-primary h-100 p-3">
-                                <h1 class="text-white">10+</h1>
+                                <h1 class="text-white">18+</h1>
                                 <h2 class="text-white">Tahun</h2>
                                 <h5 class="text-white mb-0">Pengalaman</h5>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
@@ -88,13 +88,12 @@
                             </h1>
                         </div>
                         <p>
-                            Eka Jaya Steel adalah bengkel las terdekat yang bisa didapatkan di wilayah Anda. Kami
+                            Putra Mandiri Jaya adalah bengkel las terdekat yang bisa didapatkan di wilayah Anda. Kami
                             mengerjakan berbagai macam kebutuhan rumah, gedung, kantor, apartemen, dan fasilitas umum
                             lainnya. Untuk pengalaman, Anda tak perlu ragu lagi karena sudah belasan tahun kami berjalan
                             dalam bidang bengkel las.
                         </p>
                         <p class="mb-4">
-
                             Tukang las kami mampu mengerjakan pesanan custom serta menerima jasa perbaikan dan servis. Bahan
                             besi yang kami gunakan merupakan besi terbaik di kelasnya sehingga semua pekerjaan akan
                             menghasilkan produk yang rapih. </p>
@@ -199,9 +198,9 @@
                         </h1>
                     </div>
                 </div>
-                <div class="col-lg-6 text-lg-end wow fadeInUp" data-wow-delay="0.3s">
+                {{-- <div class="col-lg-6 text-lg-end wow fadeInUp" data-wow-delay="0.3s">
                     <a class="btn btn-primary py-3 px-5" href="">Selengkapnya</a>
-                </div>
+                </div> --}}
             </div>
             <div class="row g-4 justify-content-center">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -210,10 +209,9 @@
                         <div class="service-text position-relative text-center h-100 p-4">
                             <h5 class="mb-3">Pembuatan Barang</h5>
                             <p>
-                                Tempor erat elitr rebum at clita dolor diam ipsum sit diam
-                                amet diam et eos
+                                Kami Melayani Pembuatan Barang Besar maupun Kecil
                             </p>
-                            <a class="small" href="">READ MORE<i class="fa fa-arrow-right ms-3"></i></a>
+                            {{-- <a class="small" href="">READ MORE<i class="fa fa-arrow-right ms-3"></i></a> --}}
                         </div>
                     </div>
                 </div>
@@ -223,10 +221,9 @@
                         <div class="service-text position-relative text-center h-100 p-4">
                             <h5 class="mb-3">Renovasi Rumah</h5>
                             <p>
-                                Tempor erat elitr rebum at clita dolor diam ipsum sit diam
-                                amet diam et eos
+                                Kami Dapat Melayani Untuk Merenovasi Rumah Anda
                             </p>
-                            <a class="small" href="">READ MORE<i class="fa fa-arrow-right ms-3"></i></a>
+                            {{-- <a class="small" href="">READ MORE<i class="fa fa-arrow-right ms-3"></i></a> --}}
                         </div>
                     </div>
                 </div>
@@ -236,10 +233,9 @@
                         <div class="service-text position-relative text-center h-100 p-4">
                             <h5 class="mb-3">Perbaikan Barang</h5>
                             <p>
-                                Tempor erat elitr rebum at clita dolor diam ipsum sit diam
-                                amet diam et eos
+                                Anda Punya Barang Rusak? Kami Dapat Perbaiki Barang Tersebut
                             </p>
-                            <a class="small" href="">READ MORE<i class="fa fa-arrow-right ms-3"></i></a>
+                            {{-- <a class="small" href="">READ MORE<i class="fa fa-arrow-right ms-3"></i></a> --}}
                         </div>
                     </div>
                 </div>
@@ -249,10 +245,9 @@
                         <div class="service-text position-relative text-center h-100 p-4">
                             <h5 class="mb-3">Pemasangan Alat Rumah</h5>
                             <p>
-                                Tempor erat elitr rebum at clita dolor diam ipsum sit diam
-                                amet diam et eos
+                                Anda Tidak Paham Memasang Suatu Alat? Serahkan Kepada Kami untuk Memasangkannya
                             </p>
-                            <a class="small" href="">READ MORE<i class="fa fa-arrow-right ms-3"></i></a>
+                            {{-- <a class="small" href="">READ MORE<i class="fa fa-arrow-right ms-3"></i></a> --}}
                         </div>
                     </div>
                 </div>
@@ -262,10 +257,9 @@
                         <div class="service-text position-relative text-center h-100 p-4">
                             <h5 class="mb-3">Pengecatan Ulang Barang</h5>
                             <p>
-                                Tempor erat elitr rebum at clita dolor diam ipsum sit diam
-                                amet diam et eos
+                                Barang Anda Sudah Kusam? Kami Dapat Memperbarui Warna Barang Tersebut
                             </p>
-                            <a class="small" href="">READ MORE<i class="fa fa-arrow-right ms-3"></i></a>
+                            {{-- <a class="small" href="">READ MORE<i class="fa fa-arrow-right ms-3"></i></a> --}}
                         </div>
                     </div>
                 </div>
@@ -273,12 +267,11 @@
                     <div class="service-item bg-light overflow-hidden h-100">
                         <img class="img-fluid" src="landing/img/service-6.jpg" alt="" />
                         <div class="service-text position-relative text-center h-100 p-4">
-                            <h5 class="mb-3">Interior Design</h5>
+                            <h5 class="mb-3">Konsultasi Barang</h5>
                             <p>
-                                Tempor erat elitr rebum at clita dolor diam ipsum sit diam
-                                amet diam et eos
+                                Anda Ingin Membeli Barang, Namun Tidak Tahu Jenisnya? Tanyakan Pada Kami
                             </p>
-                            <a class="small" href="">READ MORE<i class="fa fa-arrow-right ms-3"></i></a>
+                            {{-- <a class="small" href="">READ MORE<i class="fa fa-arrow-right ms-3"></i></a> --}}
                         </div>
                     </div>
                 </div>
@@ -300,7 +293,7 @@
                     </div>
                 </div>
                 <div class="col-lg-5 col-md-6 wow fadeIn align-items-center" data-wow-delay="0.5s">
-                    <a href="#" class="btn btn-success py-5 w-100 fw-bolder fs-2"
+                    <a target="_blank" href="https://wa.me/+6281385291423?text=Permisi%20Pak,%20Saya%20Ingin%20Menanyakan%20Sesuatu" class="btn btn-success py-5 w-100 fw-bolder fs-2"
                         style="border-radius: 200px">Hubungi Kami</a>
                 </div>
             </div>
@@ -314,17 +307,17 @@
             <div class="row g-5 align-items-end mb-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="border-start border-5 border-primary ps-4">
-                        <h6 class="text-body text-uppercase mb-2">Our Team</h6>
-                        <h1 class="display-6 mb-0">Our Expert Worker</h1>
+                        {{-- <h6 class="text-body text-uppercase mb-2">Tim Kami</h6> --}}
+                        <h1 class="display-6 mb-0">Tim Kami</h1>
                     </div>
                 </div>
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                {{-- <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                     <p class="mb-0">
                         Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu
                         diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet
                         lorem sit clita duo justo magna dolore erat amet
                     </p>
-                </div>
+                </div> --}}
             </div>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">

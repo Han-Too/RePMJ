@@ -16,12 +16,13 @@ use App\Http\Controllers\TanggaPutarController;
 use App\Http\Controllers\TanggaBesiController;
 use App\Http\Controllers\MenaraAirController;
 
+use App\Http\Controllers\LaporanPekerjaanController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\GajiKaryawanController;
 
-
+use App\Http\Controllers\KontakController;
+use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\JumbotronController;
-use App\Http\Controllers\LaporanPekerjaanController;
 
 // ---------------------------ADMIN PAGE------------------------
 
@@ -150,6 +151,15 @@ Route::put('/admin/jumbotron/{id}/update', [JumbotronController::class, 'update'
 Route::get('/admin/jumbotron/{id}/destroy', [JumbotronController::class, 'destroy'])->name('admin.jumbotron.destroy')->middleware('is_admin');
 Route::get('/admin/jumbotron/{id}/preview', [JumbotronController::class, 'show'])->name('admin.jumbotron.preview')->middleware('is_admin');
 
+// ------------------------ADMIN GALERI------------------------
+Route::get('/admin/galeri', [GaleriController::class, 'index'])->name('admin.galeri.index')->middleware('is_admin');
+Route::get('/admin/galeri/create', [GaleriController::class, 'create'])->name('admin.galeri.create')->middleware('is_admin');
+Route::post('/admin/galeri/store', [GaleriController::class, 'store'])->name('admin.galeri.store')->middleware('is_admin');
+Route::get('/admin/galeri/{id}/edit', [GaleriController::class, 'edit'])->name('admin.galeri.edit')->middleware('is_admin');
+Route::put('/admin/galeri/{id}/update', [GaleriController::class, 'update'])->name('admin.galeri.update')->middleware('is_admin');
+Route::get('/admin/galeri/{id}/destroy', [GaleriController::class, 'destroy'])->name('admin.galeri.destroy')->middleware('is_admin');
+Route::get('/admin/galeri/{id}/preview', [GaleriController::class, 'show'])->name('admin.galeri.preview')->middleware('is_admin');
+
 
 // ----------------------ADMIN SIDEBAR--------------------
 Route::get('/admin/daftarbarang', function () {
@@ -194,19 +204,19 @@ Route::get('/admin/settinglanding', function () {
 
 // ---------------------LANDING NAVBAR--------------------
 Route::get('/', [JumbotronController::class, 'landingindex'])->name('/');
-// Route::get('/', function () {
-//     return view('landingpage.home');
-// })->name('/');
+
 Route::get('/profile', function () {
     return view('landingpage.profile');
 })->name('profile');
-Route::get('/galeri', function () {
-    return view('landingpage.galeri');
-})->name('galeri');
-Route::get('/kontak', function () {
-    return view('landingpage.kontak');
-})->name('kontak');
 
+Route::get('/galeri', [GaleriController::class, 'landingindex'])->name('galeri');
+// Route::get('/kontak', function () {
+//     return view('landingpage.kontak');
+// })->name('kontak');
+Route::get('/kontak', [KontakController::class, 'index'])->name('kontak');
+Route::post('/gotoWA', [KontakController::class, 'gotoWA'])->name('gotoWA');
+
+Route::get('/galeri', [GaleriController::class, 'landingindex'])->name('galeri');
 Route::get('/testing', function () {
     return view('landingpage.test');
 });

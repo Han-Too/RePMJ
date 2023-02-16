@@ -1,7 +1,7 @@
 @extends('adminpage.index')
 
 @extends('adminpage.adminlayout.headhtml')
-@section('headjudul', 'Tambah Kanopi')
+@section('headjudul', 'Tambah Jumbotron')
 
 @section('tambahan')
     <style>
@@ -29,7 +29,7 @@
                         <!--begin::Header-->
                         <div class="card-header border-0 pt-5">
                             <h3 class="card-title align-items-start flex-column">
-                                <span class="card-label fw-bold fs-3 mb-1">Tambah Produk Kanopi</span>
+                                <span class="card-label fw-bold fs-3 mb-1">Tambah Jumbotron</span>
                                 {{-- <span class="text-muted mt-1 fw-semibold fs-7">Tambah atau Edit Data Kanopi</span> --}}
                             </h3>
 

@@ -123,7 +123,8 @@ class CanopyController extends Controller
             "deskripsi" => $request["deskripsi"],
             "jenis_produk" => $request["jenis_produk"],
         ]);
-        toast('Canopy has been edited !', 'success')->autoClose(1500)->width('400px');
+        Alert::success('Success', 'Data Canopy has been Edited !');
+        // toast('Canopy has been edited !', 'success')->autoClose(1500)->width('400px');
         return redirect('/admin/canopy');
     }
 

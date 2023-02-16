@@ -22,7 +22,7 @@ class MenaraAirController extends Controller
     public function index()
     {
         $postmenaraair = MenaraAir::orderBy('created_at', 'desc')->get();
-        return view('adminpage.barangpages.menara', compact('postmenaraair'));
+        return view('adminpage.barangpages.menaraair.menaraair', compact('postmenaraair'));
     }
 
 

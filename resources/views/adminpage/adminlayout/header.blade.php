@@ -44,9 +44,9 @@
                         class="menu-item here-show menu-here-bg-primary menu-lg-down-accordion me-0 me-lg-2">
                         <!--begin:Menu link-->
                         <span class="menu-link">
-                            <img src="{{ asset('landing/img/LOGO.png') }}" alt="" height="50" width="auto"
-                                class="mx-8">
-                            <a class="h2 text-dark fw-bold mt-4" href="{{ route('admin') }}"
+                            {{-- <img src="{{ asset('landing/img/LOGO.png') }}" alt="" height="50" width="auto"
+                                class="mx-8"> --}}
+                            <a class="h1 text-dark fw-bold mt-4" href="{{ route('admin') }}"
                                 style="font-family: Arial, Helvetica, sans-serif">Putra Mandiri Jaya</a>
                             {{-- <span class="menu-arrow d-lg-none"></span> --}}
                         </span>
@@ -67,7 +67,7 @@
 
                 <!--begin::User menu-->
                 <div class="app-navbar-item ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
-                    <p class="h4 mx-4">Hello, <b>Admin</b></p>
+                    <p class="h4 mx-4">Hello, <b>{{ Auth::user()->name }}</b></p>
                     <!--begin::Menu wrapper-->
                     <div class="cursor-pointer symbol symbol-35px symbol-md-40px" data-kt-menu-trigger="click"
                         data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
@@ -88,9 +88,9 @@
                                 <!--end::Avatar-->
                                 <!--begin::Username-->
                                 <div class="d-flex flex-column">
-                                    <div class="fw-bold d-flex align-items-center fs-5">Admin
+                                    <div class="fw-bold d-flex align-items-center fs-5">{{ Auth::user()->name }}
                                     </div>
-                                    <div href="#" class="fw-semibold text-muted fs-7">Admin@admin.com
+                                    <div href="#" class="fw-semibold text-muted fs-7">{{ Auth::user()->email }}
                                     </div>
                                 </div>
                                 <!--end::Username-->

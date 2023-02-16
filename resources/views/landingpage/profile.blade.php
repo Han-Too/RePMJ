@@ -34,8 +34,8 @@
             <div class="row g-0 mx-lg-0">
                 <div class="col-lg-6 ps-lg-0" style="min-height: 400px;">
                     <div class="position-relative h-100">
-                        <img class="position-absolute img-fluid w-100 h-100" src="landing/img/about.jpg"
-                            style="object-fit: cover;" alt="">
+                        <img class="position-absolute img-fluid w-100 h-100" src="{{ asset('landing/img/LOGO.png') }}"
+                            style="object-fit:contain ;" alt="Logo" >
                     </div>
                 </div>
                 <div class="col-lg-6 about-text py-5 wow fadeIn" data-wow-delay="0.5s">
@@ -44,10 +44,10 @@
                             <h1 class="display-5 mb-4">Tentang Kami</h1>
                         </div>
                         <p class="mb-4 pb-2">
-                            Bengkel Las Murah Bandung Hikmah Putra penyedia jasa bengkel las murah di
-                            Kota Bandung dengan pelayanan terbaik. di samping dengan kualitas pelayanan terbaik, bengkel
-                            las Murah Hikmah Putra memberikan harga las termurah yang bisa di dapatkan di Kota Bandung.
-                            Bengkel las Hikmah Putra menerima berbagai permintaan seperti pembuatan pagar, pembuatan
+                            Putra Mandiri Jaya adalah penyedia jasa las murah di
+                            Kota Depok dengan pelayanan terbaik. di samping dengan kualitas pelayanan terbaik, Putra Mandiri Jaya 
+                            memberikan harga las termurah yang bisa di dapatkan di Kota Depok.
+                            Putra Mandiri Jaya menerima berbagai permintaan seperti pembuatan pagar, pembuatan
                             canopy, pembuatan tralis, pembuatan railing, pembuatan pintu Henderson, pembuatan pintu
                             besi, dan pembuatan lainnya.</p>
                         <div class="row g-4 mb-4 pb-2">
@@ -58,8 +58,8 @@
                                         <i class="fa fa-users fa-2x text-primary"></i>
                                     </div>
                                     <div class="ms-3">
-                                        <h2 class="text-primary mb-1" data-toggle="counter-up">1234</h2>
-                                        <p class="fw-medium mb-0">Happy Clients</p>
+                                        <h2 class="text-primary mb-1" data-toggle="counter-up">100+</h2>
+                                        <p class="fw-medium mb-0">Pelanggan Puas</p>
                                     </div>
                                 </div>
                             </div>
@@ -70,8 +70,8 @@
                                         <i class="fa fa-check fa-2x text-primary"></i>
                                     </div>
                                     <div class="ms-3">
-                                        <h2 class="text-primary mb-1" data-toggle="counter-up">1234</h2>
-                                        <p class="fw-medium mb-0">Projects Done</p>
+                                        <h2 class="text-primary mb-1" data-toggle="counter-up">100+</h2>
+                                        <p class="fw-medium mb-0">Proyek Diselesaikan</p>
                                     </div>
                                 </div>
                             </div>
@@ -89,23 +89,23 @@
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="border-start border-5 border-primary ps-4 mb-5">
-                        <h6 class="text-body text-uppercase mb-2">Why Choose Us!</h6>
+                        <h6 class="text-body text-uppercase mb-2">Mengapa Pilih Kami?</h6>
                         <h1 class="display-6 mb-0">
-                            Our Specialization And Company Features
+                            Kelebihan dari Putra Mandiri Jaya
                         </h1>
                     </div>
-                    <p class="mb-5">
+                    {{-- <p class="mb-5">
                         Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu
                         diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet
                         lorem sit clita duo justo magna dolore erat amet
-                    </p>
+                    </p> --}}
                     <div class="row gy-5 gx-4">
                         <div class="col-sm-6 wow fadeIn" data-wow-delay="0.1s">
                             <div class="d-flex align-items-center mb-3">
                                 <i class="fa fa-check fa-2x text-primary flex-shrink-0 me-3"></i>
                                 <h6 class="mb-0">Terpercaya Oleh Banyak Orang dan Perusahaan</h6>
                             </div>
-                            <span>Eka Jaya Steel telah memiliki banyak customer hingga kini dan mereka menyukai hasil
+                            <span>Putra Mandiri Jaya telah memiliki banyak customer hingga kini dan mereka menyukai hasil
                                 layanan kami</span>
                         </div>
                         <div class="col-sm-6 wow fadeIn" data-wow-delay="0.2s">
@@ -113,7 +113,7 @@
                                 <i class="fa fa-check fa-2x text-primary flex-shrink-0 me-3"></i>
                                 <h6 class="mb-0">Dikerjakan Oleh Yang Berpengalaman</h6>
                             </div>
-                            <span>Eka Jaya Steel sudah mengerjakan proyek mulai dari tralis jendela hingga pembuatan kanopi
+                            <span>Putra Mandiri Jaya sudah mengerjakan proyek mulai dari tralis jendela hingga pembuatan kanopi
                                 gedung</span>
                         </div>
                         <div class="col-sm-6 wow fadeIn" data-wow-delay="0.3s">
@@ -121,7 +121,7 @@
                                 <i class="fa fa-check fa-2x text-primary flex-shrink-0 me-3"></i>
                                 <h6 class="mb-0">Proyek Selesai Secara Cepat dan Tepat</h6>
                             </div>
-                            <span>Sepanjang perjalanan menjalani bidang bengkel las kami selalu mengerjakan proyek tepat
+                            <span>Sepanjang perjalanan menjalani bidang kami selalu mengerjakan proyek tepat
                                 waktu demi
                                 kepuasan pelanggan</span>
                         </div>
@@ -130,7 +130,7 @@
                                 <i class="fa fa-check fa-2x text-primary flex-shrink-0 me-3"></i>
                                 <h6 class="mb-0">Dijamin Bergaransi</h6>
                             </div>
-                            <span>Eka Jaya Steel memberikan garansi pekerjaan pada produk pesanan Anda. Jika ada hal
+                            <span>Putra Mandiri Jaya memberikan garansi pekerjaan pada produk pesanan Anda. Jika ada hal
                                 yang tidak sesuai dengan apa yang diinginkan segera beri tahu kami</span>
                         </div>
                     </div>
@@ -141,9 +141,9 @@
                             style="object-fit: cover" />
                         <div class="position-absolute top-0 start-0 bg-white pe-3 pb-3" style="width: 200px; height: 200px">
                             <div class="d-flex flex-column justify-content-center text-center bg-primary h-100 p-3">
-                                <h1 class="text-white">25</h1>
-                                <h2 class="text-white">Years</h2>
-                                <h5 class="text-white mb-0">Experience</h5>
+                                <h1 class="text-white">18</h1>
+                                <h2 class="text-white">Tahun</h2>
+                                <h5 class="text-white mb-0">Pengalaman</h5>
                             </div>
                         </div>
                     </div>
@@ -162,7 +162,7 @@
                         <h6 class="text-body text-uppercase mb-2">Testimoni</h6>
                         <h1 class="display-6 mb-0">Apa Pendapat Pelanggan Tentang Putra Mandiri Jaya?</h1>
                     </div>
-                    <div class="row g-4">
+                    {{-- <div class="row g-4">
                         <div class="col-sm-6">
                             <div class="d-flex align-items-center mb-2">
                                 <i class="fa fa-users fa-2x text-primary flex-shrink-0"></i>
@@ -177,7 +177,7 @@
                             </div>
                             <h5 class="mb-0">Proyek Selesai</h5>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="col-lg-7 wow fadeInUp" data-wow-delay="0.3s">
                     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">

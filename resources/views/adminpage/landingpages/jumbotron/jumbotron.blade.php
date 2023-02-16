@@ -61,9 +61,9 @@
                                     <!--begin::Table head-->
                                     <thead class="fw-bold bg-success">
                                         <tr style="line-height: 40px">
-                                            <th class="p-0 min-w-350px text-start">Judul</th>
-                                            <th class="p-0 min-w-400px text-start">Foto</th>
-                                            <th class="p-0 min-w-150px text-end">Tools</th>
+                                            <th class="p-0 min-w-350px text-center">Judul</th>
+                                            <th class="p-0 min-w-400px text-center">Foto</th>
+                                            <th class="p-0 min-w-150px text-center">Tools</th>
                                         </tr>
                                     </thead>
                                     <!--end::Table head-->
@@ -90,7 +90,7 @@
                                                         <!--end::Name-->
                                                     </div>
                                                 </td> --}}
-                                                <td class="text-start">
+                                                <td class="text-center">
                                                     <span class="text-dark fw-bold  d-block mb-1 fs-6">
                                                         {{ $jumbo->judul }}
                                                     </span>
@@ -98,7 +98,7 @@
                                                 <td class="text-start">
                                                     <img alt="Pic" width="500" height="auto" src="{{ asset('Images/uploads/jumbotron') }}/{{ $jumbo->foto }}" />
                                                 </td>
-                                                <td class="text-end">
+                                                <td class="text-center">
                                                     <a href="#"
                                                         class="btn btn-icon btn-bg-light btn-active-color-success btn-sm me-1">
                                                         <!--begin::Svg Icon | path: icons/duotune/general/gen019.svg-->

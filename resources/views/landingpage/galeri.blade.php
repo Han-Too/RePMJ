@@ -28,7 +28,7 @@
     <!-- Page Header End -->
 
     <!-- Service Start -->
-    <div class="container-xxl py-5">
+    {{-- <div class="container-xxl py-5">
         <div class="container">
             <div class="row g-5 align-items-end mb-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -124,11 +124,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Service End -->
 
     <!-- Appointment Start -->
-    <div class="container-xxl py-5">
+    {{-- <div class="container-xxl py-5">
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-5 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -192,11 +192,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Appointment End -->
 
     <!-- ======= Our Projects Section ======= -->
-    <section id="projects" class="projects">
+    <section id="projects" class="projects mb-xl-5">
         <div class="container" data-aos="fade-up">
 
             <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry"
@@ -208,22 +208,22 @@
 
                 <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="100">
 
-                    @for ($i = 0; $i < 12; $i++)
+                    @foreach ($galeri as $key => $galeri)
                         <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
                             <div class="portfolio-content h-100">
-                                <img src="{{ asset('landing/img/las2.png') }}" class="img-fluid" alt="">
+                                <img src="{{ asset('Images/uploads/galeri') }}/{{ $galeri->foto }}" class="img-fluid" alt="">
                                 <div class="portfolio-info">
-                                    <h4>Remodeling 1</h4>
-                                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                    <a href="{{ asset('landing/img/las2.png') }}" title="Remodeling 1"
+                                    {{-- <h4>{{ $galeri->judul }}</h4> --}}
+                                    <p>Pekerjaan {{ $galeri->judul }}</p>
+                                    <a href="{{ asset('Images/uploads/galeri') }}/{{ $galeri->foto }}" title="Remodeling 1"
                                         data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i
                                             class="bi bi-zoom-in"></i></a>
-                                    <a href="project-details.html" title="More Details" class="details-link"><i
-                                            class="bi bi-link-45deg"></i></a>
+                                    {{-- <a href="project-details.html" title="More Details" class="details-link"><i
+                                            class="bi bi-link-45deg"></i></a> --}}
                                 </div>
                             </div>
                         </div><!-- End Projects Item -->
-                    @endfor
+                    @endforeach
 
 
 
@@ -235,7 +235,7 @@
     </section>
     <!-- End Our Projects Section -->
 
-    <section class="section border-t pb-0">
+    {{-- <section class="section border-t pb-0">
         <div class="container">
             <div class="row justify-content-center mb-5 element-animate">
                 <div class="col-md-8 text-center">
@@ -293,5 +293,5 @@
             </div>
 
         </div>
-    </section>
+    </section> --}}
 @endsection

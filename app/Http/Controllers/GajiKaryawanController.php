@@ -74,6 +74,7 @@ class GajiKaryawanController extends Controller
      */
 
     public function cetak(Request $request){
+        $info = $request->all();
         $karyawan = Karyawan::find($request->id);
         $kerjaan = $request->kerjaan;
         $pendapatan = $request->pendapatan;
@@ -87,7 +88,7 @@ class GajiKaryawanController extends Controller
             $total += $pendapatan[$i];
         }
 
-        // dd($totalharga);
+        dd($info);
 
         // $pdf = PDF::loadview('adminpage.laporanpages.gaji.printgaji', compact('total','hitung','kasbon','kerjaan','pendapatan','keterangan','karyawan'));
         // return $pdf->download('laporan-karyawan-pdf');
