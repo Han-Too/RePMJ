@@ -123,7 +123,7 @@
 
 
     <!-- Facts Start -->
-    <div class="container-fluid my-5 p-0">
+    {{-- <div class="container-fluid my-5 p-0">
         <div class="row g-0">
             <div class="col-xl-3 col-sm-6 wow fadeIn" data-wow-delay="0.1s">
                 <div class="position-relative">
@@ -182,7 +182,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Facts End -->
 
 
@@ -194,7 +194,7 @@
                     <div class="border-start border-5 border-primary ps-4">
                         <h6 class="text-body text-uppercase mb-2">Putra Mandiri Jaya</h6>
                         <h1 class="display-6 mb-0">
-                            Daftar Layanan
+                            Kami Siap Melayani
                         </h1>
                     </div>
                 </div>
@@ -293,8 +293,9 @@
                     </div>
                 </div>
                 <div class="col-lg-5 col-md-6 wow fadeIn align-items-center" data-wow-delay="0.5s">
-                    <a target="_blank" href="https://wa.me/+6281385291423?text=Permisi%20Pak,%20Saya%20Ingin%20Menanyakan%20Sesuatu" class="btn btn-success py-5 w-100 fw-bolder fs-2"
-                        style="border-radius: 200px">Hubungi Kami</a>
+                    <a target="_blank"
+                        href="https://wa.me/+6281385291423?text=Permisi%20Pak,%20Saya%20Ingin%20Menanyakan%20Sesuatu"
+                        class="btn btn-success py-5 w-100 fw-bolder fs-2" style="border-radius: 200px">Hubungi Kami</a>
                 </div>
             </div>
         </div>

@@ -122,6 +122,7 @@ class CanopyController extends Controller
             "bahan" => $request["bahan"],
             "deskripsi" => $request["deskripsi"],
             "jenis_produk" => $request["jenis_produk"],
+            "status" => $request["status"],
         ]);
         Alert::success('Success', 'Data Canopy has been Edited !');
         // toast('Canopy has been edited !', 'success')->autoClose(1500)->width('400px');

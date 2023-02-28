@@ -123,8 +123,9 @@ class PintuBesiController extends Controller
             "bahan" => $request["bahan"],
             "deskripsi" => $request["deskripsi"],
             "jenis_produk" => $request["jenis_produk"],
+            "status" => $request["status"],
         ]);
-        toast('pagar has been edited !', 'success')->autoClose(1500)->width('400px');
+        Alert::success('Success', 'Data Canopy has been Editted !');
         return redirect('/admin/pintubesi');
     }
 

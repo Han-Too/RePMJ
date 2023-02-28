@@ -15,6 +15,13 @@ class CreatePekerjaansTable extends Migration
     {
         Schema::create('pekerjaans', function (Blueprint $table) {
             $table->id();
+            $table->string('judul');
+            $table->string('namapekerjaan');
+            $table->string('bahan');
+            $table->integer('luas');
+            $table->integer('harga');
+            $table->integer('totalharga');
+            $table->string('keterangan');
             $table->timestamps();
         });
     }

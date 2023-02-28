@@ -123,8 +123,9 @@ class TeralisJendelaController extends Controller
             "bahan" => $request["bahan"],
             "deskripsi" => $request["deskripsi"],
             "jenis_produk" => $request["jenis_produk"],
+            "status" => $request["status"],
         ]);
-        toast('Teralis Jendela has been edited !', 'success')->autoClose(1500)->width('400px');
+        Alert::success('Success', 'Data Teralis Jendela has been uploaded !');
         return redirect('/admin/teralisjendela');
     }
 

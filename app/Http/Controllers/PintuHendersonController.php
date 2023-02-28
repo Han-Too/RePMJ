@@ -125,8 +125,9 @@ class PintuHendersonController extends Controller
             "bahan" => $request["bahan"],
             "deskripsi" => $request["deskripsi"],
             "jenis_produk" => $request["jenis_produk"],
+            "status" => $request["status"],
         ]);
-        toast('pagar has been edited !', 'success')->autoClose(1500)->width('400px');
+        Alert::success('Success', 'Data Pintu Henderon has been editted !');
         return redirect('/admin/pintuhenderson');
     }
 

@@ -123,8 +123,9 @@ class TanggaPutarController extends Controller
             "bahan" => $request["bahan"],
             "deskripsi" => $request["deskripsi"],
             "jenis_produk" => $request["jenis_produk"],
+            "status" => $request["status"],
         ]);
-        toast('Tangga Putar has been edited !', 'success')->autoClose(1500)->width('400px');
+        Alert::success('Success', 'Data Tangga Putar has been uploaded !');
         return redirect('/admin/tanggaputar');
     }
 

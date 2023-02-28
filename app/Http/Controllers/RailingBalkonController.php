@@ -124,8 +124,9 @@ class RailingBalkonController extends Controller
             "bahan" => $request["bahan"],
             "deskripsi" => $request["deskripsi"],
             "jenis_produk" => $request["jenis_produk"],
+            "status" => $request["status"],
         ]);
-        toast('Railing Balkon has been edited !', 'success')->autoClose(1500)->width('400px');
+        Alert::success('Success', 'Data Railing Balkon has been Edited !');
         return redirect('/admin/railingbalkon');
     }
 

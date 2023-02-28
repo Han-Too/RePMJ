@@ -129,8 +129,9 @@ class MenaraAirController extends Controller
             "bahan" => $request["bahan"],
             "deskripsi" => $request["deskripsi"],
             "jenis_produk" => $request["jenis_produk"],
+            "status" => $request["status"],
         ]);
-        toast('Menara Air has been edited !', 'success')->autoClose(1500)->width('400px');
+        Alert::success('Success', 'Data Menara Air has been uploaded !');
         return redirect('/admin/menaraair');
     }
 

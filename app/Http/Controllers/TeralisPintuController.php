@@ -123,8 +123,9 @@ class TeralisPintuController extends Controller
             "bahan" => $request["bahan"],
             "deskripsi" => $request["deskripsi"],
             "jenis_produk" => $request["jenis_produk"],
+            "status" => $request["status"],
         ]);
-        toast('Teralis Pintu has been edited !', 'success')->autoClose(1500)->width('400px');
+        Alert::success('Success', 'Data Teralis Pintu has been uploaded !');
         return redirect('/admin/teralispintu');
     }
 

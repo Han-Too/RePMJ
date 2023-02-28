@@ -45,7 +45,8 @@
             <a class="nav-item nav-link" href="{{ route('profile') }}">Profile</a>
             <a class="nav-item nav-link" href="{{ route('galeri') }}">Galeri</a>
             <a class="nav-item nav-link" href="{{ route('kontak') }}">Kontak Kami</a>
-            <div class="nav-item dropdown">
+            <a class="nav-item nav-link" href="{{ route('layanan') }}">Layanan Kami</a>
+            {{-- <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Layanan</a>
                 <div class="dropdown-menu bg-light m-0">
                     <a href="{{ route('kanopi') }}" class="dropdown-item">Canopy</a>
@@ -61,7 +62,7 @@
                     <a href="{{ route('tanggabesi') }}" class="dropdown-item">Tangga Besi</a>
                     <a href="{{ route('menaratangkiair') }}" class="dropdown-item">Menara Tangki Air</a>
                 </div>
-            </div>
+            </div> --}}
             @guest
                 @if (Route::has('login'))
                         <a class="nav-item nav-link" href="{{ route('login') }}">Login</a>
