@@ -18,8 +18,8 @@ class CreatePekerjaansTable extends Migration
             $table->string('judul');
             $table->string('namapekerjaan');
             $table->string('bahan');
-            $table->integer('luas');
-            $table->integer('harga');
+            $table->string('luas');
+            $table->string('harga');
             $table->integer('totalharga');
             $table->string('keterangan');
             $table->timestamps();
