@@ -6,6 +6,7 @@ use App\Models\RailingTangga;
 use App\Http\Requests\StoreRailingTanggaRequest;
 use App\Http\Requests\UpdateRailingTanggaRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
 use Illuminate\Support\Facades\File;
@@ -25,14 +26,16 @@ class RailingTanggaController extends Controller
 
     public function landingindex()
     {
+        $user = Auth::user();
         $postrailingtangga = RailingTangga::orderBy('created_at', 'desc')->get();
-        return view('landingpage.barang.barangrailingtangga', compact('postrailingtangga'));
+        return view('landingpage.barang.barangrailingtangga', compact('postrailingtangga','user'));
     }
 
     public function landingdetail($id)
     {
+        $user = Auth::user();
         $railingtangga = RailingTangga::find($id);
-        return view('landingpage.barang.detailbarang.railingtangga', compact('railingtangga'));
+        return view('landingpage.barang.detailbarang.railingtangga', compact('railingtangga','user'));
     }
     /**
      * Show the form for creating a new resource.

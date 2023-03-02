@@ -6,6 +6,7 @@ use App\Models\TeralisPintu;
 use App\Http\Requests\StoreTeralisPintuRequest;
 use App\Http\Requests\UpdateTeralisPintuRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -24,14 +25,16 @@ class TeralisPintuController extends Controller
 
     public function landingindex()
     {
+        $user = Auth::user();
         $teralispintu = TeralisPintu::orderBy('created_at', 'desc')->get();
-        return view('landingpage.barang.barangtralispintu', compact('teralispintu'));
+        return view('landingpage.barang.barangtralispintu', compact('teralispintu','user'));
     }
 
     public function landingdetail($id)
     {
+        $user = Auth::user();
         $teralispintu = TeralisPintu::find($id);
-        return view('landingpage.barang.detailbarang.teralispintu', compact('teralispintu'));
+        return view('landingpage.barang.detailbarang.teralispintu', compact('teralispintu','user'));
     }
     /**
      * Show the form for creating a new resource.

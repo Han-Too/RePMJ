@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class RegisterController extends Controller
 {
@@ -29,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = "/home";
 
     /**
      * Create a new controller instance.
@@ -69,5 +71,31 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    public function signup(Request $request){
+        
+        $nama = $request->nama;
+        $email = $request->email;
+        $password = $request->password;
+        $konfirmasipassword = $request->password_confirmation;
+
+        // dd($request->all());
+
+        if($password === $konfirmasipassword){
+            $signup = User::create([
+                'name' => $nama,
+                'email' => $email,
+                'password' => Hash::make($password),
+                'is_admin' => "0"
+            ]);
+            Alert::success('Akun Dibuat', 'Silahkan Login Kembali');
+            return redirect()->route('login');
+        }
+        else {
+            Alert::error('error', 'Isi Data Tidak Valid');
+            return redirect()->route('register');
+        }
+
     }
 }

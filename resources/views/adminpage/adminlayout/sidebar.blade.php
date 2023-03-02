@@ -249,6 +249,17 @@
                         <span class="menu-bullet">
                             <span class="bullet bullet-dot"></span>
                         </span>
+                        <span class="menu-title">Daftar User</span>
+                        {{-- <span class="menu-arrow"></span> --}}
+                    </a>
+                    <!--end:Menu link-->
+                </div>
+                <div class="menu-item">
+                    <!--begin:Menu link-->
+                    <a class="menu-link" href="{{ route('admin.pekerjaan.index') }}">
+                        <span class="menu-bullet">
+                            <span class="bullet bullet-dot"></span>
+                        </span>
                         <span class="menu-title">Daftar Pekerjaan</span>
                         {{-- <span class="menu-arrow"></span> --}}
                     </a>

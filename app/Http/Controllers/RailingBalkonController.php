@@ -6,6 +6,7 @@ use App\Models\RailingBalkon;
 use App\Http\Requests\StoreRailingBalkonRequest;
 use App\Http\Requests\UpdateRailingBalkonRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
 use Illuminate\Support\Facades\File;
@@ -25,14 +26,16 @@ class RailingBalkonController extends Controller
 
     public function landingindex()
     {
+        $user = Auth::user();
         $postrailingbalkon = RailingBalkon::orderBy('created_at', 'desc')->get();
-        return view('landingpage.barang.barangrailingbalkon', compact('postrailingbalkon'));
+        return view('landingpage.barang.barangrailingbalkon', compact('postrailingbalkon','user'));
     }
 
     public function landingdetail($id)
     {
         $railingbalkon = RailingBalkon::find($id);
-        return view('landingpage.barang.detailbarang.railingbalkon', compact('railingbalkon'));
+        $user = Auth::user();
+        return view('landingpage.barang.detailbarang.railingbalkon', compact('railingbalkon','user'));
     }
     /**
      * Show the form for creating a new resource.

@@ -6,6 +6,7 @@ use App\Models\TeralisJendela;
 use App\Http\Requests\StoreTeralisJendelaRequest;
 use App\Http\Requests\UpdateTeralisJendelaRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\File;
 
@@ -24,14 +25,16 @@ class TeralisJendelaController extends Controller
 
     public function landingindex()
     {
+        $user = Auth::user();
         $teralisjendela = TeralisJendela::orderBy('created_at', 'desc')->get();
-        return view('landingpage.barang.barangtralisjendela', compact('teralisjendela'));
+        return view('landingpage.barang.barangtralisjendela', compact('teralisjendela','user'));
     }
 
     public function landingdetail($id)
     {
         $teralisjendela = TeralisJendela::find($id);
-        return view('landingpage.barang.detailbarang.teralisjendela', compact('teralisjendela'));
+        $user = Auth::user();
+        return view('landingpage.barang.detailbarang.teralisjendela', compact('teralisjendela','user'));
     }
     /**
      * Show the form for creating a new resource.

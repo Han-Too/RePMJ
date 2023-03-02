@@ -3,12 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 class KontakController extends Controller
 {
     public function index(){
+        if(Auth::check()){
+            $user = Auth::user();
+            // dd($user->name);
+            return view('landingpage.kontak',compact('user'));
+        }
+        else {
         return view('landingpage.kontak');
+            }
     }
     public function gotoWA(Request $request){
         $nama = str_replace(" ","%20",$request->nama);

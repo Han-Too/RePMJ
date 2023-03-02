@@ -7,6 +7,7 @@ use App\Http\Requests\StoregaleriRequest;
 use App\Http\Requests\UpdategaleriRequest;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
 use Illuminate\Support\Facades\File;
@@ -26,7 +27,8 @@ class GaleriController extends Controller
     public function landingindex()
     {
         $galeri = Galeri::orderBy('created_at', 'desc')->get();
-        return view('landingpage.galeri', compact('galeri'));
+        $user = Auth::user();
+        return view('landingpage.galeri', compact('galeri','user'));
     }
 
     /**

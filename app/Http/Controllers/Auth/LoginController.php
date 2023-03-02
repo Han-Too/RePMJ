@@ -54,7 +54,7 @@ class LoginController extends Controller
                 return redirect()->route('admin');
             } else if (auth()->user()->is_admin == 0) {
                 Alert::success('USER', 'You\'ve Successfully Registered');
-                return redirect()->route('admin');
+                return redirect()->route('/');
             } 
             else {
                 Alert::error('error', 'You\'ve unRegistered');

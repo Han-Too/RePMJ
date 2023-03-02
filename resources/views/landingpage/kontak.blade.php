@@ -86,6 +86,40 @@
                     <form method="post" action="{{ route('gotoWA') }}" target="_blank">
                         @csrf
                         @method('POST')
+                        @if (Auth::check())
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control border-0 bg-light" id="subject"
+                                        placeholder="Nama" name="nama" value="{{ $user->name }}"/>
+                                    <label for="subject">Nama Anda</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control border-0 bg-light" id="subject"
+                                        placeholder="Alamat" name="alamat"/>
+                                    <label for="subject">Alamat</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    {{-- <textarea name="pesan" class="form-control border-0 bg-light" placeholder="Leave a message here" id="message"
+                                        style="height: 150px"></textarea> --}}
+                                        <input type="text" class="form-control border-0 bg-light" id="subject"
+                                        placeholder="Pesan" name="pesan"/>
+                                    <label for="message">Pesan</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-success text-light py-3 px-5" type="submit">
+                                    Kirim Pesan
+                                </button>
+                                </div>
+                            </div>
+                        </div>
+                        @else
                         <div class="row g-3">
                             <div class="col-12">
                                 <div class="form-floating">
@@ -118,6 +152,37 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
+                        {{-- <div class="row g-3">
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control border-0 bg-light" id="subject"
+                                        placeholder="Nama" name="nama"/>
+                                    <label for="subject">Nama Anda</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control border-0 bg-light" id="subject"
+                                        placeholder="Alamat" name="alamat"/>
+                                    <label for="subject">Alamat</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                        <input type="text" class="form-control border-0 bg-light" id="subject"
+                                        placeholder="Pesan" name="pesan"/>
+                                    <label for="message">Pesan</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-success text-light py-3 px-5" type="submit">
+                                    Kirim Pesan
+                                </button>
+                                </div>
+                            </div>
+                        </div> --}}
                     </form>
                 </div>
             </div>

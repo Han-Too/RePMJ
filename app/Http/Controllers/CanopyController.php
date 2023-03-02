@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Canopy;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
 use Illuminate\Support\Facades\File;
@@ -24,13 +25,15 @@ class CanopyController extends Controller
     public function landingindex()
     {
         $kanopi = Canopy::orderBy('created_at', 'desc')->get();
-        return view('landingpage.barang.barangkanopi', compact('kanopi'));
+        $user = Auth::user();
+        return view('landingpage.barang.barangkanopi', compact('kanopi','user'));
     }
 
     public function landingdetail($id)
     {
         $kanopi = Canopy::find($id);
-        return view('landingpage.barang.detailbarang.kanopi', compact('kanopi'));
+        $user = Auth::user();
+        return view('landingpage.barang.detailbarang.kanopi', compact('kanopi','user'));
     }
     /**
      * Show the form for creating a new resource.

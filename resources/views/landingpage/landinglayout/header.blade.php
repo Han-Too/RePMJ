@@ -42,8 +42,8 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto py-3 py-lg-0 ">
             <a class="nav-item nav-link" href="{{ route('/') }}">Home</a>
-            <a class="nav-item nav-link" href="{{ route('profile') }}">Profile</a>
             <a class="nav-item nav-link" href="{{ route('galeri') }}">Galeri</a>
+            <a class="nav-item nav-link" href="{{ route('profile') }}">Tentang Kami</a>
             <a class="nav-item nav-link" href="{{ route('kontak') }}">Kontak Kami</a>
             <a class="nav-item nav-link" href="{{ route('layanan') }}">Layanan Kami</a>
             {{-- <div class="nav-item dropdown">
@@ -65,7 +65,7 @@
             </div> --}}
             @guest
                 @if (Route::has('login'))
-                        <a class="nav-item nav-link" href="{{ route('login') }}">Login</a>
+                    <a class="nav-item nav-link" href="{{ route('login') }}">Login</a>
                 @endif
 
                 {{-- @if (Route::has('register'))
@@ -79,21 +79,36 @@
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         Menu
                     </a>
+                    @if (auth()->user()->is_admin == 1)
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('admin') }}">
+                                Admin Panel
+                            </a>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
 
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('admin') }}">
-                            Admin Panel
-                        </a>
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    @else
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item"  href="{{ route('userprofile') }}">
+                                Profil Saya
+                            </a>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-                    </div>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
                 </li>
+                @endif
             @endguest
         </div>
     </div>

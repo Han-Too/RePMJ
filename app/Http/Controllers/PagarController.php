@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pagar;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
 use Illuminate\Support\Facades\File;
@@ -23,14 +24,16 @@ class PagarController extends Controller
 
     public function landingindex()
     {
+        $user = Auth::user();
         $pagar = Pagar::orderBy('created_at', 'desc')->get();
-        return view('landingpage.barang.barangpagar', compact('pagar'));
+        return view('landingpage.barang.barangpagar', compact('pagar','user'));
     }
 
     public function landingdetail($id)
     {
         $pagar = Pagar::find($id);
-        return view('landingpage.barang.detailbarang.pagar', compact('pagar'));
+        $user = Auth::user();
+        return view('landingpage.barang.detailbarang.pagar', compact('pagar','user'));
     }
     /**
      * Show the form for creating a new resource.

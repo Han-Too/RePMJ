@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\PintuBesi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
 use Illuminate\Support\Facades\File;
@@ -24,14 +25,16 @@ class PintuBesiController extends Controller
 
     public function landingindex()
     {
+        $user = Auth::user();
         $pintu = PintuBesi::orderBy('created_at', 'desc')->get();
-        return view('landingpage.barang.barangpintu', compact('pintu'));
+        return view('landingpage.barang.barangpintu', compact('pintu','user'));
     }
 
     public function landingdetail($id)
     {
         $pintu = PintuBesi::find($id);
-        return view('landingpage.barang.detailbarang.pintubesi', compact('pintu'));
+        $user = Auth::user();
+        return view('landingpage.barang.detailbarang.pintubesi', compact('pintu','user'));
     }
     /**
      * Show the form for creating a new resource.

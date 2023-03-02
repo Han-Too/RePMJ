@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,6 +28,9 @@ use App\Http\Controllers\KontakController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\JumbotronController;
 use App\Http\Controllers\LayananController;
+use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\ProfileController;
+
 
 
 // ---------------------------ADMIN PAGE------------------------
@@ -220,15 +224,19 @@ Route::get('/admin/settinglanding', function () {
 // ---------------------LANDING NAVBAR--------------------
 Route::get('/', [JumbotronController::class, 'landingindex'])->name('/');
 
-Route::get('/profile', function () {
-    return view('landingpage.profile');
-})->name('profile');
-
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::get('/galeri', [GaleriController::class, 'landingindex'])->name('galeri');
 Route::get('/layanan', [LayananController::class, 'index'])->name('layanan');
 Route::get('/kontak', [KontakController::class, 'index'])->name('kontak');
 Route::post('/gotoWA', [KontakController::class, 'gotoWA'])->name('gotoWA');
 Route::get('/galeri', [GaleriController::class, 'landingindex'])->name('galeri');
+Route::get('/myprofile', [GaleriController::class, 'landingindex'])->name('myprofile');
+Route::post('/signup', [RegisterController::class, 'signup'])->name('signup');
+
+Route::get('/userprofile', [UserProfileController::class, 'index'])->name('userprofile');
+Route::get('/edituserprofile', [UserProfileController::class, 'edit'])->name('edituserprofile');
+Route::post('/storeuserprofile', [UserProfileController::class, 'store'])->name('storeuserprofile');
+
 Route::get('/testing', function () {
     return view('landingpage.test');
 });

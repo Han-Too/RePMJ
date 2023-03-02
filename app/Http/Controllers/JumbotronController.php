@@ -7,6 +7,7 @@ use App\Http\Requests\StoreJumbotronRequest;
 use App\Http\Requests\UpdateJumbotronRequest;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
 use Illuminate\Support\Facades\File;
@@ -26,8 +27,9 @@ class JumbotronController extends Controller
 
     public function landingindex()
     {
+        $user = Auth::user();
         $jumbotron = Jumbotron::orderBy('created_at', 'desc')->get();
-        return view('landingpage.home', compact('jumbotron'));
+        return view('landingpage.home', compact('jumbotron','user'));
     }
 
     /**
