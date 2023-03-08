@@ -18,12 +18,16 @@ class CreateUsersSeeder extends Seeder
             [
                 'name' => 'Admin',
                 'email' => 'admin@admin.com',
+                'telepon' => '08888888888',
+                'alamat' => 'indonesia',
                 'is_admin' => '1',
                 'password' => bcrypt('admin'),
             ],
             [
                 'name' => 'User',
                 'email' => 'user@user.com',
+                'telepon' => '08888888888',
+                'alamat' => 'indonesia',
                 'is_admin' => '0',
                 'password' => bcrypt('user'),
             ]

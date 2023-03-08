@@ -56,8 +56,8 @@
                                                 <div class="image-input image-input-outline" data-kt-image-input="true"
                                                     style="background-image: url('assets/media/svg/avatars/blank.svg')">
                                                     <!--begin::Preview existing avatar-->
-                                                    <div class="image-input-wrapper w-125px h-125px"
-                                                        style="background-image: url(assets/media/avatars/300-1.jpg)"></div>
+                                                    <div class="image-input-wrapper w-300px h-300px"
+                                                        style="background-image: url({{ asset('Images/uploads/jumbotron') }}/{{ $jumbotron->foto }})"></div>
                                                     <!--end::Preview existing avatar-->
                                                     <!--begin::Label-->
                                                     <label
@@ -117,8 +117,8 @@
                                     <!--end::Card body-->
                                     <!--begin::Actions-->
                                     <div class="card-footer d-flex justify-content-end px-9">
-                                        <button type="reset"
-                                            class="btn btn-light btn-active-light-primary me-2">Batal</button>
+                                        <a href="{{ route('admin.jumbotron.index') }}"
+                                            class="btn btn-light btn-active-light-primary me-2">Batal</a>
                                         <button type="submit" class="btn btn-primary"
                                             id="kt_account_profile_details_submit">Simpan</button>
                                     </div>

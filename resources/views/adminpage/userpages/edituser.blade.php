@@ -1,7 +1,7 @@
 @extends('adminpage.index')
 
 @extends('adminpage.adminlayout.headhtml')
-@section('headjudul', 'Edit Karyawan')
+@section('headjudul', 'Edit User')
 
 @section('tambahan')
     <style>
@@ -29,7 +29,7 @@
                         <!--begin::Header-->
                         <div class="card-header border-0 pt-5">
                             <h3 class="card-title align-items-start flex-column">
-                                <span class="card-label fw-bold fs-3 mb-1">Detail Produk Karyawan</span>
+                                <span class="card-label fw-bold fs-3 mb-1">Detail Edit User</span>
                                 {{-- <span class="text-muted mt-1 fw-semibold fs-7">Tambah atau Edit Data Karyawan</span> --}}
                             </h3>
 
@@ -39,7 +39,7 @@
                         <div class="card-body pt-3">
                             <div id="kt_account_settings_profile_details" class="collapse show">
                                 <!--begin::Form-->
-                                <form id="" class="form" action='/admin/karyawan/{{$karyawan->id}}/update' method='post'
+                                <form id="" class="form" action='/admin/user/{{$user->id}}/update' method='post'
                                     enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
@@ -49,14 +49,15 @@
                                         <div class="row mb-6">
                                             <!--begin::Label-->
                                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">
-                                                Nama Karyawan
+                                                Nama User
                                             </label>
                                             <!--end::Label-->
                                             <!--begin::Col-->
                                             <div class="col-lg-8 fv-row">
+                                                <input type="hidden" name="id" value="{{ $user->id }}">
                                                 <input type="text" name="nama"
                                                     class="form-control form-control-lg form-control-solid"
-                                                    placeholder="Isikan Nama" value="{{old('nama', $karyawan->nama)}}" />
+                                                    placeholder="Isikan Nama" value="{{old('nama', $user->name)}}" />
                                             </div>
                                             <!--end::Col-->
                                         </div>
@@ -72,7 +73,7 @@
                                             <div class="col-lg-8 fv-row">
                                                 <input type="email" name="email"
                                                     class="form-control form-control-lg form-control-solid"
-                                                    placeholder="Isikan Email" value="{{old('email', $karyawan->email)}}"  />
+                                                    placeholder="Isikan Email" value="{{old('email', $user->email)}}"  />
                                             </div>
                                             <!--end::Col-->
                                         </div>
@@ -88,35 +89,25 @@
                                             <div class="col-lg-8 fv-row">
                                                 <input type="number" name="telepon"
                                                     class="form-control form-control-lg form-control-solid"
-                                                    placeholder="Isikan Jenis Material" value="{{old('telepon', $karyawan->telepon)}}" />
+                                                    placeholder="Isikan Jenis Material" value="{{old('telepon', $user->telepon)}}" />
                                             </div>
                                             <!--end::Col-->
                                         </div>
                                         <!--end::Input group-->
                                         <!--begin::Input group-->
+                                        <!--end::Input group-->
                                         <div class="row mb-6">
                                             <!--begin::Label-->
-                                            <label class="col-lg-4 col-form-label required fw-semibold fs-6">Status</label>
+                                            <label class="col-lg-4 col-form-label required fw-semibold fs-6">
+                                                Alamat
+                                            </label>
                                             <!--end::Label-->
                                             <!--begin::Col-->
                                             <div class="col-lg-8 fv-row">
-                                                <!--begin::Input-->
-                                                <select name="status" aria-label="Status" data-control="select2"
-                                                    data-placeholder="Pilih Status"
-                                                    class="form-select form-select-solid form-select-lg">
-                                                    <option value="aktif"
-                                                    <?php if($karyawan->status == "aktif")echo "selected" ?>
-                                                    >Aktif</option>
-                                                    <option value="tidakaktif"
-                                                    <?php if($karyawan->status == "tidakaktif")echo "selected" ?>
-                                                    >Tidak Aktif</option>
-                                                </select>
-                                                <!--end::Input-->
+                                                <textarea class="form-control form-control-lg form-control-solid" name="alamat" id="" cols="30" rows="10">{{ $user->alamat }}</textarea>
                                             </div>
                                             <!--end::Col-->
                                         </div>
-                                        <!--end::Input group-->
-
                                     </div>
                                     <!--end::Card body-->
                                     <!--begin::Actions-->

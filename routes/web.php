@@ -42,6 +42,10 @@ Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home
 Route::get('/admin', function () {
     return view('adminpage.dashboard');
 })->name('admin')->middleware('is_admin');
+
+// Route::get('/back', function () {
+//     return redirect()->back();
+// })->name('back');
 // Route::post('/login', [LoginController::class, 'login'])->name('login')->middleware('is_admin');
 
 // ---------------------CANOPY ADMIN---------------------
@@ -191,6 +195,16 @@ Route::put('/admin/karyawan/{id}/update', [KaryawanController::class, 'update'])
 Route::get('/admin/karyawan/{id}/destroy', [KaryawanController::class, 'destroy'])->name('admin.karyawan.destroy')->middleware('is_admin');
 Route::get('/admin/karyawan/{id}/preview', [KaryawanController::class, 'show'])->name('admin.karyawan.preview')->middleware('is_admin');
 Route::get('/admin/karyawan/cetak', [KaryawanController::class, 'cetak_pdf'])->name('admin.karyawan.print')->middleware('is_admin');
+
+// ----------------USER--------------------
+Route::get('/admin/user', [UserProfileController::class, 'adminindex'])->name('admin.user.index')->middleware('is_admin');
+Route::get('/admin/user/create', [UserProfileController::class, 'admincreate'])->name('admin.user.create')->middleware('is_admin');
+Route::post('/admin/user/store', [UserProfileController::class, 'adminstore'])->name('admin.user.store')->middleware('is_admin');
+Route::get('/admin/user/{id}/edit', [UserProfileController::class, 'adminedit'])->name('admin.user.edit')->middleware('is_admin');
+Route::put('/admin/user/{id}/update', [UserProfileController::class, 'adminupdate'])->name('admin.user.update')->middleware('is_admin');
+Route::get('/admin/user/{id}/destroy', [UserProfileController::class, 'admindestroy'])->name('admin.user.destroy')->middleware('is_admin');
+Route::get('/admin/user/{id}/preview', [UserProfileController::class, 'adminshow'])->name('admin.user.preview')->middleware('is_admin');
+Route::get('/admin/user/cetak', [UserProfileController::class, 'cetak_pdf'])->name('admin.user.print')->middleware('is_admin');
 
 
 // ------------------------LAPORAN------------------------

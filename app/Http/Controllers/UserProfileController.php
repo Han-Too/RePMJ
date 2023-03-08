@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class UserProfileController extends Controller
@@ -38,5 +39,65 @@ class UserProfileController extends Controller
 
         Alert::success('Berhasil Edit Data','Data User Telah Di Edit');
         return view('landingpage.userprofile', compact('user'));
+    }
+
+    public function adminindex(){
+        $user = User::orderBy('name', 'asc')->get();
+        return view('adminpage.userpages.daftaruser',compact('user'));
+    }
+
+    public function adminedit($id){
+        $user = User::find($id);
+        return view('adminpage.userpages.edituser',compact('user'));
+    }
+
+    public function adminupdate(Request $request){
+        $id = $request->id;
+        $updateuser = User::where("id", $id)->update([
+            "name" => $request["nama"],
+            "email" => $request["email"],
+            "telepon" => $request["telepon"],
+            "alamat" => $request["alamat"],
+        ]);
+        Alert::success('Success', 'Data User has been Updated !');
+        return redirect('/admin/user');
+    }
+
+    public function admindestroy($id){
+        User::where('id', $id)->delete();
+        return redirect()->back();
+    }
+
+    public function admincreate(){
+        return view('adminpage.userpages.adduser');
+    }
+
+    public function adminstore(Request $request){
+
+        $nama = $request->nama;
+        $email = $request->email;
+        $alamat = $request->alamat;
+        $telepon = $request->telepon;
+        $password = $request->password;
+        $konfirmasipassword = $request->password_confirmation;
+
+        // dd($request->all());
+
+        if($password === $konfirmasipassword){
+            $signup = User::create([
+                'name' => $nama,
+                'email' => $email,
+                'telepon' => $telepon,
+                'alamat' => $alamat,
+                'password' => Hash::make($password),
+                'is_admin' => "0"
+            ]);
+        Alert::success('Success', 'Data User has been Created !');
+        return redirect('/admin/user');
+        }
+        else {
+            Alert::error('Error', 'Data Invalid !');
+            return redirect()->back();
+        }
     }
 }

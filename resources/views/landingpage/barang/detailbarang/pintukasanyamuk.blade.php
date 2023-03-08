@@ -51,7 +51,7 @@
                                     <div class="carousel-inner">
                                         <div class="carousel-item active">
                                             <img class="img-fluid"
-                                                src="{{ asset('Images/uploads/pintukasanyamuk') }}/{{ $pintu->foto }}"
+                                                src="{{ asset('Images/uploads/pintukasa') }}/{{ $pintu->foto }}"
                                                 alt="">
                                         </div>
                                     </div>
@@ -87,7 +87,7 @@
                                         <div class="p-2 text-success fw-semibold">Gratis Ongkir Sejabodetabek</div>
                                     </div>
                                     <div class="d-grid gap-2 mx-auto mt-5">
-                                        <a href="https://wa.link/gxxpuy" class="btn btn-success btn-block py-3"
+                                        <a target="_blank" href="https://wa.link/gxxpuy" class="btn btn-success btn-block py-3"
                                             style="border-radius: 5px">Beli
                                             Sekarang</a>
                                     </div>

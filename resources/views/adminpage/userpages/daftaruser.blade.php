@@ -1,7 +1,7 @@
 @extends('adminpage.index')
 
 @extends('adminpage.adminlayout.headhtml')
-@section('headjudul', 'Karyawan')
+@section('headjudul', 'User')
 
 @section('tambahan')
     <style>
@@ -29,15 +29,15 @@
                         <!--begin::Header-->
                         <div class="card-header border-0 pt-5">
                             <h3 class="card-title align-items-start flex-column">
-                                <span class="card-label fw-bold fs-3 mb-1">List Produk Karyawan</span>
-                                <span class="text-muted mt-1 fw-semibold fs-7">Tambah atau Edit Data Karyawan</span>
+                                <span class="card-label fw-bold fs-3 mb-1">List Data User</span>
+                                <span class="text-muted mt-1 fw-semibold fs-7">Tambah atau Edit Data User</span>
                             </h3>
                             <!--begin::Toolbar-->
                             <div class="card-toolbar">
                                 <!--begin::Menu-->
                                 <div class="d-flex flex-row">
                                     <div class="p-2">
-                                        <a href="/admin/karyawan/create"
+                                        <a href="/admin/user/create"
                                             class="btn btn-icon btn-success btn-active-color-primary justify-content-center">
                                             <!--begin::Svg Icon | path: icons/duotune/general/gen023.svg-->
                                             <span class="svg-icon svg-icon-1 svg-icon-gray-300 me-n1">
@@ -51,7 +51,7 @@
                                         </a>
                                     </div>
                                     <div class="p-2">
-                                        <a href="/admin/karyawan/cetak"
+                                        <a href="/admin/user/cetak"
                                             class="btn btn-icon btn-info btn-active-color-primary justify-content-center">
                                             <!--begin::Svg Icon | path: icons/duotune/general/gen023.svg-->
                                             <span class="svg-icon svg-icon-1 svg-icon-gray-300 me-n1">
@@ -84,53 +84,59 @@
                                             <th class="p-0 min-w-150px text-center">Nama</th>
                                             <th class="p-0 min-w-200px text-center">Email</th>
                                             <th class="p-0 min-w-150px text-center">Telepon</th>
-                                            <th class="p-0 min-w-100px text-center">Status</th>
+                                            <th class="p-0 min-w-100px text-center">Alamat</th>
                                             <th class="p-0 min-w-150px text-center">Tools</th>
                                         </tr>
                                     </thead>
                                     <!--end::Table head-->
                                     <!--begin::Table body-->
                                     <tbody>
-                                        @forelse ($karyawan as $key => $karyawan)
+                                        @forelse ($user as $key => $user)
+                                        @if ($user->name == 'Admin' || $user->name == 'User')
+                                        <tr>
+                                            <td class="text-center">
+                                                <span class="text-danger fw-bold  d-block mb-1 fs-6">
+                                                    {{ $user->name }}
+                                                </span>
+                                            </td>
+                                            <td class="text-center">
+                                                <span class="text-danger fw-bold  d-block mb-1 fs-6">
+                                                    {{ $user->email }}
+                                                </span>
+                                            </td>
+                                            <td class="text-center">
+                                                <span class="text-danger fw-bold  d-block mb-1 fs-6">
+                                                    {{ $user->telepon }}
+                                                </span>
+                                            </td>
+                                            <td class="text-center ">
+                                                {{ $user->alamat }}
+                                            </td>
+                                            <td class="text-center">
+                                            </td>
+                                        </tr>
+                                        @else
                                             <tr>
                                                 <td class="text-center">
                                                     <span class="text-dark fw-bold  d-block mb-1 fs-6">
-                                                        {{ $karyawan->nama }}
+                                                        {{ $user->name }}
                                                     </span>
                                                 </td>
                                                 <td class="text-center">
                                                     <span class="text-dark fw-bold  d-block mb-1 fs-6">
-                                                        {{ $karyawan->email }}
+                                                        {{ $user->email }}
                                                     </span>
                                                 </td>
                                                 <td class="text-center">
                                                     <span class="text-dark fw-bold  d-block mb-1 fs-6">
-                                                        {{ $karyawan->telepon }}
+                                                        {{ $user->telepon }}
                                                     </span>
                                                 </td>
                                                 <td class="text-center">
-                                                    @if ($karyawan->status == 'aktif')
-                                                        <span class="badge badge-light-success">Aktif</span>
-                                                    @else
-                                                        <span class="badge badge-light-danger">Tidak Aktif</span>
-                                                    @endif
-
+                                                    {{ $user->alamat }}
                                                 </td>
                                                 <td class="text-center">
-                                                    <a href="#"
-                                                        class="btn btn-icon btn-bg-light btn-active-color-success btn-sm me-1">
-                                                        <!--begin::Svg Icon | path: icons/duotune/general/gen019.svg-->
-                                                        <span class="svg-icon svg-icon-3">
-                                                            <svg width="24" height="24" fill="none"
-                                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                                                                <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-                                                                <path fill="currentColor"
-                                                                    d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z" />
-                                                            </svg>
-                                                        </span>
-                                                        <!--end::Svg Icon-->
-                                                    </a>
-                                                    <a href="/admin/karyawan/{{ $karyawan->id }}/edit"
+                                                    <a href="/admin/user/{{ $user->id }}/edit"
                                                         class="btn btn-icon btn-bg-light btn-active-color-success btn-sm me-1">
                                                         <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
                                                         <span class="svg-icon svg-icon-3">
@@ -146,7 +152,7 @@
                                                         </span>
                                                         <!--end::Svg Icon-->
                                                     </a>
-                                                    <button onclick="deleteConfirmation({{ $karyawan->id }})"
+                                                    <button onclick="deleteConfirmation({{ $user->id }})"
                                                         id="delete-canopy"
                                                         class="btn btn-icon btn-bg-light btn-active-color-success btn-sm">
                                                         <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
@@ -168,6 +174,8 @@
                                                     </button>
                                                 </td>
                                             </tr>
+                                            
+                                        @endif
                                         @empty
                                             <tr>
                                                 <td colspan="5" class="text-center">
@@ -235,14 +243,14 @@
 
                     $.ajax({
                         type: "get",
-                        url: `{{ url('/admin/karyawan/${id}/destroy') }}`,
+                        url: `{{ url('/admin/user/${id}/destroy') }}`,
                         success: function(data) {
                             setTimeout(function() {
                                 location.reload(1);
                             }, 300);
                             Toast.fire({
                                 icon: 'success',
-                                title: 'canpy has been deleted !'
+                                title: 'User has been deleted !'
                             });
                         }
                     });

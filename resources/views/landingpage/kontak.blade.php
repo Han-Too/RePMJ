@@ -42,6 +42,7 @@
                             <h6>Contact Details</h6>
                             <p class="mb-0">Call: +62 8138 5291 423</p>
                             <p class="mb-0">Email: putramandirijayalas01@gmail.com</p>
+                            {{-- {!! QrCode::size(300)->generate(''.$user->name.'') !!} --}}
                         </div>
                     </div>
                 </div>

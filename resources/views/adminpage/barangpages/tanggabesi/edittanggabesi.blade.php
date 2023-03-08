@@ -39,7 +39,8 @@
                         <div class="card-body pt-3">
                             <div id="kt_account_settings_profile_details" class="collapse show">
                                 <!--begin::Form-->
-                                <form id="" class="form" action='/admin/tanggabesi/{{$posttanggabesi->id}}/update' method='post'
+                                <form id="" class="form"
+                                    action='/admin/tanggabesi/{{ $posttanggabesi->id }}/update' method='post'
                                     enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
@@ -53,12 +54,18 @@
                                             <!--begin::Col-->
                                             <div class="col-lg-8">
                                                 <!--begin::Image input-->
-                                                <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3" data-kt-image-input="true">
+                                                <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3"
+                                                    data-kt-image-input="true">
                                                     <!--begin::Preview existing avatar-->
-                                                    <div class="image-input-wrapper w-300px h-300px" style="background-image: url({{ asset('Images/uploads/tanggabesi') }}/{{ $posttanggabesi->foto }})"></div>
+                                                    <div class="image-input-wrapper w-300px h-300px"
+                                                        style="background-image: url({{ asset('Images/uploads/tanggabesi') }}/{{ $posttanggabesi->foto }})">
+                                                    </div>
                                                     <!--end::Preview existing avatar-->
                                                     <!--begin::Label-->
-                                                    <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
+                                                    <label
+                                                        class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+                                                        data-kt-image-input-action="change" data-bs-toggle="tooltip"
+                                                        title="Change avatar">
                                                         <i class="bi bi-pencil-fill fs-7"></i>
                                                         <!--begin::Inputs-->
                                                         <input type="file" name="foto" accept=".png, .jpg, .jpeg" />
@@ -67,12 +74,18 @@
                                                     </label>
                                                     <!--end::Label-->
                                                     <!--begin::Cancel-->
-                                                    <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
+                                                    <span
+                                                        class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+                                                        data-kt-image-input-action="cancel" data-bs-toggle="tooltip"
+                                                        title="Cancel avatar">
                                                         <i class="bi bi-x fs-2"></i>
                                                     </span>
                                                     <!--end::Cancel-->
                                                     <!--begin::Remove-->
-                                                    <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
+                                                    <span
+                                                        class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+                                                        data-kt-image-input-action="remove" data-bs-toggle="tooltip"
+                                                        title="Remove avatar">
                                                         <i class="bi bi-x fs-2"></i>
                                                     </span>
                                                     <!--end::Remove-->
@@ -96,7 +109,8 @@
                                             <div class="col-lg-8 fv-row">
                                                 <input type="text" name="judul"
                                                     class="form-control form-control-lg form-control-solid"
-                                                    placeholder="Isikan Produk" value="{{old('judul', $posttanggabesi->judul)}}" />
+                                                    placeholder="Isikan Produk"
+                                                    value="{{ old('judul', $posttanggabesi->judul) }}" />
                                             </div>
                                             <!--end::Col-->
                                         </div>
@@ -110,9 +124,12 @@
                                             <!--end::Label-->
                                             <!--begin::Col-->
                                             <div class="col-lg-8 fv-row">
-                                                <input type="tel" name="harga" onKeyUp="rupiahrp(this)" onKeyPress="return isNumber(event)"
+                                                <input type="tel" name="harga" onKeyUp="rupiahrp(this)"
+                                                    onKeyPress="return isNumber(event)"
                                                     class="form-control form-control-lg form-control-solid"
-                                                    placeholder="Isikan Harga" value="{{old('harga', $posttanggabesi->harga)}}"  id="inputBiayaDonasi" />
+                                                    placeholder="Isikan Harga"
+                                                    value="{{ old('harga', $posttanggabesi->harga) }}"
+                                                    id="inputBiayaDonasi" />
                                             </div>
                                             <!--end::Col-->
                                         </div>
@@ -127,7 +144,8 @@
                                             <div class="col-lg-8 fv-row">
                                                 <input type="text" name="bahan"
                                                     class="form-control form-control-lg form-control-solid"
-                                                    placeholder="Isikan Jenis Material" value="{{old('bahan', $posttanggabesi->bahan)}}" />
+                                                    placeholder="Isikan Jenis Material"
+                                                    value="{{ old('bahan', $posttanggabesi->bahan) }}" />
                                             </div>
                                             <!--end::Col-->
                                         </div>
@@ -142,7 +160,8 @@
                                             <div class="col-lg-8 fv-row">
                                                 <input type="text" name="jenis_produk"
                                                     class="form-control form-control-lg form-control-solid"
-                                                    placeholder="Isikan Jenis Produk" value="{{old('jenis_produk', $posttanggabesi->jenis_produk)}}" />
+                                                    placeholder="Isikan Jenis Produk"
+                                                    value="{{ old('jenis_produk', $posttanggabesi->jenis_produk) }}" />
                                             </div>
                                             <!--end::Col-->
                                         </div>
@@ -155,8 +174,7 @@
                                             <!--end::Label-->
                                             <!--begin::Col-->
                                             <div class="col-lg-8 fv-row">
-                                                <textarea name="deskripsi" class="form-control form-control-lg form-control-solid" placeholder="Jelaskan Deskripsi"
-                                                >{{old('deskripsi', $posttanggabesi->deskripsi)}}</textarea>
+                                                <textarea name="deskripsi" class="form-control form-control-lg form-control-solid" placeholder="Jelaskan Deskripsi">{{ old('deskripsi', $posttanggabesi->deskripsi) }}</textarea>
                                             </div>
                                             <!--end::Col-->
                                         </div>
@@ -172,12 +190,13 @@
                                                 <select name="status" aria-label="Status" data-control="select2"
                                                     data-placeholder="Pilih Status"
                                                     class="form-select form-select-solid form-select-lg">
-                                                    <option value="tersedia"
-                                                    <?php if($posttanggabesi->status == "tersedia")echo "selected" ?>
-                                                    >Tersedia</option>
-                                                    <option value="tidaktersedia"
-                                                    <?php if($posttanggabesi->status == "tidaktersedia")echo "selected" ?>
-                                                    >Tidak Tersedia</option>
+                                                    <option value="tersedia" <?php if ($posttanggabesi->status == 'tersedia') {
+                                                        echo 'selected';
+                                                    } ?>>Tersedia</option>
+                                                    <option value="tidaktersedia" <?php if ($posttanggabesi->status == 'tidaktersedia') {
+                                                        echo 'selected';
+                                                    } ?>>Tidak Tersedia
+                                                    </option>
                                                 </select>
                                                 <!--end::Input-->
                                             </div>
@@ -189,8 +208,8 @@
                                     <!--end::Card body-->
                                     <!--begin::Actions-->
                                     <div class="card-footer d-flex justify-content-end px-9">
-                                        <button type="reset"
-                                            class="btn btn-light btn-active-light-primary me-2">Batal</button>
+                                        <a href="{{ route('admin.tanggabesi.index') }}"
+                                            class="btn btn-light btn-active-light-primary me-2">Batal</a>
                                         <button type="submit" class="btn btn-primary"
                                             id="kt_account_profile_details_submit">Simpan</button>
                                     </div>

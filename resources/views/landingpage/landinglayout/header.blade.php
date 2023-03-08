@@ -17,10 +17,10 @@
         </div>
         <div class="col-lg-5 px-5 text-end">
             <div class="h-100 d-inline-flex align-items-center">
-                <a class="btn btn-square border-end border-start" href=""><i class="fab fa-facebook-f"></i></a>
+                {{-- <a class="btn btn-square border-end border-start" href=""><i class="fab fa-facebook-f"></i></a>
                 <a class="btn btn-square border-end" href=""><i class="fab fa-twitter"></i></a>
                 <a class="btn btn-square border-end" href=""><i class="fab fa-linkedin-in"></i></a>
-                <a class="btn btn-square border-end" href=""><i class="fab fa-instagram"></i></a>
+                <a class="btn btn-square border-end" href=""><i class="fab fa-instagram"></i></a> --}}
             </div>
         </div>
     </div>
