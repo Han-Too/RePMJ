@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- Page Header Start -->
-    <div class="container-fluid bg-navy py-4 mb-5 wow fadeIn" data-wow-delay="0.1s">
+    {{-- <div class="container-fluid bg-navy py-4 mb-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container text-center py-5">
             <h1 class="display-4 text-white animated slideInDown mb-4">
                 Kontak Kami
@@ -24,9 +24,11 @@
                 </ol>
             </nav>
         </div>
-    </div>
+    </div> --}}
     <!-- Page Header End -->
-
+    <div class="h1 mt-5 text-dark text-center mb-5">
+        Kontak Kami
+    </div>
     <!-- Contact Start -->
     <div class="container-xxl py-5">
         <div class="container">

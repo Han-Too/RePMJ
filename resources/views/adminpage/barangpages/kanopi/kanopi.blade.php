@@ -122,8 +122,15 @@
                                                 </td>
                                                 <!--end::Status=-->
                                                 <!--begin::Action=-->
-                                                <td class="text-center">
-                                                    <a href="#" class="btn btn-sm btn-light btn-active-light-primary"
+                                                <td class="text-end">
+                                                    <div class="d-flex flex-row justify-content-end">
+                                                        <div class="p-2"><a href="/admin/canopy/{{ $postcanopy->id }}/edit"
+                                                            class="btn btn-success btn-lg">Ubah</a></div>
+                                                        <div class="p-2"><a onclick="deleteConfirmation({{ $postcanopy->id }})"
+                                                            id="delete-canopy" class="btn btn-danger btn-lg"
+                                                            data-kt-ecommerce-product-filter="delete_row">Hapus</a></div>
+                                                    </div>
+                                                    {{-- <a href="#" class="btn btn-sm btn-light btn-active-light-primary"
                                                         data-kt-menu-trigger="click"
                                                         data-kt-menu-placement="bottom-end">Aksi
                                                         <!--begin::Svg Icon | path: icons/duotune/arrows/arr072.svg-->
@@ -153,7 +160,7 @@
                                                                 data-kt-ecommerce-product-filter="delete_row">Delete</a>
                                                         </div>
                                                         <!--end::Menu item-->
-                                                    </div>
+                                                    </div> --}}
                                                     <!--end::Menu-->
                                                 </td>
                                                 <!--end::Action=-->

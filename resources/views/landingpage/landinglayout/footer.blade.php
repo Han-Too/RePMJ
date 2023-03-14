@@ -61,7 +61,7 @@
 <!-- Back to Top -->
 <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 
-<a href="https://wa.me/+6281385291423?text=Permisi%20Pak,%20Saya%20Ingin%20Menanyakan%20Sesuatu"
+{{-- <a href="https://wa.me/+6281385291423?text=Permisi%20Pak,%20Saya%20Ingin%20Menanyakan%20Sesuatu"
     class="float" target="_blank">
     <div class="row align-items-center mt-2">
         <div class="col-md-2" style="margin-left: 20px">
@@ -73,7 +73,7 @@
             </div>
         </div>
     </div>
-</a>
+</a> --}}
 {{-- <button class="float" target="_blank">
     <svg width="207" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="207" height="48" rx="12" fill="#25D366" />

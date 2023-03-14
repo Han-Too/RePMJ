@@ -110,7 +110,14 @@
                                                 <!--end::Status=-->
                                                 <!--begin::Action=-->
                                                 <td class="text-center">
-                                                    <a href="#" class="btn btn-sm btn-light btn-active-light-primary"
+                                                    <div class="d-flex flex-row justify-content-end">
+                                                        <div class="p-2"><a href="/admin/pintubesi/{{ $pintu->id }}/edit"
+                                                            class="btn btn-success btn-lg">Edit</a></div>
+                                                        <div class="p-2"><a onclick="deleteConfirmation({{ $pintu->id }})"
+                                                            id="delete-canopy" class="btn btn-danger btn-lg"
+                                                            data-kt-ecommerce-product-filter="delete_row">Hapus</a></div>
+                                                    </div>
+                                                    {{-- <a href="#" class="btn btn-sm btn-light btn-active-light-primary"
                                                         data-kt-menu-trigger="click"
                                                         data-kt-menu-placement="bottom-end">Aksi
                                                         <!--begin::Svg Icon | path: icons/duotune/arrows/arr072.svg-->
@@ -123,9 +130,9 @@
                                                             </svg>
                                                         </span>
                                                         <!--end::Svg Icon-->
-                                                    </a>
+                                                    </a> --}}
                                                     <!--begin::Menu-->
-                                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4"
+                                                    {{-- <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4"
                                                         data-kt-menu="true">
                                                         <!--begin::Menu item-->
                                                         <div class="menu-item px-3">
@@ -140,7 +147,7 @@
                                                                 data-kt-ecommerce-product-filter="delete_row">Delete</a>
                                                         </div>
                                                         <!--end::Menu item-->
-                                                    </div>
+                                                    </div> --}}
                                                     <!--end::Menu-->
                                                 </td>
                                                 <!--end::Action=-->

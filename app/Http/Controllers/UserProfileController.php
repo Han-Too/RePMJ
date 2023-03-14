@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
+
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -99,5 +101,14 @@ class UserProfileController extends Controller
             Alert::error('Error', 'Data Invalid !');
             return redirect()->back();
         }
+    }
+
+    public function cetak_pdf()
+    {
+        $user = User::all();
+
+        $pdf = PDF::loadview('adminpage.userpages.karyawan_pdf', ['karyawan' => $user]);
+        // return $pdf->download('laporan-karyawan-pdf');
+        return $pdf->stream();
     }
 }

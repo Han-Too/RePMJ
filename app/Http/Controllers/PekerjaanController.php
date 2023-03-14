@@ -54,7 +54,7 @@ class PekerjaanController extends Controller
         $hitung = count($request->harga);
         $totalharga = 0;
 
-        for ($i = 0; $i < $hitung; $i++) {
+        for ($i = 1; $i <= $hitung; $i++) {
             $jumlah = $luas[$i] * $harga[$i];
             $totalharga += $jumlah;
         }

@@ -6,7 +6,7 @@
         <!--begin::Copyright-->
         <div class="text-dark order-2 order-md-1">
             <span class="fw-semibold me-1">Copyright &copy; 2022</span>
-            <a href="#" target="_blank" class="fw-bold text-dark">Putra Mandiri Jaya </a>
+            <span class="fw-bold text-dark">Putra Mandiri Jaya </span>
         </div>
         <!--end::Copyright-->
     </div>

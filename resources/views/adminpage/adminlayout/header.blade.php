@@ -22,9 +22,10 @@
         <!--end::sidebar mobile toggle-->
         <!--begin::Mobile logo-->
         <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
-            <a href="{{ route('admin') }}" class="d-lg-none">
+            {{-- href="{{ route('admin') }}" --}}
+            <span  class="d-lg-none">
                 <img alt="Logo" src="{{ asset('landing/img/team-2.jpg') }}" class="h-30px" />
-            </a>
+            </span>
         </div>
         <!--end::Mobile logo-->
         <!--begin::Header wrapper-->
@@ -43,13 +44,14 @@
                     <div data-kt-menu-placement="bottom-start"
                         class="menu-item here-show menu-here-bg-primary menu-lg-down-accordion me-0 me-lg-2">
                         <!--begin:Menu link-->
-                        <span class="menu-link">
+                        {{-- <span class="menu-link"> --}}
                             {{-- <img src="{{ asset('landing/img/LOGO.png') }}" alt="" height="50" width="auto"
                                 class="mx-8"> --}}
-                            <a class="h1 text-dark fw-bold mt-4" href="{{ route('admin') }}"
-                                style="font-family: Arial, Helvetica, sans-serif">Putra Mandiri Jaya</a>
+                                {{-- href="{{ route('admin') }}" --}}
+                            <span class="h1 text-dark fw-bold mt-4" 
+                                style="font-family: Arial, Helvetica, sans-serif">Putra Mandiri Jaya</span>
                             {{-- <span class="menu-arrow d-lg-none"></span> --}}
-                        </span>
+                        {{-- </span> --}}
                         <!--end:Menu link-->
 
                     </div>
@@ -67,13 +69,18 @@
 
                 <!--begin::User menu-->
                 <div class="app-navbar-item ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
-                    <p class="h4 mx-4">Hello, <b>{{ Auth::user()->name }}</b></p>
+                    <p class="h4 mx-4">Logged as : <b>{{ Auth::user()->name }}</b></p>
                     <!--begin::Menu wrapper-->
-                    <div class="cursor-pointer symbol symbol-35px symbol-md-40px" data-kt-menu-trigger="click"
-                        data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
+                    {{-- <div class="cursor-pointer symbol symbol-35px symbol-md-40px" data-kt-menu-trigger="click"
+                    data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
+                    <img
+                        src="{{ asset('landing/img/team-2.jpg') }}" />
+                </div> --}}
+
+                    {{-- <div class=" symbol symbol-35px symbol-md-40px" >
                         <img
                             src="{{ asset('landing/img/team-2.jpg') }}" />
-                    </div>
+                    </div> --}}
                     <!--begin::User account menu-->
                     <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-color fw-semibold py-4 fs-6 w-275px"
                         data-kt-menu="true">

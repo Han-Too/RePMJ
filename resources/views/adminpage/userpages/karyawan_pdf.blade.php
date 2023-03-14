@@ -32,7 +32,7 @@
                 <th>Nama</th>
                 <th>Email</th>
                 <th>Telepon</th>
-                <th>Status</th>
+                <th>Alamat</th>
             </tr>
         </thead>
         <tbody>
@@ -40,14 +40,10 @@
             @foreach ($karyawan as $p)
                 <tr>
                     <td>{{ $i++ }}</td>
-                    <td>{{ $p->nama }}</td>
+                    <td>{{ $p->name }}</td>
                     <td>{{ $p->email }}</td>
                     <td>{{ $p->telepon }}</td>
-                    @if ($p->status == "aktif")
-                    <td>Aktif</td>
-                    @else
-                    <td>Tidak Aktif</td>
-                    @endif
+                    <td>{{ $p->alamat }}</td>
                     
                 </tr>
             @endforeach

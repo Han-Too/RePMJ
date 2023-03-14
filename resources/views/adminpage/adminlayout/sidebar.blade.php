@@ -5,11 +5,11 @@
     <!--begin::Logo-->
     <div class="app-sidebar-logo px-6 mb-10" id="kt_app_sidebar_logo">
         <!--begin::Logo image-->
-        <a href="{{ route('admin') }}">
+        <span >
             <img alt="Logo" src="{{ asset('landing/img/LOGO.png') }}"
                 class="h-70px app-sidebar-logo-default mt-10 px-20" />
             <img alt="Logo" src="{{ asset('landing/img/LOGO.png') }}" class="h-25px app-sidebar-logo-minimize" />
-        </a>
+        </span>
         <!--end::Logo image-->
         <!--begin::Sidebar toggle-->
         <div id="kt_app_sidebar_toggle"
@@ -85,7 +85,7 @@
                         <span class="menu-bullet">
                             <span class="bullet bullet-dot"></span>
                         </span>
-                        <span class="menu-title">Daftar Barang</span>
+                        <span class="menu-title">Data Barang</span>
                     </a>
                     <!--end:Menu link-->
                 </div>
@@ -103,7 +103,7 @@
                             </span>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-title">Daftar Barang</span>
+                        <span class="menu-title">Data Barang</span>
                         <span class="menu-arrow"></span>
                     </span>
                     <!--end:Menu link-->
@@ -249,7 +249,7 @@
                         <span class="menu-bullet">
                             <span class="bullet bullet-dot"></span>
                         </span>
-                        <span class="menu-title">Daftar User</span>
+                        <span class="menu-title">Data User</span>
                         {{-- <span class="menu-arrow"></span> --}}
                     </a>
                     <!--end:Menu link-->
@@ -260,7 +260,7 @@
                         <span class="menu-bullet">
                             <span class="bullet bullet-dot"></span>
                         </span>
-                        <span class="menu-title">Daftar Pekerjaan</span>
+                        <span class="menu-title">Data Pekerjaan</span>
                         {{-- <span class="menu-arrow"></span> --}}
                     </a>
                     <!--end:Menu link-->
@@ -271,7 +271,8 @@
                         <span class="menu-bullet">
                             <span class="bullet bullet-dot"></span>
                         </span>
-                        <span class="menu-title">Daftar Karyawan</span>
+
+                        <span class="menu-title">Data Karyawan</span>
                         {{-- <span class="menu-arrow"></span> --}}
                     </a>
                     <!--end:Menu link-->
@@ -344,7 +345,7 @@
                             </span>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-title">Daftar Laporan</span>
+                        <span class="menu-title">Data Laporan</span>
                         <span class="menu-arrow"></span>
                     </span>
                     <!--end:Menu link-->

@@ -39,15 +39,9 @@
                             <div class="card-toolbar">
                                 <!--begin::Menu-->
                                 <a href="/admin/jumbotron/create"
-                                    class="btn btn-icon btn-success btn-active-color-primary justify-content-center">
+                                    class="btn btn-success btn-active-color-primary justify-content-center">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen023.svg-->
-                                    <span class="svg-icon svg-icon-1 svg-icon-gray-300 me-n1">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                            <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-                                            <path fill="#FFF"
-                                                d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
-                                        </svg>
-                                    </span>
+                                    Tambah
                                     <!--end::Svg Icon-->
                                 </a>
                                 <!--end::Menu-->
@@ -102,7 +96,14 @@
                                                     <img alt="Pic" width="500" height="auto" src="{{ asset('Images/uploads/jumbotron') }}/{{ $jumbo->foto }}" />
                                                 </td>
                                                 <td class="text-center">
-                                                    <a href="/admin/jumbotron/{{ $jumbo->id }}/edit"
+                                                    <div class="d-flex flex-row justify-content-center">
+                                                        <div class="p-2"><a href="/admin/jumbotron/{{ $jumbo->id }}/edit"
+                                                            class="btn btn-success btn-lg">Edit</a></div>
+                                                        <div class="p-2"><a onclick="deleteConfirmation({{ $jumbo->id }})"
+                                                            id="delete-canopy" class="btn btn-danger btn-lg"
+                                                            data-kt-ecommerce-product-filter="delete_row">Hapus</a></div>
+                                                    </div>
+                                                    {{-- <a href="/admin/jumbotron/{{ $jumbo->id }}/edit"
                                                         class="btn btn-icon btn-bg-light btn-active-color-success btn-sm me-1">
                                                         <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
                                                         <span class="svg-icon svg-icon-3">
@@ -136,7 +137,7 @@
                                                             </svg>
                                                         </span>
                                                         <!--end::Svg Icon-->
-                                                    </button>
+                                                    </button> --}}
                                                 </td>
                                             </tr>
                                         @empty

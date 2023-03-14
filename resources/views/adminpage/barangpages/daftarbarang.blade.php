@@ -1,7 +1,7 @@
 @extends('adminpage.index')
 
 @extends('adminpage.adminlayout.headhtml')
-@section('headjudul', 'Daftar Barang')
+@section('headjudul', 'Data Barang')
 
 @section('tambahan')
     <style>
@@ -23,7 +23,7 @@
                 <div class="card-header pt-7">
                     <!--begin::Title-->
                     <h3 class="card-title align-items-start flex-column">
-                        <span class="card-label fw-bold text-gray-800">Daftar Barang</span>
+                        <span class="card-label fw-bold text-gray-800">Data Barang</span>
                     </h3>
                     <!--end::Title-->
                 </div>
@@ -37,320 +37,200 @@
                             <!--begin::Table head-->
                             <thead>
                                 <tr class="fs-4 fw-bold border-bottom-0">
-                                    <th class="p-0 pb-3 min-w-175px text-start">Jenis Barang</th>
-                                    <th class="p-0 pb-3 w-50px text-end">Aksi</th>
+                                    <th class="p-0 pb-3 min-w-175px text-center fw-bolder">Jenis Barang</th>
+                                    <th class="p-0 pb-3 w-50px text-center fw-bolder">Aksi</th>
                                 </tr>
                             </thead>
                             <!--end::Table head-->
                             <!--begin::Table body-->
                             <tbody>
                                 <tr>
-                                    <td class="text-start pe-0">
+                                    <td class="text-center pe-0">
                                         <span
-                                            class="text-gray-600 fw-bold fs-6">Kanopi</span>
+                                            class="text-dark fw-bold fs-6">Kanopi</span>
                                     </td>
-                                    <td class="text-end">
+                                    <td class="text-center">
                                         <a href="{{ route('admin.canopy.index') }}"
-                                            class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
+                                            class="btn btn-bg-success btn-lg w-100px h-50px">
                                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
-                                            <span
-                                                class="svg-icon svg-icon-5 svg-icon-gray-700">
-                                                <svg width="24" height="24"
-                                                    viewBox="0 0 24 24" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z"
-                                                        fill="currentColor" />
-                                                    <path opacity="0.3"
-                                                        d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z"
-                                                        fill="currentColor" />
-                                                </svg>
+                                            <span class="text-light fw-bold">
+                                                Pilih
                                             </span>
                                             <!--end::Svg Icon-->
                                         </a>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="text-start pe-0">
+                                    <td class="text-center pe-0">
                                         <span
-                                            class="text-gray-600 fw-bold fs-6">Pagar</span>
+                                            class="text-dark fw-bold fs-6">Pagar</span>
                                     </td>
-                                    <td class="text-end">
+                                    <td class="text-center">
                                         <a href="{{ route('admin.pagar.index') }}"
-                                            class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
+                                            class="btn btn-bg-success btn-lg w-100px h-50px">
                                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
-                                            <span
-                                                class="svg-icon svg-icon-5 svg-icon-gray-700">
-                                                <svg width="24" height="24"
-                                                    viewBox="0 0 24 24" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z"
-                                                        fill="currentColor" />
-                                                    <path opacity="0.3"
-                                                        d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z"
-                                                        fill="currentColor" />
-                                                </svg>
+                                            <span class="text-light fw-bold">
+                                                Pilih
                                             </span>
                                             <!--end::Svg Icon-->
                                         </a>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="text-start pe-0">
+                                    <td class="text-center pe-0">
                                         <span
-                                            class="text-gray-600 fw-bold fs-6">Pintu Besi</span>
+                                            class="text-dark fw-bold fs-6">Pintu Besi</span>
                                     </td>
-                                    <td class="text-end">
+                                    <td class="text-center">
                                         <a href="{{ route('admin.pintubesi.index') }}"
-                                            class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
+                                            class="btn btn-bg-success btn-lg w-100px h-50px">
                                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
-                                            <span
-                                                class="svg-icon svg-icon-5 svg-icon-gray-700">
-                                                <svg width="24" height="24"
-                                                    viewBox="0 0 24 24" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z"
-                                                        fill="currentColor" />
-                                                    <path opacity="0.3"
-                                                        d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z"
-                                                        fill="currentColor" />
-                                                </svg>
+                                            <span class="text-light fw-bold">
+                                                Pilih
                                             </span>
                                             <!--end::Svg Icon-->
                                         </a>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="text-start pe-0">
+                                    <td class="text-center pe-0">
                                         <span
-                                            class="text-gray-600 fw-bold fs-6">Pintu Kasa Nyamuk</span>
+                                            class="text-dark fw-bold fs-6">Pintu Kasa Nyamuk</span>
                                     </td>
-                                    <td class="text-end">
+                                    <td class="text-center">
                                         <a href="{{ route('admin.pintukasanyamuk.index') }}"
-                                            class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
+                                            class="btn btn-bg-success btn-lg w-100px h-50px">
                                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
-                                            <span
-                                                class="svg-icon svg-icon-5 svg-icon-gray-700">
-                                                <svg width="24" height="24"
-                                                    viewBox="0 0 24 24" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z"
-                                                        fill="currentColor" />
-                                                    <path opacity="0.3"
-                                                        d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z"
-                                                        fill="currentColor" />
-                                                </svg>
+                                            <span class="text-light fw-bold">
+                                                Pilih
                                             </span>
                                             <!--end::Svg Icon-->
                                         </a>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="text-start pe-0">
+                                    <td class="text-center pe-0">
                                         <span
-                                            class="text-gray-600 fw-bold fs-6">Pintu Henderson</span>
+                                            class="text-dark fw-bold fs-6">Pintu Henderson</span>
                                     </td>
-                                    <td class="text-end">
+                                    <td class="text-center">
                                         <a href="{{ route('admin.pintuhenderson.index') }}"
-                                            class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
+                                            class="btn btn-bg-success btn-lg w-100px h-50px">
                                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
-                                            <span
-                                                class="svg-icon svg-icon-5 svg-icon-gray-700">
-                                                <svg width="24" height="24"
-                                                    viewBox="0 0 24 24" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z"
-                                                        fill="currentColor" />
-                                                    <path opacity="0.3"
-                                                        d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z"
-                                                        fill="currentColor" />
-                                                </svg>
+                                            <span class="text-light fw-bold">
+                                                Pilih
                                             </span>
                                             <!--end::Svg Icon-->
                                         </a>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="text-start pe-0">
+                                    <td class="text-center pe-0">
                                         <span
-                                            class="text-gray-600 fw-bold fs-6">Railing Balkon</span>
+                                            class="text-dark fw-bold fs-6">Railing Balkon</span>
                                     </td>
-                                    <td class="text-end">
+                                    <td class="text-center">
                                         <a href="{{ route('admin.railingbalkon.index') }}"
-                                            class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
+                                            class="btn btn-bg-success btn-lg w-100px h-50px">
                                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
-                                            <span
-                                                class="svg-icon svg-icon-5 svg-icon-gray-700">
-                                                <svg width="24" height="24"
-                                                    viewBox="0 0 24 24" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z"
-                                                        fill="currentColor" />
-                                                    <path opacity="0.3"
-                                                        d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z"
-                                                        fill="currentColor" />
-                                                </svg>
+                                            <span class="text-light fw-bold">
+                                                Pilih
                                             </span>
                                             <!--end::Svg Icon-->
                                         </a>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="text-start pe-0">
+                                    <td class="text-center pe-0">
                                         <span
-                                            class="text-gray-600 fw-bold fs-6">Railing Tangga</span>
+                                            class="text-dark fw-bold fs-6">Railing Tangga</span>
                                     </td>
-                                    <td class="text-end">
+                                    <td class="text-center">
                                         <a href="{{ route('admin.railingtangga.index') }}"
-                                            class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
+                                            class="btn btn-bg-success btn-lg w-100px h-50px">
                                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
-                                            <span
-                                                class="svg-icon svg-icon-5 svg-icon-gray-700">
-                                                <svg width="24" height="24"
-                                                    viewBox="0 0 24 24" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z"
-                                                        fill="currentColor" />
-                                                    <path opacity="0.3"
-                                                        d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z"
-                                                        fill="currentColor" />
-                                                </svg>
+                                            <span class="text-light fw-bold">
+                                                Pilih
                                             </span>
                                             <!--end::Svg Icon-->
                                         </a>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="text-start pe-0">
+                                    <td class="text-center pe-0">
                                         <span
-                                            class="text-gray-600 fw-bold fs-6">Tangga Besi</span>
+                                            class="text-dark fw-bold fs-6">Tangga Besi</span>
                                     </td>
-                                    <td class="text-end">
+                                    <td class="text-center">
                                         <a href="{{ route('admin.tanggabesi.index') }}"
-                                            class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
+                                            class="btn btn-bg-success btn-lg w-100px h-50px">
                                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
-                                            <span
-                                                class="svg-icon svg-icon-5 svg-icon-gray-700">
-                                                <svg width="24" height="24"
-                                                    viewBox="0 0 24 24" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z"
-                                                        fill="currentColor" />
-                                                    <path opacity="0.3"
-                                                        d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z"
-                                                        fill="currentColor" />
-                                                </svg>
+                                            <span class="text-light fw-bold">
+                                                Pilih
                                             </span>
                                             <!--end::Svg Icon-->
                                         </a>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="text-start pe-0">
+                                    <td class="text-center pe-0">
                                         <span
-                                            class="text-gray-600 fw-bold fs-6">Tangga Putar</span>
+                                            class="text-dark fw-bold fs-6">Tangga Putar</span>
                                     </td>
-                                    <td class="text-end">
+                                    <td class="text-center">
                                         <a href="{{ route('admin.tanggaputar.index') }}"
-                                            class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
+                                            class="btn btn-bg-success btn-lg w-100px h-50px">
                                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
-                                            <span
-                                                class="svg-icon svg-icon-5 svg-icon-gray-700">
-                                                <svg width="24" height="24"
-                                                    viewBox="0 0 24 24" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z"
-                                                        fill="currentColor" />
-                                                    <path opacity="0.3"
-                                                        d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z"
-                                                        fill="currentColor" />
-                                                </svg>
+                                            <span class="text-light fw-bold">
+                                                Pilih
                                             </span>
                                             <!--end::Svg Icon-->
                                         </a>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="text-start pe-0">
+                                    <td class="text-center pe-0">
                                         <span
-                                            class="text-gray-600 fw-bold fs-6">Teralis Jendela</span>
+                                            class="text-dark fw-bold fs-6">Teralis Jendela</span>
                                     </td>
-                                    <td class="text-end">
+                                    <td class="text-center">
                                         <a href="{{ route('admin.teralisjendela.index') }}"
-                                            class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
+                                            class="btn btn-bg-success btn-lg w-100px h-50px">
                                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
-                                            <span
-                                                class="svg-icon svg-icon-5 svg-icon-gray-700">
-                                                <svg width="24" height="24"
-                                                    viewBox="0 0 24 24" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z"
-                                                        fill="currentColor" />
-                                                    <path opacity="0.3"
-                                                        d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z"
-                                                        fill="currentColor" />
-                                                </svg>
+                                            <span class="text-light fw-bold">
+                                                Pilih
                                             </span>
                                             <!--end::Svg Icon-->
                                         </a>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="text-start pe-0">
+                                    <td class="text-center pe-0">
                                         <span
-                                            class="text-gray-600 fw-bold fs-6">Teralis Pintu</span>
+                                            class="text-dark fw-bold fs-6">Teralis Pintu</span>
                                     </td>
-                                    <td class="text-end">
+                                    <td class="text-center">
                                         <a href="{{ route('admin.teralispintu.index') }}"
-                                            class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
+                                            class="btn btn-bg-success btn-lg w-100px h-50px">
                                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
-                                            <span
-                                                class="svg-icon svg-icon-5 svg-icon-gray-700">
-                                                <svg width="24" height="24"
-                                                    viewBox="0 0 24 24" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z"
-                                                        fill="currentColor" />
-                                                    <path opacity="0.3"
-                                                        d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z"
-                                                        fill="currentColor" />
-                                                </svg>
+                                            <span class="text-light fw-bold">
+                                                Pilih
                                             </span>
                                             <!--end::Svg Icon-->
                                         </a>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="text-start pe-0">
+                                    <td class="text-center pe-0">
                                         <span
-                                            class="text-gray-600 fw-bold fs-6">Menara Tangki Air</span>
+                                            class="text-dark fw-bold fs-6">Menara Tangki Air</span>
                                     </td>
-                                    <td class="text-end">
+                                    <td class="text-center">
                                         <a href="{{ route('admin.menaraair.index') }}"
-                                            class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
+                                            class="btn btn-bg-success btn-lg w-100px h-50px">
                                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
-                                            <span
-                                                class="svg-icon svg-icon-5 svg-icon-gray-700">
-                                                <svg width="24" height="24"
-                                                    viewBox="0 0 24 24" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z"
-                                                        fill="currentColor" />
-                                                    <path opacity="0.3"
-                                                        d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z"
-                                                        fill="currentColor" />
-                                                </svg>
+                                            <span class="text-light fw-bold">
+                                                Pilih
                                             </span>
                                             <!--end::Svg Icon-->
                                         </a>

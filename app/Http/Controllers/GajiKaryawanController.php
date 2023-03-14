@@ -88,7 +88,7 @@ class GajiKaryawanController extends Controller
             $total += $pendapatan[$i];
         }
 
-        dd($info);
+        // dd($info);
 
         // $pdf = PDF::loadview('adminpage.laporanpages.gaji.printgaji', compact('total','hitung','kasbon','kerjaan','pendapatan','keterangan','karyawan'));
         // return $pdf->download('laporan-karyawan-pdf');
