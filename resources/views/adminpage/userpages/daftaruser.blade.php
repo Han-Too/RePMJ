@@ -54,12 +54,13 @@
                                         </a>
                                     </div>
                                     <div class="p-2">
-                                        <a href="/admin/user/cetak"
+                                        {{-- <a href="/admin/user/cetak"
                                             class="btn  btn-info btn-active-color-primary justify-content-center">
                                             <!--begin::Svg Icon | path: icons/duotune/general/gen023.svg-->
                                             <span>
                                                 Cetak
                                             </span>
+                                        </a> --}}
                                             {{-- <span class="svg-icon svg-icon-1 svg-icon-gray-300 me-n1">
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                                                     <!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
@@ -68,7 +69,6 @@
                                                 </svg>
                                             </span> --}}
                                             <!--end::Svg Icon-->
-                                        </a>
                                     </div>
                                 </div>
 
