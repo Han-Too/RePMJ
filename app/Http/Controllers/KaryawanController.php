@@ -96,7 +96,6 @@ class KaryawanController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $karyawan = Karyawan::where("id", $id)->update([
             "nama" => $request["nama"],
             "email" => $request["email"],

@@ -6,6 +6,7 @@
     @yield('content')
     @yield('script')
 
+    @include('sweetalert::alert')
     @include('landingpage.landinglayout.footer')
     @include('landingpage.landinglayout.script')
 </body>

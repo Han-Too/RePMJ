@@ -182,8 +182,10 @@ Route::get('/admin/pekerjaan/{id}/edit', [PekerjaanController::class, 'edit'])->
 Route::put('/admin/pekerjaan/{id}/update', [PekerjaanController::class, 'update'])->name('admin.pekerjaan.update')->middleware('is_admin');
 Route::get('/admin/pekerjaan/{id}/destroy', [PekerjaanController::class, 'destroy'])->name('admin.pekerjaan.destroy')->middleware('is_admin');
 Route::get('/admin/pekerjaan/{id}/preview', [PekerjaanController::class, 'show'])->name('admin.pekerjaan.preview')->middleware('is_admin');
-Route::get('/admin/pekerjaan/cetak', [PekerjaanController::class, 'cetak_pdf'])->name('admin.pekerjaan.print')->middleware('is_admin');
+Route::get('/admin/pekerjaan/{id}/cetak', [PekerjaanController::class, 'print'])->name('admin.pekerjaan.print')->middleware('is_admin');
 Route::post('/pekerjaan/kolomstore', [PekerjaanController::class, 'kolomstore'])->name('admin.pekerjaan.kolomstore')->middleware('is_admin');
+Route::get('/admin/pekerjaan/{namakerjaan}/acc', [PekerjaanController::class, 'acc'])->name('admin.pekerjaan.pesanan')->middleware('is_admin');
+Route::post('/admin/pekerjaan/buatpekerjaan', [PekerjaanController::class, 'buat'])->name('admin.pekerjaan.buat')->middleware('is_admin');
 
 
 // ----------------KARYAWAN--------------------
@@ -288,6 +290,20 @@ Route::get('/detailbarangrailingtangga/{id}', [RailingTanggaController::class, '
 Route::get('/detailbaranghenderson/{id}', [PintuHendersonController::class, 'landingdetail'])->name('detailhenderson');
 Route::get('/detailbarangtanggaputar/{id}', [TanggaPutarController::class, 'landingdetail'])->name('detailtanggaputar');
 Route::get('/detailbarangtanggabesi/{id}', [TanggaBesiController::class, 'landingdetail'])->name('detailtanggabesi');
+
+// -------------------BUY BARANG-------------------------
+Route::post('/detailbarangkanopi/buy', [CanopyController::class, 'buy'])->name('buykanopi');
+Route::post('/detailbarangmenaraair/buy', [MenaraAirController::class, 'buy'])->name('buymenaraair');
+Route::post('/detailbarangpagar/buy', [PagarController::class, 'buy'])->name('buypagar');
+Route::post('/detailbarangpintu/buy', [PintuBesiController::class, 'buy'])->name('buypintu');
+Route::post('/detailbarangpintukasanyamuk/buy', [PintuKasaNyamukController::class, 'buy'])->name('buypintukasa');
+Route::post('/detailbarangteralisjendela/buy', [TeralisJendelaController::class, 'buy'])->name('buyteralisjendela');
+Route::post('/detailbarangteralispintu/buy', [TeralisPintuController::class, 'buy'])->name('buyteralispintu');
+Route::post('/detailbarangrailingtangga/buy', [RailingTanggaController::class, 'buy'])->name('buyrailingtangga');
+Route::post('/detailbarangrailingbalkon/buy', [RailingBalkonController::class, 'buy'])->name('buyrailingbalkon');
+Route::post('/detailbaranghenderson/buy', [PintuHendersonController::class, 'buy'])->name('buypintuhenderson');
+Route::post('/detailbarangtanggaputar/buy', [TanggaPutarController::class, 'buy'])->name('buytanggaputar');
+Route::post('/detailbarangtanggabesi/buy', [TanggaBesiController::class, 'buy'])->name('buytanggabesi');
 
 
 Route::get('/detailbarang', function () {

@@ -37,8 +37,7 @@
                                 <!--begin::Menu-->
                                 <div class="d-flex flex-row">
                                     <div class="p-2">
-                                        <a href="#"
-                                            data-bs-toggle="modal" data-bs-target="#kt_modal_share_earn"
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#kt_modal_share_earn"
                                             class="btn btn-success justify-content-center">
                                             <!--begin::Svg Icon | path: icons/duotune/general/gen023.svg-->
                                             <span>
@@ -161,22 +160,36 @@
                                         @forelse ($kerja as $key => $kerja)
                                             <tr>
                                                 <td class="text-center">
-                                                    <span class="text-dark fw-bold  d-block mb-1 fs-6">
-                                                        {{ $kerja->judul }}
-                                                    </span>
-                                                </td>
-                                                <td class="text-center">
-                                                    <span class="text-dark fw-bold  d-block mb-1 fs-6">
-                                                        Rp. {{ $kerja->totalharga }}
-                                                    </span>
+                                                    <div class="d-flex flex-row justify-content-center">
+                                                        <div class="p-4">
+                                                            <span class="text-dark fw-bold  d-block mb-1 fs-6">
+                                                                {{ $kerja->judul }}
+                                                            </span>
+                                                        </div>
+                                                    </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="d-flex flex-row justify-content-center">
-                                                        <div class="p-2"><a href="/admin/pekerjaan/{{ $kerja->id }}/edit"
-                                                            class="btn btn-success btn-lg">Edit</a></div>
-                                                        <div class="p-2"><a onclick="deleteConfirmation({{ $kerja->id }})"
-                                                            id="delete-canopy" class="btn btn-danger btn-lg"
-                                                            data-kt-ecommerce-product-filter="delete_row">Hapus</a></div>
+                                                        <div class="p-4">
+                                                            <span class="text-dark fw-bold  d-block mb-1 fs-6">
+                                                                Rp. {{ $kerja->totalharga }}
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="d-flex flex-row justify-content-center">
+                                                        <div class="p-2"><a
+                                                                href="/admin/pekerjaan/{{ $kerja->id }}/edit"
+                                                                class="btn btn-success btn-lg">Edit</a></div>
+                                                        <div class="p-2"><a
+                                                                onclick="deleteConfirmation({{ $kerja->id }})"
+                                                                id="delete-canopy" class="btn btn-danger btn-lg"
+                                                                data-kt-ecommerce-product-filter="delete_row">Hapus</a>
+                                                        </div>
+                                                        <div class="p-2"><a target="_blank"
+                                                            href="/admin/pekerjaan/{{ $kerja->id }}/cetak" class="btn btn-info btn-lg">Cetak</a>
+                                                    </div>
                                                     </div>
                                                     {{-- <a href="/admin/pekerjaan/{{ $kerja->id }}/edit"
                                                         class="btn btn-icon btn-bg-light btn-active-color-success btn-sm me-1">
@@ -293,8 +306,101 @@
                                                     </button>
                                                 </td>
                                             </tr> --}}
-                                        
-                                            @empty
+
+                                        @empty
+                                            <tr>
+                                                <td colspan="5" class="text-center">
+                                                    <span class="fw-bold">
+                                                        Data Masih Kosong
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        @endforelse
+                                    </tbody>
+                                    <!--end::Table body-->
+                                </table>
+                                <!--end::Table-->
+                            </div>
+
+                            <div class="my-4">
+                                <div class="fw-bold fs-3">Data Pesanan</div>
+                            </div>
+                            <div class="table-responsive">
+                                <!--begin::Table-->
+                                <table class='table table-bordered table-condensed table-striped table-hover'>
+                                    <!--begin::Table head-->
+                                    <thead class="fw-bold bg-success">
+                                        <tr style="line-height: 40px">
+                                            <th class="p-0 min-w-150px text-center">Pemesan</th>
+                                            <th class="p-0 min-w-150px text-center">Judul Pesanan</th>
+                                            <th class="p-0 min-w-150px text-center">Total Harga</th>
+                                            <th class="p-0 min-w-150px text-center">Status</th>
+                                            <th class="p-0 min-w-150px text-center">Tools</th>
+                                        </tr>
+                                    </thead>
+                                    <!--end::Table head-->
+                                    <!--begin::Table body-->
+                                    <tbody>
+                                        @forelse ($pesanan as $key => $pesanan)
+                                            <tr>
+                                                <td class="text-center">
+                                                    <div class="d-flex flex-row justify-content-center">
+                                                        <div class="p-4">
+                                                            <span class="text-dark fw-bold  d-block mb-1 fs-6">
+                                                                {{ $pesanan->name }}
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="d-flex flex-row justify-content-center">
+                                                        <div class="p-4">
+                                                            <span class="text-dark fw-bold  d-block mb-1 fs-6">
+                                                                {{ substr($pesanan->namapekerjaan,3) }}
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="d-flex flex-row justify-content-center">
+                                                        <div class="p-4">
+                                                            <span class="text-dark fw-bold  d-block mb-1 fs-6">
+                                                                Rp. {{ $pesanan->totalharga }}
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="d-flex flex-row justify-content-center">
+                                                        <div class="p-4">
+                                                            @if ($pesanan->status == 'pending')
+                                                                <div class="badge badge-warning">Pending</div>
+                                                            @else
+                                                            <div class="badge badge-success">Disetujui</div>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                @if ($pesanan->status == 'pending')
+                                                <td class="text-center">
+                                                    <div class="d-flex flex-row justify-content-center">
+                                                        <div class="p-2">
+                                                                
+                                                            <a href="/admin/pekerjaan/{{ $pesanan->namapekerjaan }}/acc"
+                                                                class="btn btn-success">Setujui</a></div>
+                                                                {{-- <div class="p-2"><a
+                                                                    onclick="deleteConfirmation({{ $pesanan->id }})"
+                                                                    id="delete-canopy" class="btn btn-danger btn-lg"
+                                                                    data-kt-ecommerce-product-filter="delete_row">Hapus</a>
+                                                                </div>
+                                                                <div class="p-2"><a target="_blank"
+                                                                    href="/admin/pekerjaan/{{ $pesanan->id }}/cetak" class="btn btn-info btn-lg">Cetak</a> --}}
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            @endif
+                                            </tr>
+                                        @empty
                                             <tr>
                                                 <td colspan="5" class="text-center">
                                                     <span class="fw-bold">

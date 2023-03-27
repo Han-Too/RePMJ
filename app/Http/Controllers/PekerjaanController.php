@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pekerjaan;
 use App\Http\Requests\StorePekerjaanRequest;
 use App\Http\Requests\UpdatePekerjaanRequest;
+use App\Models\Pesanan;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -17,8 +18,9 @@ class PekerjaanController extends Controller
      */
     public function index()
     {
+        $pesanan = Pesanan::orderBy('created_at', 'desc')->get();
         $kerja = Pekerjaan::orderBy('created_at', 'desc')->get();
-        return view('adminpage.pekerjaanpages.daftarpekerjaan', compact('kerja'));
+        return view('adminpage.pekerjaanpages.daftarpekerjaan', compact('kerja','pesanan'));
     }
 
     /**
@@ -26,9 +28,44 @@ class PekerjaanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function print($id)
     {
+        $kerja = Pekerjaan::find($id);
+        $idnew = $id;
+        $judul = $kerja->judul;
+        $namakerjaan = explode(",", $kerja->namapekerjaan);
+        $bahan = explode(",", $kerja->bahan);
+        $bahannew = str_replace('•','<br>•',$bahan);
+        $luas = explode(",", $kerja->luas);
+        $harga = explode(",", $kerja->harga);
+        $totalharga = $kerja->totalharga;
+        $keterangan = explode(",", $kerja->keterangan);
+        $kolom = count(explode(",", $kerja->luas));
+        $hitung = count($harga);
+        $totalharga = 0;
+        
+        for($i = 0; $i < $hitung; $i++){
+            $jumlah = $luas[$i]* $harga[$i];
+            $totalharga += $jumlah;
+        }
+        // dd($namakerjaan);
 
+        return view('adminpage.pekerjaanpages.pekerjaan_pdf',
+            compact(
+                'idnew',
+                'kerja',
+                'judul',
+                'namakerjaan',
+                'bahannew',
+                'luas',
+                'harga',
+                'totalharga',
+                'keterangan',
+                'kolom',
+                'hitung',
+                'totalharga',
+            )
+        );
     }
 
     /**
@@ -180,5 +217,51 @@ class PekerjaanController extends Controller
     {
         Pekerjaan::where('id', $id)->delete();
         return redirect()->back();
+    }
+
+    public function acc($namakerjaan){
+        $kerja = Pesanan::where("namapekerjaan", $namakerjaan)->first();
+        $namakerjaan = $kerja->namapekerjaan;
+        $bahan = $kerja->bahan;
+        $luas = $kerja->luas;
+        $harga = $kerja->harga;
+        $totalharga = $kerja->totalharga;
+        $keterangan = $kerja->keterangan;
+        // dd($bahan);
+
+        return view('adminpage.pekerjaanpages.setujuipekerjaan', compact('bahan','totalharga','harga','keterangan','totalharga','namakerjaan','luas'));
+    }
+
+    public function buat(Request $request){
+        $kerja = Pesanan::where("namapekerjaan", $request->namapekerjaan)->first();
+        $judul = $request->judul;
+        $namakerjaan = $kerja->namapekerjaan;
+        $bahan = $kerja->bahan;
+        $luas = $kerja->luas;
+        $harga = $kerja->harga;
+        $totalharga = $kerja->totalharga;
+        $keterangan = $kerja->keterangan;
+        
+        $kerjaan = Pekerjaan::create([
+            "judul" => $judul,
+            "namapekerjaan" => substr($namakerjaan,3),
+            "bahan" => $bahan,
+            "luas" => $luas,
+            "harga" => $harga,
+            "totalharga" => $totalharga,
+            "keterangan" => $keterangan,
+        ]);
+        $pesan = Pesanan::where("namapekerjaan", $request->namapekerjaan)->update([
+            "namapekerjaan" => $namakerjaan,
+            "bahan" => $bahan,
+            "luas" => $luas,
+            "harga" => $harga,
+            "totalharga" => $totalharga,
+            "keterangan" => $keterangan,
+            "status" => 'Disetujui',
+        ]);
+        // dd($pesan);
+        Alert::success('Success', 'Data Telah Disetujui !');
+        return redirect('/admin/pekerjaan');
     }
 }

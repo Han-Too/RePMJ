@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Canopy;
+use App\Models\Pesanan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -146,5 +147,42 @@ class CanopyController extends Controller
         // hapus data
         Canopy::where('id', $id)->delete();
         return redirect()->back();
+    }
+
+    public function buy(Request $request){
+
+        $nama = $request->user;
+        $namakerjaan = $this->generateRandomString(2).'-'.$request->nama;
+        $bahan = $request->bahan;
+        $luas = $request->luas;
+        $harga = str_replace(',','',$request->harga);
+        $totalharga = (float)$luas * (int)$harga;
+        $keterangan = $request->keterangan;
+
+        // dd($totalharga);
+
+        $kerjaan = Pesanan::create([
+            "name" => $nama,
+            "namapekerjaan" => $namakerjaan,
+            "bahan" => $bahan,
+            "luas" => $luas,
+            "harga" => $harga,
+            "totalharga" => $totalharga,
+            "keterangan" => $keterangan,
+            "status" => 'pending',
+        ]);
+        toast('Pesanan Telah Dibuat','success');
+        // Alert::success('Pesanan Telah Dibuat', 'Mohon Tunggu Telepon Dari Admin!');
+        return redirect('/');
+    }
+
+    function generateRandomString($length) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_=+[]{};:,.<>/?~!@#$%^&*()';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[random_int(0, $charactersLength - 1)];
+        }
+        return $randomString;
     }
 }

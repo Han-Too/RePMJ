@@ -1,7 +1,7 @@
 @extends('adminpage.index')
 
 @extends('adminpage.adminlayout.headhtml')
-@section('headjudul', 'Edit Pekerjaan')
+@section('headjudul', 'Setujui Pekerjaan')
 
 @section('tambahan')
     <style>
@@ -29,7 +29,7 @@
                         <!--begin::Header-->
                         <div class="card-header border-0 pt-5">
                             <h3 class="card-title align-items-start flex-column">
-                                <span class="card-label fw-bold fs-3 mb-1">Detail Produk Pekerjaan</span>
+                                {{-- <span class="card-label fw-bold fs-3 mb-1">Detail Produk Karyawan</span> --}}
                                 {{-- <span class="text-muted mt-1 fw-semibold fs-7">Tambah atau Edit Data Karyawan</span> --}}
                             </h3>
 
@@ -39,10 +39,10 @@
                         <div class="card-body pt-3">
                             <div id="kt_account_settings_profile_details" class="collapse show">
                                 <!--begin::Form-->
-                                <form id="" class="form" action='/admin/pekerjaan/{{ $id }}/update' method='post'
+                                <form id="" class="form" action='/admin/pekerjaan/buatpekerjaan' method='post'
                                     enctype="multipart/form-data">
                                     @csrf
-                                    @method('PUT')
+                                    @method('POST')
                                     <!--begin::Card body-->
                                     <div class="card-body border-top p-9">
 
@@ -57,7 +57,7 @@
                                             <div class="col-lg-8 fv-row">
                                                 <input type="text" name="judul"
                                                     class="form-control form-control-lg form-control-solid"
-                                                    placeholder="Isikan Judul" value="{{ $kerja->judul }}" required />
+                                                    placeholder="Isikan Judul" required />
                                             </div>
                                             <!--end::Col-->
                                         </div>
@@ -65,31 +65,33 @@
                                         <hr class="mb-10">
                                         <div class="container1">
                                             <!--begin::Input group-->
-                                            @for ($i = 0; $i < $kolom; $i++)
                                                 <div class="row mb-6">
                                                     <!--begin::Label-->
                                                     <label class="col-lg-4 col-form-label required fw-semibold fs-6">
-                                                        Nama Pekerjaan {{ $i }}
+                                                        Nama Pekerjaan 
                                                     </label>
                                                     <!--end::Label-->
                                                     <!--begin::Col-->
                                                     <div class="col-lg-8 fv-row">
-                                                        <input type="text" name="namakerjaan[{{ $i }}]"
+                                                        <input type="text"  readonly
                                                             class="form-control form-control-lg form-control-solid"
-                                                            placeholder="Isikan Pekerjaan" value="{{ $namakerjaan[$i] }}" />
+                                                            placeholder="Isikan Pekerjaan" value="{{ substr($namakerjaan,3) }}" />
+                                                        <input type="hidden" name="namapekerjaan"
+                                                            class="form-control form-control-lg form-control-solid"
+                                                            placeholder="Isikan Pekerjaan" value="{{ $namakerjaan }}" />
                                                     </div>
                                                     <!--end::Col-->
                                                 </div>
                                                 <div class="row mb-6">
                                                     <!--begin::Label-->
                                                     <label class="col-lg-4 col-form-label required fw-semibold fs-6">
-                                                        Bahan Yang Digunakan {{ $i }}
+                                                        Bahan Yang Digunakan 
                                                     </label>
                                                     <!--end::Label-->
                                                     <!--begin::Col-->
                                                     <div class="col-lg-8 fv-row">
-                                                        <textarea onInput="handleInput(event)" name="bahan[{{ $i }}]"
-                                                            class="form-control form-control-lg form-control-solid" rows="10" placeholder="Isikan Jenis Bahan">{!! $bahan[$i] !!}
+                                                        <textarea onInput="handleInput(event)" name="bahan" readonly
+                                                            class="form-control form-control-lg form-control-solid" rows="10" placeholder="Isikan Jenis Bahan">{!! $bahan !!}
                                                         </textarea>
                                                     </div>
                                                     <!--end::Col-->
@@ -97,62 +99,47 @@
                                                 <div class="row mb-6">
                                                     <!--begin::Label-->
                                                     <label class="col-lg-4 col-form-label required fw-semibold fs-6">
-                                                        Total Luas {{ $i }}
+                                                        Total Luas
                                                     </label>
                                                     <!--end::Label-->
                                                     <!--begin::Col-->
                                                     <div class="col-lg-8 fv-row">
-                                                        <input type="number" name="luas[{{ $i }}]"
+                                                        <input type="number" name="luas" readonly
                                                             class="form-control form-control-lg form-control-solid"
-                                                            placeholder="Isikan Luas" value="{{ $luas[$i] }}" />
+                                                            placeholder="Isikan Luas" value="{{ $luas }}" />
                                                     </div>
                                                     <!--end::Col-->
                                                 </div>
                                                 <div class="row mb-6">
                                                     <!--begin::Label-->
                                                     <label class="col-lg-4 col-form-label required fw-semibold fs-6">
-                                                        Harga / Satuan {{ $i }}
+                                                        Harga / Satuan 
                                                     </label>
                                                     <!--end::Label-->
                                                     <!--begin::Col-->
                                                     <div class="col-lg-8 fv-row">
-                                                        <input type="number" name="harga[{{ $i }}]"
+                                                        <input type="number" name="harga" readonly
                                                             name="harga"
                                                             class="form-control form-control-lg form-control-solid"
-                                                            placeholder="Isikan Harga" value="{{ $harga[$i] }}" />
+                                                            placeholder="Isikan Harga" value="{{ $harga }}" />
                                                     </div>
                                                     <!--end::Col-->
                                                 </div>
-                                                {{-- <div class="row mb-6">
-                                                    <!--begin::Label-->
-                                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">
-                                                        Total Jumlah {{ $i }}
-                                                    </label>
-                                                    <!--end::Label-->
-                                                    <!--begin::Col-->
-                                                    <div class="col-lg-8 fv-row">
-                                                        <input type="text" name="jumlah[{{ $i }}]"
-                                                            class="form-control form-control-lg form-control-solid"
-                                                            placeholder="Isikan Total Jumlah" value="" />
-                                                    </div>
-                                                    <!--end::Col-->
-                                                </div> --}}
                                                 <div class="row mb-6">
                                                     <!--begin::Label-->
                                                     <label class="col-lg-4 col-form-label fw-semibold fs-6">
-                                                        Keterangan {{ $i }}
+                                                        Keterangan
                                                     </label>
                                                     <!--end::Label-->
                                                     <!--begin::Col-->
                                                     <div class="col-lg-8 fv-row">
-                                                        <input type="text" name="keterangan[{{ $i }}]"
+                                                        <input type="text" name="keterangan" readonly
                                                             class="form-control form-control-lg form-control-solid"
-                                                            placeholder="Isikan Keterangan" value="{{ $keterangan[$i] }}" />
+                                                            placeholder="Isikan Keterangan" value="{{ $keterangan }}" />
                                                     </div>
                                                     <!--end::Col-->
                                                 </div>
                                                 <hr class="mb-10">
-                                            @endfor
 
                                             <!--end::Input group-->
                                         </div>
