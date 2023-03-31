@@ -61,7 +61,8 @@ class UserProfileController extends Controller
             "telepon" => $request["telepon"],
             "alamat" => $request["alamat"],
         ]);
-        Alert::success('Success', 'Data User has been Updated !');
+        // Alert::success('Success', 'Data User has been Updated !');
+        toast('Data Berhasil Dirubah','success')->autoClose(1500);
         return redirect('/admin/user');
     }
 
@@ -92,13 +93,15 @@ class UserProfileController extends Controller
                 'telepon' => $telepon,
                 'alamat' => $alamat,
                 'password' => Hash::make($password),
-                'is_admin' => "0"
+                'role' => "user"
             ]);
-        Alert::success('Success', 'Data User has been Created !');
+            toast('Berhasil Dibuat','success')->autoClose(1500);
+        // Alert::success('Success', 'Data User has been Created !');
         return redirect('/admin/user');
         }
         else {
-            Alert::error('Error', 'Data Invalid !');
+            // Alert::error('Error', 'Data Invalid !');
+            toast('Data Invalid','error');
             return redirect()->back();
         }
     }

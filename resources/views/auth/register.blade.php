@@ -164,14 +164,38 @@
                                 <div class="form-floating">
                                     <input type="text"
                                         class="form-control bg-light border-1  @error('nama') is-invalid @enderror"
-                                        id="nama" placeholder="Name" name="nama"
-                                        value="{{ old('nama') }}" required autofocus />
+                                        id="nama" placeholder="Name" name="nama" value="{{ old('nama') }}"
+                                        required autofocus />
                                     @error('nama')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
                                     <label for="nama" class="text-gray-600">Nama</label>
+                                </div>
+                                <!--end::Email-->
+                            </div>
+                            <div class="fv-row mb-8">
+                                <!--begin::Email-->
+                                <div class="form-floating">
+                                    <input type="text"
+                                        class="form-control bg-light border-1 "
+                                        id="alamat" placeholder="Alamat" name="alamat"
+                                        value="{{ old('alamat') }}" required  autofocus />
+                                        {{-- <textarea name="alamat" id="alamat" cols="30" rows="10" ></textarea> --}}
+                                    <label for="alamat" class="text-gray-600">Alamat</label>
+                                </div>
+                                <!--end::Email-->
+                            </div>
+                            <div class="fv-row mb-8">
+                                <!--begin::Email-->
+                                <div class="form-floating">
+                                    <input type="number"
+                                        class="form-control bg-light border-1 "
+                                        id="telepon" placeholder="Telepon" name="telepon"
+                                        value="{{ old('telepon') }}" required  autofocus />
+                                    
+                                    <label for="telepon" class="text-gray-600">Telepon</label>
                                 </div>
                                 <!--end::Email-->
                             </div>
@@ -208,14 +232,31 @@
                                 </div>
                                 <!--end::Password-->
                             </div>
-                            <div class="fv-row mb-3">
+                            <div class="fv-row mb-8">
                                 <!--begin::Password-->
                                 <div class="form-floating">
-                                    <input id="password-confirm" type="password" class="form-control bg-light border-1" name="password_confirmation" required autocomplete="new-password">
+                                    <input type="password"
+                                        class="form-control bg-light border-1  @error('password') is-invalid @enderror"
+                                        id="password" placeholder="Gurdian password" name="password_confirmation"
+                                        value="{{ old('password') }}" required autocomplete="password" autofocus />
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                     <label for="password" class="text-gray-600">Konfirmasi Password</label>
                                 </div>
                                 <!--end::Password-->
                             </div>
+                            {{-- <div class="fv-row mb-3">
+                                <!--begin::Password-->
+                                <div class="form-floating">
+                                    <input id="password-confirm" type="password" class="form-control bg-light border-1"
+                                        name="password_confirmation" required autocomplete="new-password">
+                                    <label for="password-confirm" class="text-gray-600">Konfirmasi Password</label>
+                                </div>
+                                <!--end::Password-->
+                            </div> --}}
                             <!--end::Input group=-->
                             <!--begin::Submit button-->
                             <div class="d-grid mb-10 mt-20">
@@ -232,8 +273,7 @@
                             <!--end::Submit button-->
                             <!--begin::Sign up-->
                             <div class="text-gray-500 text-center fw-semibold fs-6">Sudah Punya Akun?
-                                <a href="{{ route('login') }}"
-                                    class="link-primary">Login</a>
+                                <a href="{{ route('login') }}" class="link-primary">Login</a>
                             </div>
                             <!--end::Sign up-->
                         </form>
@@ -257,13 +297,13 @@
                     <!--end::Title-->
                     <!--begin::Text-->
                     <div class="text-dark fs-base text-center fw-semibold">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                        incididunt ut labore
-                        et
-                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                        nisi ut
-                        aliquip
-                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit.
+                        Putra Mandiri Jaya adalah penyedia jasa las murah di
+                        Kota Depok dengan pelayanan terbaik. di samping dengan kualitas pelayanan terbaik, Putra Mandiri
+                        Jaya
+                        memberikan harga las termurah yang bisa di dapatkan di Kota Depok.
+                        Putra Mandiri Jaya menerima berbagai permintaan seperti pembuatan pagar, pembuatan
+                        canopy, pembuatan tralis, pembuatan railing, pembuatan pintu Henderson, pembuatan pintu
+                        besi, dan pembuatan lainnya.
                     </div>
                     <!--end::Text-->
                 </div>

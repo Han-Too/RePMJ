@@ -75,13 +75,13 @@
             @foreach ($kanopi as $key => $postcanopy)
             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="service-item bg-light overflow-hidden h-100">
-                    <img class="img-fluid" src="{{ asset('Images/uploads/canopy') }}/{{ $postcanopy->foto }}" alt="" />
+                    <img class="img-fluid" src="{{ asset('Images/uploads/produk') }}/{{ $postcanopy->foto }}" alt="" />
                     <div class="service-text position-relative text-center h-100 p-4">
-                        <h5 class="mb-3">{{ $postcanopy->judul }}</h5>
+                        <h5 class="mb-3">{{ $postcanopy->nama_produk }}</h5>
                         <p>
-                            {{ $postcanopy->deskripsi }}
+                            {{ $postcanopy->keterangan }}
                         </p>
-                        <a class="small" href="/detailbarangkanopi/{{ $postcanopy->id }}">READ MORE<i class="fa fa-arrow-right ms-3"></i></a>
+                        <a class="small" href="/admin/produk/detail/{{ $postcanopy->id_produk }}">Selengkapnya<i class="fa fa-arrow-right ms-3"></i></a>
                     </div>
                 </div>
             </div>

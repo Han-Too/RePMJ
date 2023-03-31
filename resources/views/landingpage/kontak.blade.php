@@ -94,7 +94,7 @@
                             <div class="col-12">
                                 <div class="form-floating">
                                     <input type="text" class="form-control border-0 bg-light" id="subject"
-                                        placeholder="Nama" name="nama" value="{{ $user->name }}"/>
+                                        placeholder="Nama" readonly name="nama" value="{{ $user->name }}"/>
                                     <label for="subject">Nama Anda</label>
                                 </div>
                             </div>

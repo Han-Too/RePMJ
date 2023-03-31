@@ -78,6 +78,8 @@ class RegisterController extends Controller
         $nama = $request->nama;
         $email = $request->email;
         $password = $request->password;
+        $telepon = $request->telepon;
+        $alamat = $request->alamat;
         $konfirmasipassword = $request->password_confirmation;
 
         // dd($request->all());
@@ -85,16 +87,18 @@ class RegisterController extends Controller
         if($password === $konfirmasipassword){
             $signup = User::create([
                 'name' => $nama,
+                'alamat' => $alamat,
+                'telepon' => $telepon,
                 'email' => $email,
                 'password' => Hash::make($password),
-                'is_admin' => "0"
+                'role' => "user"
             ]);
-            Alert::success('Akun Dibuat', 'Silahkan Login Kembali');
-            return redirect()->route('login');
+            // Alert::success('Akun Dibuat', 'Silahkan Login Kembali');
+            return redirect('login')->with('success','Silahkan Login Kembali');
         }
         else {
-            Alert::error('error', 'Isi Data Tidak Valid');
-            return redirect()->route('register');
+            // Alert::error('error', 'Isi Data Tidak Valid');
+            return redirect('register')->withErrors(['msg' => 'Isi Data Tidak Valid']);
         }
 
     }

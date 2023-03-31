@@ -81,13 +81,13 @@
                     <!--end::Title-->
                     <!--begin::Text-->
                     <div class="text-dark fs-base text-center fw-semibold">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                        incididunt ut labore
-                        et
-                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                        nisi ut
-                        aliquip
-                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit.
+                        Putra Mandiri Jaya adalah penyedia jasa las murah di
+                        Kota Depok dengan pelayanan terbaik. di samping dengan kualitas pelayanan terbaik, Putra Mandiri
+                        Jaya
+                        memberikan harga las termurah yang bisa di dapatkan di Kota Depok.
+                        Putra Mandiri Jaya menerima berbagai permintaan seperti pembuatan pagar, pembuatan
+                        canopy, pembuatan tralis, pembuatan railing, pembuatan pintu Henderson, pembuatan pintu
+                        besi, dan pembuatan lainnya.
                     </div>
                     <!--end::Text-->
                 </div>
@@ -158,8 +158,7 @@
                             <!--end::Submit button-->
                             <!--begin::Sign up-->
                             <div class="text-gray-500 text-center fw-semibold fs-6">Belum Punya Akun?
-                                <a href="{{ route('register') }}"
-                                    class="link-primary">Register</a>
+                                <a href="{{ route('register') }}" class="link-primary">Register</a>
                             </div>
                             <!--end::Sign up-->
                         </form>

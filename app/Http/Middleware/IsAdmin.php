@@ -18,10 +18,25 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->check() && auth()->user()->is_admin > 0) {
-            return $next($request);
+        if(Auth::check())
+        {
+            if(Auth::user()->role == 'admin')
+            {
+                return $next($request);
+            }
+            else
+            {
+                return redirect('/')->with('status','Anda Bukan Admin');
+            }
         }
-        Alert::error('error', 'lu sapa masbro');
-        return redirect('/');
+        else
+        {
+            return redirect('/')->with('status','Login Dulu Masbro');
+        }
+        // if (auth()->check() && auth()->user()->role == 'admin') {
+        //     return $next($request);
+        // }
+        // Alert::error('error', 'lu sapa masbro');
+        // return redirect('/');
     }
 }

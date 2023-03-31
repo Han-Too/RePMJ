@@ -21,7 +21,7 @@ class GaleriController extends Controller
     public function index()
     {
         $galeri = Galeri::orderBy('created_at', 'desc')->get();
-        return view('adminpage.landingpages.galeri.galeri', compact('galeri'));
+        return view('adminpage.galeri.galeri', compact('galeri'));
     }
 
     public function landingindex()
@@ -38,7 +38,7 @@ class GaleriController extends Controller
      */
     public function create()
     {
-        return view('adminpage.landingpages.galeri.addgaleri');
+        return view('adminpage.galeri.addgaleri');
     }
 
     /**
@@ -72,7 +72,7 @@ class GaleriController extends Controller
     public function show($id)
     {
         $galeri = Galeri::find($id);
-        return view('adminpage.landingpages.galeri.editgaleri', compact('galeri'));
+        return view('adminpage.galeri.editgaleri', compact('galeri'));
     }
 
     /**
@@ -84,7 +84,7 @@ class GaleriController extends Controller
     public function edit($id)
     {
         $galeri = Galeri::find($id);
-        return view('adminpage.landingpages.galeri.editgaleri', compact('galeri'));
+        return view('adminpage.galeri.editgaleri', compact('galeri'));
     }
 
     /**

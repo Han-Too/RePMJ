@@ -4,24 +4,14 @@ use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
-use App\Http\Controllers\CanopyController;
-use App\Http\Controllers\PagarController;
-use App\Http\Controllers\PintuBesiController;
-use App\Http\Controllers\PintuKasaNyamukController;
-use App\Http\Controllers\TeralisJendelaController;
-use App\Http\Controllers\TeralisPintuController;
-use App\Http\Controllers\RailingBalkonController;
-use App\Http\Controllers\RailingTanggaController;
-use App\Http\Controllers\PintuHendersonController;
-use App\Http\Controllers\TanggaPutarController;
-use App\Http\Controllers\TanggaBesiController;
-use App\Http\Controllers\MenaraAirController;
+use App\Http\Controllers\ProdukController;
 
 use App\Http\Controllers\LaporanPekerjaanController;
 use App\Http\Controllers\SuratJalanController;
 
 use App\Http\Controllers\KaryawanController;
-use App\Http\Controllers\PekerjaanController;
+use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\PesananController;
 use App\Http\Controllers\GajiKaryawanController;
 
 use App\Http\Controllers\KontakController;
@@ -30,6 +20,8 @@ use App\Http\Controllers\JumbotronController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\HomeController;
+
 
 
 
@@ -49,120 +41,38 @@ Route::get('/admin', function () {
 // Route::post('/login', [LoginController::class, 'login'])->name('login')->middleware('is_admin');
 
 // ---------------------CANOPY ADMIN---------------------
-Route::get('/admin/canopy', [CanopyController::class, 'index'])->name('admin.canopy.index')->middleware('is_admin');
-Route::get('/admin/canopy/create', [CanopyController::class, 'create'])->name('admin.canopy.create')->middleware('is_admin');
-Route::post('/admin/canopy/store', [CanopyController::class, 'store'])->name('admin.canopy.store')->middleware('is_admin');
-Route::get('/admin/canopy/{id}/edit', [CanopyController::class, 'edit'])->name('admin.canopy.edit')->middleware('is_admin');
-Route::put('/admin/canopy/{id}/update', [CanopyController::class, 'update'])->name('admin.canopy.update')->middleware('is_admin');
-Route::get('/admin/canopy/{id}/destroy', [CanopyController::class, 'destroy'])->name('admin.canopy.destroy')->middleware('is_admin');
-Route::get('/admin/canopy/{id}/preview', [CanopyController::class, 'show'])->name('admin.canopy.preview')->middleware('is_admin');
+Route::get('/admin/produk', [ProdukController::class, 'index'])->name('admin.produk.index')->middleware('is_admin');
+Route::get('/admin/produk/create', [ProdukController::class, 'create'])->name('admin.produk.create')->middleware('is_admin');
+Route::post('/admin/produk/store', [ProdukController::class, 'store'])->name('admin.produk.store')->middleware('is_admin');
+Route::get('/admin/produk/{id}/edit', [ProdukController::class, 'edit'])->name('admin.produk.edit')->middleware('is_admin');
+Route::put('/admin/produk/{id}/update', [ProdukController::class, 'update'])->name('admin.produk.update')->middleware('is_admin');
+Route::get('/admin/produk/{id}/destroy', [ProdukController::class, 'destroy'])->name('admin.produk.destroy')->middleware('is_admin');
+Route::get('/admin/produk/{id}/preview', [ProdukController::class, 'show'])->name('admin.produk.preview')->middleware('is_admin');
 
-// ---------------------PAGAR ADMIN---------------------
-Route::get('/admin/pagar', [PagarController::class, 'index'])->name('admin.pagar.index')->middleware('is_admin');
-Route::get('/admin/pagar/create', [PagarController::class, 'create'])->name('admin.pagar.create')->middleware('is_admin');
-Route::post('/admin/pagar/store', [PagarController::class, 'store'])->name('admin.pagar.store')->middleware('is_admin');
-Route::get('/admin/pagar/{id}/edit', [PagarController::class, 'edit'])->name('admin.pagar.edit')->middleware('is_admin');
-Route::put('/admin/pagar/{id}/update', [PagarController::class, 'update'])->name('admin.pagar.update')->middleware('is_admin');
-Route::get('/admin/pagar/{id}/destroy', [PagarController::class, 'destroy'])->name('admin.pagar.destroy')->middleware('is_admin');
-Route::get('/admin/pagar/{id}/preview', [PagarController::class, 'show'])->name('admin.pagar.preview')->middleware('is_admin');
+// ---------------------PART-------------------------------
+Route::get('/admin/produk/detail/{id}', [ProdukController::class, 'detailproduk'])->name('admin.produk.detail');
 
-// ---------------------PINTU BESI ADMIN---------------------
-Route::get('/admin/pintubesi', [PintuBesiController::class, 'index'])->name('admin.pintubesi.index')->middleware('is_admin');
-Route::get('/admin/pintubesi/create', [PintuBesiController::class, 'create'])->name('admin.pintubesi.create')->middleware('is_admin');
-Route::post('/admin/pintubesi/store', [PintuBesiController::class, 'store'])->name('admin.pintubesi.store')->middleware('is_admin');
-Route::get('/admin/pintubesi/{id}/edit', [PintuBesiController::class, 'edit'])->name('admin.pintubesi.edit')->middleware('is_admin');
-Route::put('/admin/pintubesi/{id}/update', [PintuBesiController::class, 'update'])->name('admin.pintubesi.update')->middleware('is_admin');
-Route::get('/admin/pintubesi/{id}/destroy', [PintuBesiController::class, 'destroy'])->name('admin.pintubesi.destroy')->middleware('is_admin');
-Route::get('/admin/pintubesi/{id}/preview', [PintuBesiController::class, 'show'])->name('admin.pintubesi.preview')->middleware('is_admin');
+Route::get('/admin/produk/kanopi/view', [ProdukController::class, 'kanopiview'])->name('admin.produk.kanopi.view');
 
-// ---------------------PINTU KASA NYAMUK ADMIN---------------------
-Route::get('/admin/pintukasanyamuk', [PintuKasaNyamukController::class, 'index'])->name('admin.pintukasanyamuk.index')->middleware('is_admin');
-Route::get('/admin/pintukasanyamuk/create', [PintuKasaNyamukController::class, 'create'])->name('admin.pintukasanyamuk.create')->middleware('is_admin');
-Route::post('/admin/pintukasanyamuk/store', [PintuKasaNyamukController::class, 'store'])->name('admin.pintukasanyamuk.store')->middleware('is_admin');
-Route::get('/admin/pintukasanyamuk/{id}/edit', [PintuKasaNyamukController::class, 'edit'])->name('admin.pintukasanyamuk.edit')->middleware('is_admin');
-Route::put('/admin/pintukasanyamuk/{id}/update', [PintuKasaNyamukController::class, 'update'])->name('admin.pintukasanyamuk.update')->middleware('is_admin');
-Route::get('/admin/pintukasanyamuk/{id}/destroy', [PintuKasaNyamukController::class, 'destroy'])->name('admin.pintukasanyamuk.destroy')->middleware('is_admin');
-Route::get('/admin/pintukasanyamuk/{id}/preview', [PintuKasaNyamukController::class, 'show'])->name('admin.pintukasanyamuk.preview')->middleware('is_admin');
-// ---------------------PINTU KASA NYAMUK ADMIN---------------------
-Route::get('/admin/teralisjendela', [TeralisJendelaController::class, 'index'])->name('admin.teralisjendela.index')->middleware('is_admin');
-Route::get('/admin/teralisjendela/create', [TeralisJendelaController::class, 'create'])->name('admin.teralisjendela.create')->middleware('is_admin');
-Route::post('/admin/teralisjendela/store', [TeralisJendelaController::class, 'store'])->name('admin.teralisjendela.store')->middleware('is_admin');
-Route::get('/admin/teralisjendela/{id}/edit', [TeralisJendelaController::class, 'edit'])->name('admin.teralisjendela.edit')->middleware('is_admin');
-Route::put('/admin/teralisjendela/{id}/update', [TeralisJendelaController::class, 'update'])->name('admin.teralisjendela.update')->middleware('is_admin');
-Route::get('/admin/teralisjendela/{id}/destroy', [TeralisJendelaController::class, 'destroy'])->name('admin.teralisjendela.destroy')->middleware('is_admin');
-Route::get('/admin/teralisjendela/{id}/preview', [TeralisJendelaController::class, 'show'])->name('admin.teralisjendela.preview')->middleware('is_admin');
+// -----------------------TRANSAKSI---------------------------
+Route::get('/admin/transaksi', [TransaksiController::class, 'index'])->name('admin.transaksi.index')->middleware('is_admin');
+Route::get('/admin/transaksi/create', [TransaksiController::class, 'create'])->name('admin.transaksi.create')->middleware('is_admin');
+Route::post('/admin/transaksi/store', [TransaksiController::class, 'store'])->name('admin.transaksi.store')->middleware('is_admin');
+Route::get('/admin/transaksi/{id}/edit', [TransaksiController::class, 'edit'])->name('admin.transaksi.edit')->middleware('is_admin');
+Route::put('/admin/transaksi/{id}/update', [TransaksiController::class, 'update'])->name('admin.transaksi.update')->middleware('is_admin');
+Route::get('/admin/transaksi/{id}/destroy', [TransaksiController::class, 'destroy'])->name('admin.transaksi.destroy')->middleware('is_admin');
+Route::get('/admin/transaksi/{id}/preview', [TransaksiController::class, 'show'])->name('admin.transaksi.preview')->middleware('is_admin');
 
-// ---------------------PINTU KASA NYAMUK ADMIN---------------------
-Route::get('/admin/teralispintu', [TeralisPintuController::class, 'index'])->name('admin.teralispintu.index')->middleware('is_admin');
-Route::get('/admin/teralispintu/create', [TeralisPintuController::class, 'create'])->name('admin.teralispintu.create')->middleware('is_admin');
-Route::post('/admin/teralispintu/store', [TeralisPintuController::class, 'store'])->name('admin.teralispintu.store')->middleware('is_admin');
-Route::get('/admin/teralispintu/{id}/edit', [TeralisPintuController::class, 'edit'])->name('admin.teralispintu.edit')->middleware('is_admin');
-Route::put('/admin/teralispintu/{id}/update', [TeralisPintuController::class, 'update'])->name('admin.teralispintu.update')->middleware('is_admin');
-Route::get('/admin/teralispintu/{id}/destroy', [TeralisPintuController::class, 'destroy'])->name('admin.teralispintu.destroy')->middleware('is_admin');
-Route::get('/admin/teralispintu/{id}/preview', [TeralisPintuController::class, 'show'])->name('admin.teralispintu.preview')->middleware('is_admin');
 
-// ---------------------PINTU RAILING BALKON ADMIN---------------------
-Route::get('/admin/railingbalkon', [RailingBalkonController::class, 'index'])->name('admin.railingbalkon.index')->middleware('is_admin');
-Route::get('/admin/railingbalkon/create', [RailingBalkonController::class, 'create'])->name('admin.railingbalkon.create')->middleware('is_admin');
-Route::post('/admin/railingbalkon/store', [RailingBalkonController::class, 'store'])->name('admin.railingbalkon.store')->middleware('is_admin');
-Route::get('/admin/railingbalkon/{id}/edit', [RailingBalkonController::class, 'edit'])->name('admin.railingbalkon.edit')->middleware('is_admin');
-Route::put('/admin/railingbalkon/{id}/update', [RailingBalkonController::class, 'update'])->name('admin.railingbalkon.update')->middleware('is_admin');
-Route::get('/admin/railingbalkon/{id}/destroy', [RailingBalkonController::class, 'destroy'])->name('admin.railingbalkon.destroy')->middleware('is_admin');
-Route::get('/admin/railingbalkon/{id}/preview', [RailingBalkonController::class, 'show'])->name('admin.railingbalkon.preview')->middleware('is_admin');
+// -----------------------PESANAN---------------------------
+Route::get('/admin/pesanan', [PesananController::class, 'index'])->name('admin.pesanan.index')->middleware('is_admin');
+Route::get('/admin/pesanan/create', [PesananController::class, 'create'])->name('admin.pesanan.create')->middleware('is_admin');
+Route::post('/admin/pesanan/store', [PesananController::class, 'store'])->name('admin.pesanan.store')->middleware('is_admin');
+Route::get('/admin/pesanan/{id}/edit', [PesananController::class, 'edit'])->name('admin.pesanan.edit')->middleware('is_admin');
+Route::put('/admin/pesanan/{id}/update', [PesananController::class, 'update'])->name('admin.pesanan.update')->middleware('is_admin');
+Route::get('/admin/pesanan/{id}/destroy', [PesananController::class, 'destroy'])->name('admin.pesanan.destroy')->middleware('is_admin');
+Route::get('/admin/pesanan/{id}/preview', [PesananController::class, 'show'])->name('admin.pesanan.preview')->middleware('is_admin');
 
-// ---------------------PINTU RAILING TANGGA ADMIN---------------------
-Route::get('/admin/railingtangga', [RailingTanggaController::class, 'index'])->name('admin.railingtangga.index')->middleware('is_admin');
-Route::get('/admin/railingtangga/create', [RailingTanggaController::class, 'create'])->name('admin.railingtangga.create')->middleware('is_admin');
-Route::post('/admin/railingtangga/store', [RailingTanggaController::class, 'store'])->name('admin.railingtangga.store')->middleware('is_admin');
-Route::get('/admin/railingtangga/{id}/edit', [RailingTanggaController::class, 'edit'])->name('admin.railingtangga.edit')->middleware('is_admin');
-Route::put('/admin/railingtangga/{id}/update', [RailingTanggaController::class, 'update'])->name('admin.railingtangga.update')->middleware('is_admin');
-Route::get('/admin/railingtangga/{id}/destroy', [RailingTanggaController::class, 'destroy'])->name('admin.railingtangga.destroy')->middleware('is_admin');
-Route::get('/admin/railingtangga/{id}/preview', [RailingTanggaController::class, 'show'])->name('admin.railingtangga.preview')->middleware('is_admin');
-
-// ---------------------PINTU HENDERSON ADMIN---------------------
-Route::get('/admin/pintuhenderson', [PintuHendersonController::class, 'index'])->name('admin.pintuhenderson.index')->middleware('is_admin');
-Route::get('/admin/pintuhenderson/create', [PintuHendersonController::class, 'create'])->name('admin.pintuhenderson.create')->middleware('is_admin');
-Route::post('/admin/pintuhenderson/store', [PintuHendersonController::class, 'store'])->name('admin.pintuhenderson.store')->middleware('is_admin');
-Route::get('/admin/pintuhenderson/{id}/edit', [PintuHendersonController::class, 'edit'])->name('admin.pintuhenderson.edit')->middleware('is_admin');
-Route::put('/admin/pintuhenderson/{id}/update', [PintuHendersonController::class, 'update'])->name('admin.pintuhenderson.update')->middleware('is_admin');
-Route::get('/admin/pintuhenderson/{id}/destroy', [PintuHendersonController::class, 'destroy'])->name('admin.pintuhenderson.destroy')->middleware('is_admin');
-Route::get('/admin/pintuhenderson/{id}/preview', [PintuHendersonController::class, 'show'])->name('admin.pintuhenderson.preview')->middleware('is_admin');
-
-// ---------------------PINTU TANGGA PUTAR ADMIN---------------------
-Route::get('/admin/tanggaputar', [TanggaPutarController::class, 'index'])->name('admin.tanggaputar.index')->middleware('is_admin');
-Route::get('/admin/tanggaputar/create', [TanggaPutarController::class, 'create'])->name('admin.tanggaputar.create')->middleware('is_admin');
-Route::post('/admin/tanggaputar/store', [TanggaPutarController::class, 'store'])->name('admin.tanggaputar.store')->middleware('is_admin');
-Route::get('/admin/tanggaputar/{id}/edit', [TanggaPutarController::class, 'edit'])->name('admin.tanggaputar.edit')->middleware('is_admin');
-Route::put('/admin/tanggaputar/{id}/update', [TanggaPutarController::class, 'update'])->name('admin.tanggaputar.update')->middleware('is_admin');
-Route::get('/admin/tanggaputar/{id}/destroy', [TanggaPutarController::class, 'destroy'])->name('admin.tanggaputar.destroy')->middleware('is_admin');
-Route::get('/admin/tanggaputar/{id}/preview', [TanggaPutarController::class, 'show'])->name('admin.tanggaputar.preview')->middleware('is_admin');
-
-// ---------------------PINTU TANGGA PUTAR ADMIN---------------------
-Route::get('/admin/tanggabesi', [TanggaBesiController::class, 'index'])->name('admin.tanggabesi.index')->middleware('is_admin');
-Route::get('/admin/tanggabesi/create', [TanggaBesiController::class, 'create'])->name('admin.tanggabesi.create')->middleware('is_admin');
-Route::post('/admin/tanggabesi/store', [TanggaBesiController::class, 'store'])->name('admin.tanggabesi.store')->middleware('is_admin');
-Route::get('/admin/tanggabesi/{id}/edit', [TanggaBesiController::class, 'edit'])->name('admin.tanggabesi.edit')->middleware('is_admin');
-Route::put('/admin/tanggabesi/{id}/update', [TanggaBesiController::class, 'update'])->name('admin.tanggabesi.update')->middleware('is_admin');
-Route::get('/admin/tanggabesi/{id}/destroy', [TanggaBesiController::class, 'destroy'])->name('admin.tanggabesi.destroy')->middleware('is_admin');
-Route::get('/admin/tanggabesi/{id}/preview', [TanggaBesiController::class, 'show'])->name('admin.tanggabesi.preview')->middleware('is_admin');
-
-// ---------------------PINTU TANGGA PUTAR ADMIN---------------------
-Route::get('/admin/menaraair', [MenaraAirController::class, 'index'])->name('admin.menaraair.index')->middleware('is_admin');
-Route::get('/admin/menaraair/create', [MenaraAirController::class, 'create'])->name('admin.menaraair.create')->middleware('is_admin');
-Route::post('/admin/menaraair/store', [MenaraAirController::class, 'store'])->name('admin.menaraair.store')->middleware('is_admin');
-Route::get('/admin/menaraair/{id}/edit', [MenaraAirController::class, 'edit'])->name('admin.menaraair.edit')->middleware('is_admin');
-Route::put('/admin/menaraair/{id}/update', [MenaraAirController::class, 'update'])->name('admin.menaraair.update')->middleware('is_admin');
-Route::get('/admin/menaraair/{id}/destroy', [MenaraAirController::class, 'destroy'])->name('admin.menaraair.destroy')->middleware('is_admin');
-Route::get('/admin/menaraair/{id}/preview', [MenaraAirController::class, 'show'])->name('admin.menaraair.preview')->middleware('is_admin');
-
-// ------------------------ADMIN JUMBOTRON------------------------
-Route::get('/admin/jumbotron', [JumbotronController::class, 'index'])->name('admin.jumbotron.index')->middleware('is_admin');
-Route::get('/admin/jumbotron/create', [JumbotronController::class, 'create'])->name('admin.jumbotron.create')->middleware('is_admin');
-Route::post('/admin/jumbotron/store', [JumbotronController::class, 'store'])->name('admin.jumbotron.store')->middleware('is_admin');
-Route::get('/admin/jumbotron/{id}/edit', [JumbotronController::class, 'edit'])->name('admin.jumbotron.edit')->middleware('is_admin');
-Route::put('/admin/jumbotron/{id}/update', [JumbotronController::class, 'update'])->name('admin.jumbotron.update')->middleware('is_admin');
-Route::get('/admin/jumbotron/{id}/destroy', [JumbotronController::class, 'destroy'])->name('admin.jumbotron.destroy')->middleware('is_admin');
-Route::get('/admin/jumbotron/{id}/preview', [JumbotronController::class, 'show'])->name('admin.jumbotron.preview')->middleware('is_admin');
 
 // ------------------------ADMIN GALERI------------------------
 Route::get('/admin/galeri', [GaleriController::class, 'index'])->name('admin.galeri.index')->middleware('is_admin');
@@ -238,7 +148,9 @@ Route::get('/admin/settinglanding', function () {
 
 
 // ---------------------LANDING NAVBAR--------------------
-Route::get('/', [JumbotronController::class, 'landingindex'])->name('/');
+Route::get('/', function(){
+    return view('landingpage.home');
+})->name('/');
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::get('/galeri', [GaleriController::class, 'landingindex'])->name('galeri');

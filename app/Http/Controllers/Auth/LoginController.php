@@ -49,12 +49,13 @@ class LoginController extends Controller
         ]);
 
         if (auth()->attempt(array('email' => $input['email'], 'password' => $input['password']))) {
-            if (auth()->user()->is_admin == 1) {
-                Alert::success('ADMIN', 'You\'ve Successfully Registered');
+            if (auth()->user()->role == 'admin') {
+                // Alert::success('ADMIN', 'Berhasil Login');
+                toast('Berhasil Login','success')->autoClose(1500);
                 return redirect()->route('admin');
-            } else if (auth()->user()->is_admin == 0) {
-                Alert::success('USER', 'You\'ve Successfully Registered');
-                return redirect()->route('/');
+            } else if (auth()->user()->role === 'user') {
+                // Alert::success('USER', 'You\'ve Successfully Registered');
+                return redirect('/')->with('status','Berhasil Login');;
             } 
             else {
                 Alert::error('error', 'You\'ve unRegistered');

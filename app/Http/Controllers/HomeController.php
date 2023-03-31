@@ -39,4 +39,8 @@ class HomeController extends Controller
         return view('adminpage.dashboard');
     }
 
+    public function first(){
+        return view('landingpage.home');
+    }
+
 }

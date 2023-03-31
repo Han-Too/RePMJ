@@ -23,7 +23,7 @@ class User extends Authenticatable
         'telepon',
         'alamat',
         'password',
-        'is_admin',
+        'role',
     ];
 
     /**

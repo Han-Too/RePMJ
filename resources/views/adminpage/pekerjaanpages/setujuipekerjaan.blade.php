@@ -29,8 +29,8 @@
                         <!--begin::Header-->
                         <div class="card-header border-0 pt-5">
                             <h3 class="card-title align-items-start flex-column">
-                                {{-- <span class="card-label fw-bold fs-3 mb-1">Detail Produk Karyawan</span> --}}
-                                {{-- <span class="text-muted mt-1 fw-semibold fs-7">Tambah atau Edit Data Karyawan</span> --}}
+                                <span class="card-label fw-bold fs-3 mb-1">Setujui Data Pesanan</span>
+                                <span class="text-muted mt-1 fw-semibold fs-7">Setujui atau Tidak Data Pesanan</span>
                             </h3>
 
                         </div>

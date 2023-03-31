@@ -13,10 +13,9 @@
     <div class="container-fluid p-0 mb-5 wow fadeIn" data-wow-delay="0.1s">
         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-                @foreach ($jumbotron as $key => $jumbo)
-                    <div class="carousel-item <?php echo $key === 0 ? 'active' : ''; ?>  ">
-                        <img class="w-100" src="{{ asset('Images/uploads/jumbotron') }}/{{ $jumbo->foto }}"
-                            alt="{{ $jumbo->judul }}" />
+                    <div class="carousel-item active">
+                        <img class="w-100" src="{{ asset('Images/uploads/jumbotron/1.png')  }}"
+                            alt="jumbotron" />
                         <div class="carousel-caption">
                             <div class="container">
                                 <div class="row justify-content-center">
@@ -31,7 +30,40 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
+                    <div class="carousel-item">
+                        <img class="w-100" src="{{ asset('Images/uploads/jumbotron/2.png')  }}"
+                            alt="jumbotron" />
+                        <div class="carousel-caption">
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-12 col-lg-10">
+                                        <h1 class="display-2 text-light mb-3 animated slideInDown">
+                                            Putra Mandiri Jaya
+                                        </h1>
+                                        <div class="fs-4"> Dikerjakan Oleh Profesional Dibidangnya </div><br>
+                                        {{-- <a href="" class="btn btn-primary py-3 px-5">Selengkapnya</a> --}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="w-100" src="{{ asset('Images/uploads/jumbotron/3.png')  }}"
+                            alt="jumbotron" />
+                        <div class="carousel-caption">
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-12 col-lg-10">
+                                        <h1 class="display-2 text-light mb-3 animated slideInDown">
+                                            Putra Mandiri Jaya
+                                        </h1>
+                                        <div class="fs-4"> Dikerjakan Oleh Profesional Dibidangnya </div><br>
+                                        {{-- <a href="" class="btn btn-primary py-3 px-5">Selengkapnya</a> --}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                 {{-- <div class="carousel-item">
                     <img class="w-100" src="landing/img/las2.png" alt="Image" />
