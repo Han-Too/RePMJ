@@ -1,7 +1,7 @@
 @extends('adminpage.index')
 
 @extends('adminpage.adminlayout.headhtml')
-@section('headjudul', 'Edit User')
+@section('headjudul', 'Edit Pesanan')
 
 @section('tambahan')
     <style>
@@ -29,7 +29,7 @@
                         <!--begin::Header-->
                         <div class="card-header border-0 pt-5">
                             <h3 class="card-title align-items-start flex-column">
-                                <span class="card-label fw-bold fs-3 mb-1">Detail Edit User</span>
+                                <span class="card-label fw-bold fs-3 mb-1">Detail Edit Pesanan</span>
                                 {{-- <span class="text-muted mt-1 fw-semibold fs-7">Tambah atau Edit Data Karyawan</span> --}}
                             </h3>
 
@@ -39,7 +39,7 @@
                         <div class="card-body pt-3">
                             <div id="kt_account_settings_profile_details" class="collapse show">
                                 <!--begin::Form-->
-                                <form id="" class="form" action='/admin/user/{{$user->id}}/update' method='post'
+                                <form id="" class="form" action='/admin/pesanan/{{ $pesanan->id_pesanan }}/update' method='post'
                                     enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
@@ -49,70 +49,124 @@
                                         <div class="row mb-6">
                                             <!--begin::Label-->
                                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">
-                                                Nama User
+                                                Nama Pemesan
                                             </label>
                                             <!--end::Label-->
                                             <!--begin::Col-->
                                             <div class="col-lg-8 fv-row">
-                                                <input type="hidden" name="id" value="{{ $user->id }}">
-                                                <input type="text" name="nama"
+                                                <input type="hidden" name="id" value="{{ $pesanan->id_pesanan }}">
+                                                <input type="text" name="nama" readonly
                                                     class="form-control form-control-lg form-control-solid"
-                                                    placeholder="Isikan Nama" value="{{old('nama', $user->name)}}" />
+                                                    placeholder="Isikan Nama" value="{{old('nama', $pesanan->name)}}" />
                                             </div>
                                             <!--end::Col-->
                                         </div>
                                         <!--end::Input group-->
+                                        <div class="row mb-6">
+                                            <!--begin::Label-->
+                                            <label class="col-lg-4 col-form-label required fw-semibold fs-6">
+                                                Produk Yang Dipesan
+                                            </label>
+                                            <!--end::Label-->
+                                            <!--begin::Col-->
+                                            <div class="col-lg-8 fv-row">
+                                                <input type="hidden" name="id" value="{{ $pesanan->id_produk }}">
+                                                <input type="text" name="nama" readonly
+                                                    class="form-control form-control-lg form-control-solid"
+                                                    placeholder="Isikan Nama" value="{{old('nama', $produk->nama_produk)}}" />
+                                            </div>
+                                            <!--end::Col-->
+                                        </div>
                                         <!--begin::Input group-->
                                         <div class="row mb-6">
                                             <!--begin::Label-->
                                             <label class="col-lg-4 col-form-label fw-semibold fs-6">
-                                                <span class="required">Email</span>
+                                                <span class="required">Tanggal Pemesanan</span>
                                             </label>
                                             <!--end::Label-->
                                             <!--begin::Col-->
                                             <div class="col-lg-8 fv-row">
-                                                <input type="email" name="email"
+                                                <input type="date" name="tanggal" readonly
                                                     class="form-control form-control-lg form-control-solid"
-                                                    placeholder="Isikan Email" value="{{old('email', $user->email)}}"  />
+                                                    value="{{old('email', $pesanan->tanggal_pesanan)}}"  />
                                             </div>
                                             <!--end::Col-->
                                         </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Input group-->
                                         <div class="row mb-6">
                                             <!--begin::Label-->
                                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">
-                                                Telepon
+                                                Jumlah Produk Yang Dipesan
                                             </label>
                                             <!--end::Label-->
                                             <!--begin::Col-->
                                             <div class="col-lg-8 fv-row">
-                                                <input type="number" name="telepon"
+                                                <input type="text" name="jumlah" required
                                                     class="form-control form-control-lg form-control-solid"
-                                                    placeholder="Isikan Telepon" value="{{old('telepon', $user->telepon)}}" />
+                                                    placeholder="Isikan Jumlah" value="{{ $pesanan->jumlah_pesanan }}" />
                                             </div>
                                             <!--end::Col-->
                                         </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Input group-->
-                                        <!--end::Input group-->
                                         <div class="row mb-6">
                                             <!--begin::Label-->
                                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">
-                                                Alamat
+                                                Total Harga Pesanan
                                             </label>
                                             <!--end::Label-->
                                             <!--begin::Col-->
                                             <div class="col-lg-8 fv-row">
-                                                <textarea class="form-control form-control-lg form-control-solid" name="alamat" id="" cols="30" rows="10">{{ $user->alamat }}</textarea>
+                                                <input type="text" name="jumlah" required
+                                                    class="form-control form-control-lg form-control-solid"
+                                                    placeholder="Isikan Jumlah" value="{{ $pesanan->total_harga }}" />
                                             </div>
                                             <!--end::Col-->
                                         </div>
+                                        <div class="row mb-6">
+                                            <!--begin::Label-->
+                                            <label class="col-lg-4 col-form-label fw-semibold fs-6">
+                                                <span class="required">Status</span>
+                                            </label>
+                                            <!--end::Label-->
+                                            <!--begin::Col-->
+                                            <div class="col-lg-8 fv-row">
+                                                <select name="status" aria-label="Status" data-control="select"
+                                                    data-placeholder="Pilih Status"
+                                                    class="form-select form-select-solid form-select-lg">
+                                                    <option value="pending"
+                                                    <?php if($pesanan->status_pesanan == "pending")echo "selected" ?>
+                                                    >Pending</option>
+                                                    <option value="terima"
+                                                    <?php if($pesanan->status_pesanan == "terima")echo "selected" ?>
+                                                    >Terima</option>
+                                                </select>
+                                            </div>
+                                            <!--end::Col-->
+                                        </div>
+                                        {{-- //////////////////////// --}}
+                                        <div class="row mb-6">
+                                            <!--begin::Label-->
+                                            <label class="col-lg-4 col-form-label fw-semibold fs-6">
+                                                <span class="required">Penanggung Jawab</span>
+                                            </label>
+                                            <!--end::Label-->
+                                            <!--begin::Col-->
+                                            <div class="col-lg-8 fv-row">
+                                                <select name="pegawai" aria-label="Status" data-control="select"
+                                                    data-placeholder="Pilih Status"
+                                                    class="form-select form-select-solid form-select-lg">
+                                                    @foreach ($pegawai as $pegawai)
+                                                        
+                                                    <option value="{{ $pegawai->nama_pegawai }}">{{ $pegawai->nama_pegawai }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <!--end::Col-->
+                                        </div>
+                                        <!--end::Input group-->
                                     </div>
                                     <!--end::Card body-->
                                     <!--begin::Actions-->
                                     <div class="card-footer d-flex justify-content-end px-9">
-                                        <a href="{{ route('admin.user.index') }}" class="btn btn-light btn-active-light-primary me-2">Batal</a>
+                                        {{-- <a href="{{ route('admin.pesanan.index') }}" class="btn btn-light btn-active-light-primary me-2">Batal</a> --}}
                                         <button type="submit" class="btn btn-success"
                                             id="kt_account_profile_details_submit">Simpan</button>
                                     </div>

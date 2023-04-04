@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
 use Illuminate\Support\Facades\File;
+use Symfony\Component\Console\Input\Input;
 
 class ProdukController extends Controller
 {
@@ -21,35 +22,35 @@ class ProdukController extends Controller
     {
         $produk = Produk::orderBy('created_at', 'desc')->get();
         // dd($produk);
-        return view('adminpage.produkpages.produk',compact('produk'));
+        return view('adminpage.produkpages.produk', compact('produk'));
     }
 
     public function landingindex()
     {
         $produk = Produk::orderBy('created_at', 'desc')->get();
         $user = Auth::user();
-        return view('landingpage.barang.barangkanopi', compact('produk','user'));
+        return view('landingpage.barang.barangkanopi', compact('produk', 'user'));
     }
 
     public function kanopiview()
     {
-        $kanopi = Produk::where('jenis_produk','canopy')->get();
+        $kanopi = Produk::where('jenis_produk', 'canopy')->get();
         $user = Auth::user();
-        return view('landingpage.barang.barangkanopi', compact('kanopi','user'));
+        return view('landingpage.barang.barangkanopi', compact('kanopi', 'user'));
     }
 
     public function detailproduk($id)
     {
-        $produk = Produk::where('id_produk',$id)->first();
+        $produk = Produk::where('id_produk', $id)->first();
         $user = Auth::user();
-        return view('landingpage.barang.detail', compact('produk','user'));
+        return view('landingpage.barang.detail', compact('produk', 'user'));
     }
 
     public function landingdetail($id)
     {
         $kanopi = Produk::find($id);
         $user = Auth::user();
-        return view('landingpage.produk.detailproduk.kanopi', compact('kanopi','user'));
+        return view('landingpage.produk.detailproduk.kanopi', compact('kanopi', 'user'));
     }
     /**
      * Show the form for creating a new resource.
@@ -74,18 +75,18 @@ class ProdukController extends Controller
         // $path = $request->file('foto')->storeAs('Images/uploads/canopy', $filename);
         // $path = public_path() . '/uploads/canopy';
         // $request->foto->move($path, $filename);
-        $request->foto->move('Images/uploads/produk/',$filename);
+        $request->foto->move('Images/uploads/produk/', $filename);
 
         $postcanopy = Produk::create([
             "nama_produk" => $request["judul"],
             "foto" => $filename,
             "jenis_produk" => $request["jenis_produk"],
-            "harga" => str_replace(',','',$request["harga"]),
+            "harga" => str_replace(',', '', $request["harga"]),
             "keterangan" => $request["deskripsi"],
             "status" => $request["status"],
         ]);
         // Alert::success('Success', 'Data Produk has been uploaded !');
-        toast('Berhasil Ditambahkan','success')->autoClose(1500);
+        toast('Berhasil Ditambahkan', 'success')->autoClose(1500);
         return redirect('/admin/produk');
     }
 
@@ -125,7 +126,7 @@ class ProdukController extends Controller
     {
         if ($request->file('foto')) {
             $filename = time() . $request->file('foto')->getClientOriginalName();
-            $request->foto->move('Images/uploads/produk/',$filename);
+            $request->foto->move('Images/uploads/produk/', $filename);
 
             // hapus file
             $gambar = Produk::where('id', $id)->first();
@@ -135,8 +136,7 @@ class ProdukController extends Controller
             $update = Produk::where("id", $id)->update([
                 "foto" => $filename,
             ]);
-        }
-        else{
+        } else {
             $gambar = Produk::where('id_produk', $id)->first();
             $filename = $gambar->foto;
         }
@@ -145,7 +145,7 @@ class ProdukController extends Controller
             "nama_produk" => $request["judul"],
             "foto" => $filename,
             "jenis_produk" => $request["jenis_produk"],
-            "harga" => str_replace(',','',$request["harga"]),
+            "harga" => str_replace(',', '', $request["harga"]),
             "keterangan" => $request["keterangan"],
             "status" => $request["status"],
         ]);
@@ -170,14 +170,15 @@ class ProdukController extends Controller
         return redirect()->back();
     }
 
-    public function buy(Request $request){
+    public function buy(Request $request)
+    {
 
         $nama = $request->user;
-        $namakerjaan = $this->generateRandomString(2).'-'.$request->nama;
+        $namakerjaan = $this->generateRandomString(2) . '-' . $request->nama;
         $bahan = $request->bahan;
         $luas = $request->luas;
-        $harga = str_replace(',','',$request->harga);
-        $totalharga = (float)$luas * (int)$harga;
+        $harga = str_replace(',', '', $request->harga);
+        $totalharga = (float) $luas * (int) $harga;
         $keterangan = $request->keterangan;
 
         // dd($totalharga);
@@ -192,12 +193,37 @@ class ProdukController extends Controller
             "keterangan" => $keterangan,
             "status" => 'pending',
         ]);
-        toast('Pesanan Telah Dibuat','success');
+        toast('Pesanan Telah Dibuat', 'success');
         // Alert::success('Pesanan Telah Dibuat', 'Mohon Tunggu Telepon Dari Admin!');
         return redirect('/');
     }
 
-    function generateRandomString($length) {
+    public function mesanproduk(Request $request, $id)
+    {
+        $pesanan = Pesanan::where('name', $request->user)->first();
+        $cekproduk = Pesanan::where('id_produk', $id)->first();
+        if($cekproduk == null){
+        // dd($request->all());
+        $produk = Produk::where('id_produk', $id)->first();
+        // dd($produk);
+        $pesan = Pesanan::create([
+            "name" => $request->user,
+            "id_produk" => $id,
+            "nama_produk" => $produk->nama_produk,
+            "jumlah_pesanan" => $request->jumlah,
+            "tanggal_pesanan" => $request->tanggal,
+            "status_pesanan" => $request->status,
+            "total_harga" => (int)$request->jumlah * (int)$produk->harga,
+        ]);
+            return redirect('/')->with('alert', 'Pesanan Telah Dibuat!');
+        }
+        else{
+            return redirect()->route('layanan')->with('alert', 'Pesanan Sebelumnya Sudah Terbuat!');
+        }
+    }
+
+    function generateRandomString($length)
+    {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_=+[]{};:,.<>/?~!@#$%^&*()';
         $charactersLength = strlen($characters);
         $randomString = '';

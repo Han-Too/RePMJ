@@ -132,7 +132,7 @@
                 </div>
                 <div class="menu-item">
                     <!--begin:Menu link-->
-                    <a class="menu-link" href="{{ route('admin.karyawan.index') }}">
+                    <a class="menu-link" href="{{ route('admin.pegawai.index') }}">
                         <span class="menu-bullet">
                             <span class="bullet bullet-dot"></span>
                         </span>

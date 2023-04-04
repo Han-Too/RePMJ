@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pegawai;
 use App\Models\Pesanan;
+use App\Models\Produk;
+use App\Models\Transaksi;
+use Illuminate\Http\Request;
 use App\Http\Requests\StorePesananRequest;
 use App\Http\Requests\UpdatePesananRequest;
+use App\Models\DetailPesanan;
 
 class PesananController extends Controller
 {
@@ -29,8 +34,8 @@ class PesananController extends Controller
      */
     public function show($id)
     {
-        $pesanan = Pesanan::where("id_transaksi", $id)->first();
-        return view('adminpage.produkpages.editproduk', compact('produk'));
+        $pesanan = Pesanan::where("id_pesanan", $id)->first();
+        return view('adminpage.pesananpages.editpesanan', compact('pesanan'));
     }
 
     /**
@@ -41,9 +46,11 @@ class PesananController extends Controller
      */
     public function edit($id)
     {
-        $pesanan = Pesanan::where("id_produk", $id)->first();
-        // dd($pesanan);
-        return view('adminpage.produkpages.editproduk', compact('produk'));
+        $pesanan = Pesanan::where("id_pesanan", $id)->first();
+        $produk = Produk::where("id_produk", $pesanan->id_produk)->first();
+        $pegawai = Pegawai::orderBy('created_at', 'desc')->get();
+        
+        return view('adminpage.pesananpages.editpesanan', compact('pesanan','produk','pegawai'));
     }
 
     /**
@@ -55,35 +62,31 @@ class PesananController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if ($request->file('foto')) {
-            $filename = time() . $request->file('foto')->getClientOriginalName();
-            $request->foto->move('Images/uploads/produk/',$filename);
+        if($request->status === 'terima'){
+        $pesanan = Pesanan::where("id_pesanan", $id)->first();
+        $produk = Produk::where("id_produk", $pesanan->id_produk)->first();
+        // dd($request->all());
 
-            // hapus file
-            $gambar = Pesanan::where('id', $id)->first();
-            File::delete($gambar->foto);
-
-            // upload file
-            $update = Pesanan::where("id", $id)->update([
-                "foto" => $filename,
-            ]);
-        }
-        else{
-            $gambar = Pesanan::where('id_produk', $id)->first();
-            $filename = $gambar->foto;
-        }
-
-        $postcanopy = Pesanan::where("id_produk", $id)->update([
-            "nama_produk" => $request["judul"],
-            "foto" => $filename,
-            "jenis_produk" => $request["jenis_produk"],
-            "harga" => str_replace(',','',$request["harga"]),
-            "keterangan" => $request["keterangan"],
-            "status" => $request["status"],
+        $transaksi = Transaksi::create([
+            'id_pesanan' => $id,
+            "name" => $pesanan->name,
+            'id_produk' => $pesanan->id_produk,
+            "tanggal_transaksi" => $request->tanggal,
+            'jumlah_produk' => $pesanan->jumlah_pesanan,
+            "total_harga" => $pesanan->total_harga,
+            'nama_pegawai' => $request->pegawai,
+            "status_transaksi" => "proses",
         ]);
+        Pesanan::where('id_pesanan', $id)->delete();
+
         // Alert::success('Success', 'Data Canopy has been Edited !');
-        toast('Canopy has been edited !', 'success')->autoClose(1500)->width('400px');
-        return redirect('/admin/produk');
+        toast('Pesanan Telah Diterima !', 'success')->autoClose(1500)->width('400px');
+        return redirect()->route('admin.pesanan.index');
+        }
+        else {
+            toast('Pesanan Masih Pending !', 'warning')->autoClose(1500)->width('400px');
+            return redirect()->route('admin.pesanan.index');
+        }
     }
 
     /**
@@ -94,40 +97,10 @@ class PesananController extends Controller
      */
     public function destroy($id)
     {
-        $gambar = Pesanan::where('id_produk', $id)->first();
-        File::delete($gambar->foto);
-
-        // hapus data
-        Pesanan::where('id_produk', $id)->delete();
+        Pesanan::where('id_pesanan', $id)->delete();
         return redirect()->back();
     }
 
-    public function buy(Request $request){
-
-        $nama = $request->user;
-        $namakerjaan = $this->generateRandomString(2).'-'.$request->nama;
-        $bahan = $request->bahan;
-        $luas = $request->luas;
-        $harga = str_replace(',','',$request->harga);
-        $totalharga = (float)$luas * (int)$harga;
-        $keterangan = $request->keterangan;
-
-        // dd($totalharga);
-
-        $kerjaan = Pesanan::create([
-            "name" => $nama,
-            "namapekerjaan" => $namakerjaan,
-            "bahan" => $bahan,
-            "luas" => $luas,
-            "harga" => $harga,
-            "totalharga" => $totalharga,
-            "keterangan" => $keterangan,
-            "status" => 'pending',
-        ]);
-        toast('Pesanan Telah Dibuat','success');
-        // Alert::success('Pesanan Telah Dibuat', 'Mohon Tunggu Telepon Dari Admin!');
-        return redirect('/');
-    }
 
     function generateRandomString($length) {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_=+[]{};:,.<>/?~!@#$%^&*()';

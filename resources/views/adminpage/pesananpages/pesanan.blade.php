@@ -66,9 +66,12 @@
                                     <thead  class="fw-bold bg-success">
                                         <!--begin::Table row-->
                                         <tr  style="line-height: 40px" class="text-start text-light fw-bold fs-7 text-uppercase gs-0">
-                                            <th class="text-center min-w-150px">ID Pesanan</th>
+                                            <th class="text-center min-w-150px">ID</th>
                                             <th class="text-center min-w-70px">Nama Pemesan</th>
-                                            <th class="text-center min-w-100px">Tanggal Pesanan</th>
+                                            <th class="text-center min-w-100px">Produk</th>
+                                            <th class="text-center min-w-100px">Tanggal</th>
+                                            <th class="text-center min-w-70px">Jumlah</th>
+                                            <th class="text-center min-w-70px">Total Harga</th>
                                             <th class="text-center min-w-100px">Status</th>
                                             <th class="text-center min-w-70px">Actions</th>
                                         </tr>
@@ -88,29 +91,42 @@
                                             <td class="text-center pe-0">
                                                 <span class="fw-bold ms-3 text-dark">{{ $pesanan->name }}</span>
                                             </td>
+
+                                            <td class="text-center pe-0">
+                                                <span class="fw-bold ms-3 text-dark">{{ $pesanan->nama_produk }}</span>
+                                            </td>
+                                            
                                             <!--begin::SKU=-->
                                             <td class="text-center pe-0">
                                                 <span class="fw-bold text-dark">{{ $pesanan->tanggal_pesanan }}</span>
+                                            </td>
+                                            
+                                            <td class="text-center pe-0">
+                                                <span class="fw-bold text-dark">{{ $pesanan->jumlah_pesanan }}</span>
+                                            </td>
+
+                                            <td class="text-center pe-0">
+                                                <span class="fw-bold text-dark">{{ $pesanan->total_harga }}</span>
                                             </td>
                                             <!--end::SKU=-->
                                             <!--begin::Status=-->
                                             <td class="text-center pe-0" data-order="Published">
                                                 <!--begin::Badges-->
-                                                <span class="badge badge-light-success">Selesai</span>
-                                                {{-- @if ($pesanan->status == 'tersedia')
-                                                    <span class="badge badge-light-success">Tersedia</span>
+                                                {{-- <span class="badge badge-light-success">Selesai</span> --}}
+                                                @if ($pesanan->status_pesanan == 'pending')
+                                                    <span class="badge badge-light-warning">Pending</span>
                                                 @else
-                                                    <span class="badge badge-light-danger">Tidak Tersedia</span>
-                                                @endif --}}
+                                                    <span class="badge badge-light-success">Diterima</span>
+                                                @endif
                                                 <!--end::Badges-->
                                             </td>
                                             <!--end::Status=-->
                                             <!--begin::Action=-->
                                             <td class="text-center">
                                                 <div class="d-flex flex-row justify-content-center">
-                                                    <div class="p-2"><a href="/admin/produk/{{ $pesanan->id_transaksi }}/edit"
+                                                    <div class="p-2"><a href="/admin/pesanan/{{ $pesanan->id_pesanan }}/edit"
                                                         class="btn btn-success btn-lg">Ubah</a></div>
-                                                    <div class="p-2"><a onclick="deleteConfirmation({{ $pesanan->id_produk }})"
+                                                    <div class="p-2"><a onclick="deleteConfirmation({{ $pesanan->id_pesanan }})"
                                                         id="delete-produk" class="btn btn-danger btn-lg"
                                                         data-kt-ecommerce-product-filter="delete_row">Hapus</a></div>
                                                 </div>
@@ -180,14 +196,14 @@
 
                     $.ajax({
                         type: "get",
-                        url: `{{ url('/admin/transaksi/${id}/destroy') }}`,
+                        url: `{{ url('/admin/pesanan/${id}/destroy') }}`,
                         success: function(data) {
                             setTimeout(function() {
                                 location.reload(1);
                             }, 300);
                             Toast.fire({
                                 icon: 'success',
-                                title: 'Transaksi Telah Dihapus !'
+                                title: 'Admin Telah Dihapus !'
                             });
                         }
                     });

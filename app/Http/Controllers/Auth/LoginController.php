@@ -55,11 +55,11 @@ class LoginController extends Controller
                 return redirect()->route('admin');
             } else if (auth()->user()->role === 'user') {
                 // Alert::success('USER', 'You\'ve Successfully Registered');
-                return redirect('/')->with('status','Berhasil Login');;
+                return redirect('/')->with('alert','Berhasil Login');;
             } 
             else {
-                Alert::error('error', 'You\'ve unRegistered');
-                return redirect()->route('/');
+                // Alert::error('error', 'You\'ve unRegistered');
+                return redirect()->route('/')->with('alert', 'Akun Tidak Ditemukan');
             }
         } else {
             Alert::error('error', 'login lah masbro');

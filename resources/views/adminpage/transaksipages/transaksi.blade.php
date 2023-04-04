@@ -102,12 +102,12 @@
                                             <!--begin::Status=-->
                                             <td class="text-center pe-0" data-order="Published">
                                                 <!--begin::Badges-->
-                                                <span class="badge badge-light-success">Selesai</span>
-                                                {{-- @if ($transaksi->status == 'tersedia')
-                                                    <span class="badge badge-light-success">Tersedia</span>
+                                                {{-- <span class="badge badge-light-success">Selesai</span> --}}
+                                                @if ($transaksi->status_transaksi == 'proses')
+                                                    <span class="badge badge-light-primary">Sedang Proses</span>
                                                 @else
-                                                    <span class="badge badge-light-danger">Tidak Tersedia</span>
-                                                @endif --}}
+                                                    <span class="badge badge-light-success">Selesai</span>
+                                                @endif
                                                 <!--end::Badges-->
                                             </td>
                                             <!--end::Status=-->

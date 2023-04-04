@@ -30,6 +30,7 @@
 <!--begin::Body-->
 
 <body id="kt_body" class="app-blank app-blank bgi-size-cover bgi-position-center bgi-no-repeat">
+    
     <!--begin::Theme mode setup on page load-->
     <script>
         var defaultThemeMode = "light";
@@ -185,6 +186,7 @@
     <script src="adminpanel/js/custom/authentication/sign-in/general.js"></script>
     <!--end::Custom Javascript-->
     <!--end::Javascript-->
+    
 </body>
 <!--end::Body-->
 

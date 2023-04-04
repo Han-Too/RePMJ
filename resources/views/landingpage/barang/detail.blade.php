@@ -48,23 +48,24 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="{{ route('/') }}">
+                    <form method="post" action="/produk/buy/{{ $produk->id_produk }}">
                         @method('POST')
                         @csrf
                         <div class="mb-3">
-                            <label for="user" class="col-form-label">User :</label>
+                            <label for="user" class="col-form-label">Nama :</label>
                             <input type="text" required class="form-control" id="user" name="user">
                             <input type="hidden" class="form-control" name="harga" value="{{ $produk->harga }}">
-                            <input type="hidden" class="form-control" name="bahan" value="{{ $produk->bahan }}">
-                            <input type="hidden" class="form-control" name="nama" value="{{ $produk->judul }}">
+                            <input type="hidden" name="tanggal" value="<?php echo date('Y-m-d');?>">
+                            <input type="hidden" name="status" value="pending">
+                            {{-- <input type="date" class="form-control" name="tanggal" value="{{ $produk->judul }}"> --}}
                         </div>
                         <div class="mb-3">
-                            <label for="luas" class="col-form-label">Luas :</label>
-                            <input type="number" required class="form-control" id="luas" name="luas">
+                            <label for="barang" class="col-form-label">Barang Pesanan :</label>
+                            <input type="text" readonly required class="form-control" id="barang" name="barang" value="{{ $produk->nama_produk }}">
                         </div>
                         <div class="mb-3">
-                            <label for="Keterangan" class="col-form-label">Keterangan :</label>
-                            <textarea class="form-control" required id="Keterangan" name="keterangan"></textarea>
+                            <label for="harga" class="col-form-label">Harga :</label>
+                            <input type="text" readonly required class="form-control" id="harga" name="harga" value="{{ $produk->harga }}">
                         </div>
                 </div>
                 <div class="modal-footer">
@@ -86,26 +87,29 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="{{ route('buykanopi') }}">
+                    <form method="post" action="/produk/buy/{{ $produk->id_produk }}">
                         @method('POST')
                         @csrf
                         <div class="mb-3">
-                            <label for="user" class="col-form-label">User :</label>
+                            <label for="user" class="col-form-label">Nama :</label>
                             <input type="text" readonly class="form-control" id="user" name="user"
                                 value="{{ $user->name }}">   
-                            <input type="hidden" class="form-control" name="harga" value="{{ $produk->harga }}">
-                            <input type="hidden" class="form-control" name="bahan" value="{{ $produk->bahan }}">
-                            <input type="hidden" class="form-control" name="nama" value="{{ $produk->judul }}">
+                                <input type="hidden" class="form-control" name="harga" value="{{ $produk->harga }}">
+                                <input type="hidden" name="tanggal" value="<?php echo date('Y-m-d');?>">
+                                <input type="hidden" name="status" value="pending">
                         </div>
                         <div class="mb-3">
-                            <label for="luas" class="col-form-label">Luas :</label>
-                            <input type="number" required class="form-control" id="luas" name="luas">
+                            <label for="barang" class="col-form-label">Barang Pesanan :</label>
+                            <input type="text" required readonly class="form-control" id="barang" name="barang" value="{{ $produk->nama_produk }}">
                         </div>
                         <div class="mb-3">
-                            <label for="Keterangan" class="col-form-label">Keterangan :</label>
-                            <textarea class="form-control" required id="Keterangan" name="keterangan"></textarea>
+                            <label for="harga" class="col-form-label">Harga :</label>
+                            <input type="text" required readonly class="form-control" id="harga" name="harga" value="{{ $produk->harga }}">
                         </div>
-
+                        <div class="mb-3">
+                            <label for="jumlah" class="col-form-label">Jumlah Pesanan :</label>
+                            <input type="number" required class="form-control" id="jumlah" name="jumlah" >
+                        </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
@@ -165,10 +169,9 @@
                                             style="border-radius: 5px">Beli
                                             Sekarang</a> --}}
                                         @if (Auth::guest())
-                                            <a href="#" class="btn btn-success btn-block py-3"
-                                                data-bs-toggle="modal" data-bs-target="#modal_nonlogin"
-                                                style="border-radius: 5px">Beli
-                                                Sekarang</a>
+                                            <a href="{{ route('register') }}" class="btn btn-success btn-block py-3"
+                                                
+                                                style="border-radius: 5px">Buat Akun Untuk Membeli Barang</a>
                                         @else
                                             <a href="#" class="btn btn-success btn-block py-3"
                                                 data-bs-toggle="modal" data-bs-target="#modal_login"

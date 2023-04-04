@@ -1,7 +1,7 @@
 @extends('adminpage.index')
 
 @extends('adminpage.adminlayout.headhtml')
-@section('headjudul', 'Tambah Karyawan')
+@section('headjudul', 'Edit Pegawai')
 
 @section('tambahan')
     <style>
@@ -29,7 +29,7 @@
                         <!--begin::Header-->
                         <div class="card-header border-0 pt-5">
                             <h3 class="card-title align-items-start flex-column">
-                                <span class="card-label fw-bold fs-3 mb-1">Tambah Produk Karyawan</span>
+                                <span class="card-label fw-bold fs-3 mb-1">Edit Data Pegawai</span>
                                 {{-- <span class="text-muted mt-1 fw-semibold fs-7">Tambah atau Edit Data Karyawan</span> --}}
                             </h3>
 
@@ -39,40 +39,24 @@
                         <div class="card-body pt-3">
                             <div id="kt_account_settings_profile_details" class="collapse show">
                                 <!--begin::Form-->
-                                <form id="" class="form" action='/admin/karyawan/store' method='post'
+                                <form id="" class="form" action='/admin/pegawai/{{$pegawai->id_pegawai}}/update' method='post'
                                     enctype="multipart/form-data">
                                     @csrf
-                                    @method('POST')
+                                    @method('PUT')
                                     <!--begin::Card body-->
                                     <div class="card-body border-top p-9">
                                         <!--begin::Input group-->
                                         <div class="row mb-6">
                                             <!--begin::Label-->
                                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">
-                                                Nama Karyawan
+                                                Nama Pegawai
                                             </label>
                                             <!--end::Label-->
                                             <!--begin::Col-->
                                             <div class="col-lg-8 fv-row">
                                                 <input type="text" name="nama"
                                                     class="form-control form-control-lg form-control-solid"
-                                                    placeholder="Isikan Nama" value="" />
-                                            </div>
-                                            <!--end::Col-->
-                                        </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Input group-->
-                                        <div class="row mb-6">
-                                            <!--begin::Label-->
-                                            <label class="col-lg-4 col-form-label fw-semibold fs-6">
-                                                <span class="required">Email</span>
-                                            </label>
-                                            <!--end::Label-->
-                                            <!--begin::Col-->
-                                            <div class="col-lg-8 fv-row">
-                                                <input type="email" name="email" 
-                                                    class="form-control form-control-lg form-control-solid"
-                                                    placeholder="Isikan Email" value=""  id="inputBiayaDonasi" />
+                                                    placeholder="Isikan Nama" value="{{old('nama', $pegawai->nama_pegawai)}}" />
                                             </div>
                                             <!--end::Col-->
                                         </div>
@@ -88,7 +72,24 @@
                                             <div class="col-lg-8 fv-row">
                                                 <input type="number" name="telepon"
                                                     class="form-control form-control-lg form-control-solid"
-                                                    placeholder="Isikan Telepon" value="" />
+                                                    placeholder="Isikan Jenis Material" value="{{old('telepon', $pegawai->telepon)}}" />
+                                            </div>
+                                            <!--end::Col-->
+                                        </div>
+                                        
+                                        <!--end::Input group-->
+                                        <!--begin::Input group-->
+                                        <div class="row mb-6">
+                                            <!--begin::Label-->
+                                            <label class="col-lg-4 col-form-label fw-semibold fs-6">
+                                                <span class="required">Email</span>
+                                            </label>
+                                            <!--end::Label-->
+                                            <!--begin::Col-->
+                                            <div class="col-lg-8 fv-row">
+                                                <input type="email" name="email"
+                                                    class="form-control form-control-lg form-control-solid"
+                                                    placeholder="Isikan Email" value="{{old('email', $pegawai->email)}}"  />
                                             </div>
                                             <!--end::Col-->
                                         </div>
@@ -96,17 +97,17 @@
                                         <!--begin::Input group-->
                                         <div class="row mb-6">
                                             <!--begin::Label-->
-                                            <label class="col-lg-4 col-form-label required fw-semibold fs-6">Status</label>
+                                            <label class="col-lg-4 col-form-label required fw-semibold fs-6">Jabatan</label>
                                             <!--end::Label-->
                                             <!--begin::Col-->
                                             <div class="col-lg-8 fv-row">
                                                 <!--begin::Input-->
-                                                <select name="status" aria-label="Status" data-control="select2"
+                                                <select name="jabatan" aria-label="Status" data-control="select"
                                                     data-placeholder="Pilih Status"
                                                     class="form-select form-select-solid form-select-lg">
-                                                    <option value="">Select a Status</option>
-                                                    <option value="aktif">Aktif</option>
-                                                    <option value="tidakaktif">Tidak Aktif</option>
+                                                    <option value="Karyawan"
+                                                    <?php if($pegawai->jabatan == "Karyawan")echo "selected" ?>
+                                                    >Karyawan</option>
                                                 </select>
                                                 <!--end::Input-->
                                             </div>
@@ -118,9 +119,9 @@
                                     <!--end::Card body-->
                                     <!--begin::Actions-->
                                     <div class="card-footer d-flex justify-content-end px-9">
-                                        <a href="{{ route('admin.karyawan.index') }}"
-                                            class="btn btn-light btn-active-light-primary me-2">Batal</a>
-                                        <button type="submit" class="btn btn-primary"
+                                        {{-- <a href="{{ route('admin.pegawai.index') }}"
+                                            class="btn btn-light btn-active-light-primary me-2">Batal</a> --}}
+                                        <button type="submit" class="btn btn-success"
                                             id="kt_account_profile_details_submit">Simpan</button>
                                     </div>
                                     <!--end::Actions-->

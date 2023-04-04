@@ -15,11 +15,11 @@
                     <div class="service-item bg-light overflow-hidden h-100">
                         <img class="img-fluid" src="{{ asset('Images/uploads/produk') }}/{{ $produk->foto }}" alt="" />
                         <div class="service-text position-relative text-center h-100 p-4">
-                            <h5 class="mb-3">{{ $produk->nama_produk }}</h5>
-                            <p>
+                            <a href="/produk/detail/{{ $produk->id_produk }}" class="h5 mb-5">{{ $produk->nama_produk }}</a>
+                            <p class="mt-3">
                                 {{ $produk->keterangan }}
                             </p>
-                            <a class="small" href="/admin/produk/detail/{{ $produk->id_produk }}">Selengkapnya<i class="fa fa-arrow-right ms-3"></i></a>
+                            <a class="small" href="/produk/detail/{{ $produk->id_produk }}">Selengkapnya<i class="fa fa-arrow-right ms-3"></i></a>
                         </div>
                     </div>
                 </div>
