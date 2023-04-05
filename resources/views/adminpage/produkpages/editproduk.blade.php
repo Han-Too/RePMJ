@@ -117,6 +117,19 @@
                                             <!--end::Col-->
                                         </div>
                                         <!--end::Input group-->
+                                        <div class="row mb-6">
+                                            <!--begin::Label-->
+                                            <label class="col-lg-4 col-form-label required fw-semibold fs-6">Jenis
+                                                Material</label>
+                                            <!--end::Label-->
+                                            <!--begin::Col-->
+                                            <div class="col-lg-8 fv-row">
+                                                <input type="text" name="bahan"
+                                                    class="form-control form-control-lg form-control-solid"
+                                                    placeholder="Isikan Jenis Material" value="{{old('bahan', $produk->bahan)}}" />
+                                            </div>
+                                            <!--end::Col-->
+                                        </div>
                                         <!--begin::Input group-->
                                         <div class="row mb-6">
                                             <!--begin::Label-->

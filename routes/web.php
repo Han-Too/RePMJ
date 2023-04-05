@@ -64,7 +64,7 @@ Route::get('/admin/transaksi/{id}/edit', [TransaksiController::class, 'edit'])->
 Route::put('/admin/transaksi/{id}/update', [TransaksiController::class, 'update'])->name('admin.transaksi.update')->middleware('is_admin');
 Route::get('/admin/transaksi/{id}/destroy', [TransaksiController::class, 'destroy'])->name('admin.transaksi.destroy')->middleware('is_admin');
 Route::get('/admin/transaksi/{id}/preview', [TransaksiController::class, 'show'])->name('admin.transaksi.preview')->middleware('is_admin');
-
+Route::get('/admin/transaksi/{id}/cetak', [TransaksiController::class, 'print'])->name('admin.transaksi.print')->middleware('is_admin');
 
 // -----------------------PESANAN---------------------------
 Route::get('/admin/pesanan', [PesananController::class, 'index'])->name('admin.pesanan.index')->middleware('is_admin');

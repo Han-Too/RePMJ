@@ -63,14 +63,17 @@
                             <div class="table-responsive">
                                 <table class="table table-data align-middle table-row-dashed table-data fs-6 gy-5">
                                     <!--begin::Table head-->
-                                    <thead  class="fw-bold bg-success">
+                                    <thead class="fw-bold bg-success">
                                         <!--begin::Table row-->
-                                        <tr  style="line-height: 40px" class="text-start text-light fw-bold fs-7 text-uppercase gs-0">
+                                        <tr style="line-height: 40px"
+                                            class="text-start text-light fw-bold fs-7 text-uppercase gs-0">
                                             <th class="text-center min-w-150px">ID Transaksi</th>
-                                            <th class="text-center min-w-70px">Nama Transaksi</th>
+                                            <th class="text-center min-w-70px">Nama Pelanggan</th>
+                                            <th class="text-center min-w-70px">ID Produk</th>
                                             <th class="text-center min-w-100px">Tanggal Transaksi</th>
                                             <th class="text-center min-w-150px">Total Harga</th>
                                             <th class="text-center min-w-100px">Status</th>
+                                            <th class="text-center min-w-150px">PJ</th>
                                             <th class="text-center min-w-70px">Actions</th>
                                         </tr>
                                         <!--end::Table row-->
@@ -79,57 +82,81 @@
                                     <!--begin::Table body-->
                                     <tbody class="fw-semibold text-gray-600">
                                         @forelse ($transaksi as $transaksi)
-                                        <tr>
-                                            <!--begin::Category=-->
-                                            <td class="text-center pe-0">
-                                                <span class="fw-bold ms-3 text-dark">{{ $transaksi->id_transaksi }}</span>
-                                            </td>
-                                            <!--end::Category=-->
-                                            
-                                            <td class="text-center pe-0">
-                                                <span class="fw-bold ms-3 text-dark">{{ $transaksi->name }}</span>
-                                            </td>
-                                            <!--begin::SKU=-->
-                                            <td class="text-center pe-0">
-                                                <span class="fw-bold text-dark">{{ $transaksi->tanggal_transaksi }}</span>
-                                            </td>
-                                            <!--end::SKU=-->
-                                            <!--begin::Price=-->
-                                            <td class="text-center pe-0">
-                                                <span class="fw-bold text-dark">{{ $transaksi->total_harga }}</span>
-                                            </td>
-                                            <!--end::Price=-->
-                                            <!--begin::Status=-->
-                                            <td class="text-center pe-0" data-order="Published">
-                                                <!--begin::Badges-->
-                                                {{-- <span class="badge badge-light-success">Selesai</span> --}}
-                                                @if ($transaksi->status_transaksi == 'proses')
-                                                    <span class="badge badge-light-primary">Sedang Proses</span>
+                                            <tr>
+                                                <!--begin::Category=-->
+                                                <td class="text-center pe-0">
+                                                    <span
+                                                        class="fw-bold ms-3 text-dark">{{ $transaksi->id_transaksi }}</span>
+                                                </td>
+                                                <!--end::Category=-->
+
+                                                <td class="text-center pe-0">
+                                                    <span class="fw-bold ms-3 text-dark">{{ $transaksi->name }}</span>
+                                                </td>
+
+                                                <td class="text-center pe-0">
+                                                    <span class="fw-bold ms-3 text-dark">{{ $transaksi->id_produk }}</span>
+                                                </td>
+                                                <!--begin::SKU=-->
+                                                <td class="text-center pe-0">
+                                                    <span
+                                                        class="fw-bold text-dark">{{ $transaksi->tanggal_transaksi }}</span>
+                                                </td>
+                                                <!--end::SKU=-->
+                                                <!--begin::Price=-->
+                                                <td class="text-center pe-0">
+                                                    <span class="fw-bold text-dark">{{ $transaksi->total_harga }}</span>
+                                                </td>
+                                                <!--end::Price=-->
+                                                <!--begin::Status=-->
+                                                <td class="text-center pe-0" data-order="Published">
+                                                    <!--begin::Badges-->
+                                                    {{-- <span class="badge badge-light-success">Selesai</span> --}}
+                                                    @if ($transaksi->status_transaksi == 'proses')
+                                                        <span class="badge badge-light-warning">Sedang Proses</span>
+                                                    @elseif ($transaksi->status_transaksi == 'selesai')
+                                                        <span class="badge badge-light-success">Selesai</span>
+                                                    @else
+                                                        <span class="badge badge-light-info">Sedang Dikirim</span>
+                                                    @endif
+                                                    <!--end::Badges-->
+                                                </td>
+                                                <td class="text-center pe-0">
+                                                    <span class="fw-bold text-dark">{{ $transaksi->nama_pegawai }}</span>
+                                                </td>
+                                                <!--end::Status=-->
+                                                <!--begin::Action=-->
+                                                @if ($transaksi->status_transaksi === 'selesai')
+                                                    <td>
+                                                        <div class="d-flex flex-row justify-content-center">
+                                                            <div class="p-2"><a
+                                                                    href="/admin/transaksi/{{ $transaksi->id_transaksi }}/cetak"
+                                                                    class="btn btn-info btn-lg">Cetak</a></div>
+                                                        </div>
+                                                    </td>
                                                 @else
-                                                    <span class="badge badge-light-success">Selesai</span>
+                                                <td class="text-center">
+                                                    <div class="d-flex flex-row justify-content-center">
+                                                        <div class="p-2"><a
+                                                                href="/admin/transaksi/{{ $transaksi->id_transaksi }}/edit"
+                                                                class="btn btn-success btn-lg">Ubah</a></div>
+                                                        <div class="p-2"><a
+                                                                onclick="deleteConfirmation({{ $transaksi->id_produk }})"
+                                                                id="delete-produk" class="btn btn-danger btn-lg"
+                                                                data-kt-ecommerce-product-filter="delete_row">Hapus</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
                                                 @endif
-                                                <!--end::Badges-->
-                                            </td>
-                                            <!--end::Status=-->
-                                            <!--begin::Action=-->
-                                            <td class="text-center">
-                                                <div class="d-flex flex-row justify-content-center">
-                                                    <div class="p-2"><a href="/admin/produk/{{ $transaksi->id_transaksi }}/edit"
-                                                        class="btn btn-success btn-lg">Ubah</a></div>
-                                                    <div class="p-2"><a onclick="deleteConfirmation({{ $transaksi->id_produk }})"
-                                                        id="delete-produk" class="btn btn-danger btn-lg"
-                                                        data-kt-ecommerce-product-filter="delete_row">Hapus</a></div>
-                                                </div>
-                                            </td>
-                                            <!--end::Action=-->
-                                        </tr>
+                                                <!--end::Action=-->
+                                            </tr>
                                         @empty
                                             <tr>
                                                 <td colspan="6" class="text-center">
                                                     Data Masih Kosong
                                                 </td>
                                             </tr>
-                                        @endforelse 
+                                        @endforelse
                                     </tbody>
                                     <!--end::Table body-->
                                 </table>

@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pegawai;
 use App\Models\Transaksi;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreTransaksiRequest;
 use App\Http\Requests\UpdateTransaksiRequest;
+use App\Models\Laporan;
+use App\Models\Produk;
 
 class TransaksiController extends Controller
 {
@@ -30,7 +34,7 @@ class TransaksiController extends Controller
     public function show($id)
     {
         $transaksi = Transaksi::where("id_transaksi", $id)->first();
-        return view('adminpage.produkpages.editproduk', compact('produk'));
+        return view('adminpage.produkpages.editproduk', compact('transaksi'));
     }
 
     /**
@@ -41,9 +45,11 @@ class TransaksiController extends Controller
      */
     public function edit($id)
     {
-        $transaksi = Transaksi::where("id_produk", $id)->first();
+        $transaksi = Transaksi::where("id_transaksi", $id)->first();
+        $produk = Produk::where("id_produk", $id)->first();
+        $pegawai = Pegawai::orderBy('created_at', 'desc')->get();
         // dd($transaksi);
-        return view('adminpage.produkpages.editproduk', compact('produk'));
+        return view('adminpage.transaksipages.edittransaksi', compact('transaksi','produk','pegawai'));
     }
 
     /**
@@ -55,36 +61,41 @@ class TransaksiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if ($request->file('foto')) {
-            $filename = time() . $request->file('foto')->getClientOriginalName();
-            $request->foto->move('Images/uploads/produk/',$filename);
 
-            // hapus file
-            $gambar = Transaksi::where('id', $id)->first();
-            File::delete($gambar->foto);
-
-            // upload file
-            $update = Transaksi::where("id", $id)->update([
-                "foto" => $filename,
-            ]);
-        }
-        else{
-            $gambar = Transaksi::where('id_produk', $id)->first();
-            $filename = $gambar->foto;
-        }
-
-        $postcanopy = Transaksi::where("id_produk", $id)->update([
-            "nama_produk" => $request["judul"],
-            "foto" => $filename,
-            "jenis_produk" => $request["jenis_produk"],
-            "harga" => str_replace(',','',$request["harga"]),
-            "keterangan" => $request["keterangan"],
-            "status" => $request["status"],
+        $update = Transaksi::where("id_transaksi", $id)->update([
+            "id_pesanan" => $request->idpesanan,
+            "name" => $request->nama,
+            "id_produk" => $request->idproduk,
+            "tanggal_transaksi" => $request->tanggal,
+            "jumlah_produk" => $request->jumlah,
+            "total_harga" => $request->totalharga,
+            "nama_pegawai" => $request->pegawai,
+            "status_transaksi" => $request->status,
         ]);
+
+        if($request->status === "selesai"){
+            $produk = Produk::where("id_produk",$request->idproduk)->first();
+            // dd($request->totalharga);
+            $update = Laporan::create([
+                "id_transaksi" => $id,
+                "id_produk" => $request->idproduk,
+                "judul_pekerjaan" => "Laporan Pekerjaan ".$request->nama,
+                "nama_pekerjaan" => $produk->nama_produk,
+                "bahan" => $request->tanggal,
+                "jumlah" => $request->jumlah,
+                "harga" => $produk->harga,
+                "totalharga" => $request->totalharga,
+
+            ]);
+            toast('Data Transaksi Telah Diselesaikan !', 'success')->autoClose(1500)->width('400px');
+            return redirect('/admin/transaksi');
+        }
+        else {
         // Alert::success('Success', 'Data Canopy has been Edited !');
-        toast('Canopy has been edited !', 'success')->autoClose(1500)->width('400px');
-        return redirect('/admin/produk');
+        toast('Data Transaksi Telah Dirubah !', 'success')->autoClose(1500)->width('400px');
+        return redirect('/admin/transaksi');
     }
+}
 
     /**
      * Remove the specified resource from storage.
@@ -94,9 +105,6 @@ class TransaksiController extends Controller
      */
     public function destroy($id)
     {
-        $gambar = Transaksi::where('id_produk', $id)->first();
-        File::delete($gambar->foto);
-
         // hapus data
         Transaksi::where('id_produk', $id)->delete();
         return redirect()->back();
@@ -114,7 +122,7 @@ class TransaksiController extends Controller
 
         // dd($totalharga);
 
-        $kerjaan = Pesanan::create([
+        $kerjaan = Transaksi::create([
             "name" => $nama,
             "namapekerjaan" => $namakerjaan,
             "bahan" => $bahan,
@@ -127,6 +135,19 @@ class TransaksiController extends Controller
         toast('Pesanan Telah Dibuat','success');
         // Alert::success('Pesanan Telah Dibuat', 'Mohon Tunggu Telepon Dari Admin!');
         return redirect('/');
+    }
+
+    public function print($id)
+    {
+        $data = Laporan::where('id_transaksi', $id)->first();
+        $produk = Produk::where('id_produk', $data->id_produk)->first();
+
+        return view('adminpage.transaksipages.printlaporan',
+            compact(
+                'data',
+                'produk',
+            )
+        );
     }
 
     function generateRandomString($length) {

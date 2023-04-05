@@ -46,23 +46,6 @@
             <a class="nav-item nav-link" href="{{ route('profile') }}">Tentang Kami</a>
             <a class="nav-item nav-link" href="{{ route('kontak') }}">Kontak Kami</a>
             <a class="nav-item nav-link" href="{{ route('layanan') }}">Layanan Kami</a>
-            {{-- <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Layanan</a>
-                <div class="dropdown-menu bg-light m-0">
-                    <a href="{{ route('kanopi') }}" class="dropdown-item">Canopy</a>
-                    <a href="{{ route('pagarbesi') }}" class="dropdown-item">Pagar Besi</a>
-                    <a href="{{ route('pintubesi') }}" class="dropdown-item">Pintu Besi</a>
-                    <a href="{{ route('pintukasa') }}" class="dropdown-item">Pintu Kasa Nyamuk</a>
-                    <a href="{{ route('teralisjendela') }}" class="dropdown-item">Teralis Jendela</a>
-                    <a href="{{ route('teralispintu') }}" class="dropdown-item">Teralis Pintu</a>
-                    <a href="{{ route('railingbalkon') }}" class="dropdown-item">Railing Balkon</a>
-                    <a href="{{ route('railingtangga') }}" class="dropdown-item">Railing Tangga</a>
-                    <a href="{{ route('henderson') }}" class="dropdown-item">Pintu Henderson</a>
-                    <a href="{{ route('tanggaputar') }}" class="dropdown-item">Tangga Putar</a>
-                    <a href="{{ route('tanggabesi') }}" class="dropdown-item">Tangga Besi</a>
-                    <a href="{{ route('menaratangkiair') }}" class="dropdown-item">Menara Tangki Air</a>
-                </div>
-            </div> --}}
             @guest
                 @if (Route::has('login'))
                     <a class="nav-item nav-link" href="{{ route('login') }}">Login</a>
@@ -79,8 +62,16 @@
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         Menu
                     </a> --}}
-                    @if (auth()->user()->is_admin == 1)
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                @if (auth()->user()->is_admin == 1)
+                    <a class="nav-item nav-link" href="{{ route('admin') }}">Admin Panel</a>
+                    <a class="nav-item nav-link" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                    {{-- <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('admin') }}">
                                 Admin Panel
                             </a>
@@ -89,13 +80,11 @@
                                 {{ __('Logout') }}
                             </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </div>
-                    @else
-                    <a onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="nav-item nav-link" href="{{ route('logout') }}">Logout</a>
-                        {{-- <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        </div> --}}
+                @else
+                    <a onclick="event.preventDefault();document.getElementById('logout-form').submit();"
+                        class="nav-item nav-link" href="{{ route('logout') }}">Logout</a>
+                    {{-- <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item"  href="{{ route('userprofile') }}">
                                 Profil Saya
                             </a>
@@ -104,14 +93,14 @@
                                 {{ __('Logout') }}
                             </a>
 --}}
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </div> 
-                {{-- </li> --}}
-                @endif
-            @endguest
-        </div>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+            </div>
+            {{-- </li> --}}
+            @endif
+        @endguest
+    </div>
     </div>
 </nav>
 <!-- Navbar End -->
