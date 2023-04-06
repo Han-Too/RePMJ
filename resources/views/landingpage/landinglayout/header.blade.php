@@ -82,6 +82,7 @@
 
                         </div> --}}
                 @else
+                    <a class="nav-item nav-link" href="{{ route('cekpesanan') }}">Pesanan</a>
                     <a onclick="event.preventDefault();document.getElementById('logout-form').submit();"
                         class="nav-item nav-link" href="{{ route('logout') }}">Logout</a>
                     {{-- <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

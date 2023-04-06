@@ -70,7 +70,7 @@
                     <td colspan="4" class="text-center fw-bold">
                         Total Keseluruhan
                     </td>
-                    <td colspan="2">
+                    <td colspan="2" class="text-center">
                         Rp. {{ number_format($data->totalharga) }}
                     </td>
                 </tr>

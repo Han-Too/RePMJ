@@ -39,8 +39,8 @@
                         <div class="card-body pt-3">
                             <div id="kt_account_settings_profile_details" class="collapse show">
                                 <!--begin::Form-->
-                                <form id="" class="form" action='/admin/produk/{{$produk->id_produk}}/update' method='post'
-                                    enctype="multipart/form-data">
+                                <form id="" class="form" action='/admin/produk/{{ $produk->id_produk }}/update'
+                                    method='post' enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
                                     <!--begin::Card body-->
@@ -53,12 +53,18 @@
                                             <!--begin::Col-->
                                             <div class="col-lg-8">
                                                 <!--begin::Image input-->
-                                                <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3" data-kt-image-input="true">
+                                                <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3"
+                                                    data-kt-image-input="true">
                                                     <!--begin::Preview existing avatar-->
-                                                    <div class="image-input-wrapper w-300px h-300px" style="background-image: url({{ asset('Images/uploads/produk/'.$produk->foto) }})"></div>
+                                                    <div class="image-input-wrapper w-300px h-300px"
+                                                        style="background-image: url({{ asset('Images/uploads/produk/' . $produk->foto) }})">
+                                                    </div>
                                                     <!--end::Preview existing avatar-->
                                                     <!--begin::Label-->
-                                                    <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
+                                                    <label
+                                                        class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+                                                        data-kt-image-input-action="change" data-bs-toggle="tooltip"
+                                                        title="Change avatar">
                                                         <i class="bi bi-pencil-fill fs-7"></i>
                                                         <!--begin::Inputs-->
                                                         <input type="file" name="foto" accept=".png, .jpg, .jpeg" />
@@ -67,12 +73,18 @@
                                                     </label>
                                                     <!--end::Label-->
                                                     <!--begin::Cancel-->
-                                                    <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
+                                                    <span
+                                                        class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+                                                        data-kt-image-input-action="cancel" data-bs-toggle="tooltip"
+                                                        title="Cancel avatar">
                                                         <i class="bi bi-x fs-2"></i>
                                                     </span>
                                                     <!--end::Cancel-->
                                                     <!--begin::Remove-->
-                                                    <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
+                                                    <span
+                                                        class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+                                                        data-kt-image-input-action="remove" data-bs-toggle="tooltip"
+                                                        title="Remove avatar">
                                                         <i class="bi bi-x fs-2"></i>
                                                     </span>
                                                     <!--end::Remove-->
@@ -96,7 +108,8 @@
                                             <div class="col-lg-8 fv-row">
                                                 <input type="text" name="judul"
                                                     class="form-control form-control-lg form-control-solid"
-                                                    placeholder="Isikan Produk" value="{{old('judul', $produk->nama_produk)}}" />
+                                                    placeholder="Isikan Produk"
+                                                    value="{{ old('judul', $produk->nama_produk) }}" />
                                             </div>
                                             <!--end::Col-->
                                         </div>
@@ -110,13 +123,15 @@
                                             <!--end::Label-->
                                             <!--begin::Col-->
                                             <div class="col-lg-8 fv-row">
-                                                <input type="tel" name="harga" onKeyUp="rupiahrp(this)" onKeyPress="return isNumber(event)"
+                                                <input type="tel" name="harga" onKeyUp="rupiahrp(this)"
+                                                    onKeyPress="return isNumber(event)"
                                                     class="form-control form-control-lg form-control-solid"
-                                                    placeholder="Isikan Harga" value="{{old('harga', $produk->harga)}}"  id="inputBiayaDonasi" />
+                                                    placeholder="Isikan Harga" value="{{ old('harga', $produk->harga) }}"
+                                                    id="inputBiayaDonasi" />
                                             </div>
                                             <!--end::Col-->
                                         </div>
-                                        <!--end::Input group-->
+                                        {{-- <!--end::Input group-->
                                         <div class="row mb-6">
                                             <!--begin::Label-->
                                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Jenis
@@ -129,25 +144,40 @@
                                                     placeholder="Isikan Jenis Material" value="{{old('bahan', $produk->bahan)}}" />
                                             </div>
                                             <!--end::Col-->
-                                        </div>
+                                        </div> --}}
                                         <!--begin::Input group-->
                                         <div class="row mb-6">
                                             <!--begin::Label-->
-                                            <label class="col-lg-4 col-form-label required fw-semibold fs-6">Jenis Produk</label>
+                                            <label class="col-lg-4 col-form-label required fw-semibold fs-6">Jenis
+                                                Produk</label>
                                             <!--end::Label-->
                                             <!--begin::Col-->
                                             <div class="col-lg-8 fv-row">
                                                 <select name="jenis_produk" aria-label="Jenis Produk" data-control="select2"
                                                     data-placeholder="Pilih Jenis Produk"
                                                     class="form-select form-select-solid form-select-lg">
-                                                    <option <?php if($produk->jenis_bahan == 'kanopi'){echo 'selected';} ?> value="canopy">Kanopi</option>
-                                                    <option <?php if($produk->jenis_bahan == 'pagar'){echo 'selected';} ?> value="pagar">Pagar</option>
-                                                    <option <?php if($produk->jenis_bahan == 'railing'){echo 'selected';} ?> value="railing">Railing</option>
-                                                    <option <?php if($produk->jenis_bahan == 'teralis'){echo 'selected';} ?> value="teralis">Teralis</option>
-                                                    <option <?php if($produk->jenis_bahan == 'tangga'){echo 'selected';} ?> value="tangga">Tangga</option>
-                                                    <option <?php if($produk->jenis_bahan == 'pintu'){echo 'selected';} ?> value="pintu">Pintu</option>
-                                                    <option <?php if($produk->jenis_bahan == 'menaraair'){echo 'selected';} ?> value="menaraair">Menara Air</option>
-                                                    
+                                                    <option <?php if ($produk->jenis_produk == 'kanopi') {
+                                                        echo 'selected';
+                                                    } ?> value="canopy">Kanopi</option>
+                                                    <option <?php if ($produk->jenis_produk == 'pagar') {
+                                                        echo 'selected';
+                                                    } ?> value="pagar">Pagar</option>
+                                                    <option <?php if ($produk->jenis_produk == 'railing') {
+                                                        echo 'selected';
+                                                    } ?> value="railing">Railing</option>
+                                                    <option <?php if ($produk->jenis_produk == 'teralis') {
+                                                        echo 'selected';
+                                                    } ?> value="teralis">Teralis</option>
+                                                    <option <?php if ($produk->jenis_produk == 'tangga') {
+                                                        echo 'selected';
+                                                    } ?> value="tangga">Tangga</option>
+                                                    <option <?php if ($produk->jenis_produk == 'pintu') {
+                                                        echo 'selected';
+                                                    } ?> value="pintu">Pintu</option>
+                                                    <option <?php if ($produk->jenis_produk == 'menaraair') {
+                                                        echo 'selected';
+                                                    } ?> value="menaraair">Menara Air</option>
+
                                                 </select>
                                                 {{-- <input type="text" name="jenis_produk"
                                                     class="form-control form-control-lg form-control-solid"
@@ -156,6 +186,17 @@
                                             <!--end::Col-->
                                         </div>
                                         <!--end::Input group-->
+                                        <div class="row mb-6">
+                                            <!--begin::Label-->
+                                            <label class="col-lg-4 col-form-label required fw-semibold fs-6">Bahan</label>
+                                            <!--end::Label-->
+                                            <!--begin::Col-->
+                                            <div class="col-lg-8 fv-row">
+                                                <textarea onInput="handleInput(event)" name="bahan" class="form-control form-control-lg form-control-solid"
+                                                    rows="10" value="">{{ $bahan }}</textarea>
+                                            </div>
+                                            <!--end::Col-->
+                                        </div>
                                         <!--begin::Input group-->
                                         <div class="row mb-6">
                                             <!--begin::Label-->
@@ -164,8 +205,7 @@
                                             <!--end::Label-->
                                             <!--begin::Col-->
                                             <div class="col-lg-8 fv-row">
-                                                <textarea name="keterangan" class="form-control form-control-lg form-control-solid" placeholder="Jelaskan Deskripsi"
-                                                >{{old('deskripsi', $produk->keterangan)}}</textarea>
+                                                <textarea name="keterangan" class="form-control form-control-lg form-control-solid" placeholder="Jelaskan Deskripsi">{{ old('deskripsi', $produk->keterangan) }}</textarea>
                                             </div>
                                             <!--end::Col-->
                                         </div>
@@ -181,12 +221,13 @@
                                                 <select name="status" aria-label="Status" data-control="select2"
                                                     data-placeholder="Pilih Status"
                                                     class="form-select form-select-solid form-select-lg">
-                                                    <option value="tersedia"
-                                                    <?php if($produk->status == "tersedia")echo "selected" ?>
-                                                    >Tersedia</option>
-                                                    <option value="tidaktersedia"
-                                                    <?php if($produk->status == "tidaktersedia")echo "selected" ?>
-                                                    >Tidak Tersedia</option>
+                                                    <option value="tersedia" <?php if ($produk->status == 'tersedia') {
+                                                        echo 'selected';
+                                                    } ?>>Tersedia</option>
+                                                    <option value="tidaktersedia" <?php if ($produk->status == 'tidaktersedia') {
+                                                        echo 'selected';
+                                                    } ?>>Tidak Tersedia
+                                                    </option>
                                                 </select>
                                                 <!--end::Input-->
                                             </div>
@@ -198,8 +239,7 @@
                                     <!--end::Card body-->
                                     <!--begin::Actions-->
                                     <div class="card-footer d-flex justify-content-end px-9">
-                                        <a href="{{ route('admin.produk.index') }}"
-                                            class="btn btn-danger me-2">Batal</a>
+                                        <a href="{{ route('admin.produk.index') }}" class="btn btn-danger me-2">Batal</a>
                                         <button type="submit" class="btn btn-success"
                                             id="kt_account_profile_details_submit">Simpan</button>
                                     </div>
@@ -247,6 +287,23 @@
             var nilai_2 = nilai_1.replace(/,/g, "");
             var nilai_3 = formatNumber(nilai_2);
             objek.value = nilai_3;
+        }
+    </script>
+
+    <script>
+        let previousLength = 0;
+        const handleInput = (event) => {
+            const bullet = "\u2022";
+            const newLength = event.target.value.length;
+            const characterCode = event.target.value.substr(-1).charCodeAt(0);
+            if (newLength > previousLength) {
+                if (characterCode === 10) {
+                    event.target.value = `${event.target.value}${bullet} `;
+                } else if (newLength === 1) {
+                    event.target.value = `${bullet} ${event.target.value}`;
+                }
+            }
+            previousLength = newLength;
         }
     </script>
 @endsection

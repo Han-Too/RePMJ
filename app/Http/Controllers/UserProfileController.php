@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pesanan;
+use App\Models\Produk;
+use App\Models\Transaksi;
 use PDF;
 
 use App\Models\User;
@@ -20,6 +23,15 @@ class UserProfileController extends Controller
     public function edit(){
         $user = Auth::user();
         return view('landingpage.edituserprofile', compact('user'));
+    }
+
+    public function cekpesanan(){
+        // dd($user);
+        $user = Auth::user();
+        $transaksi = Transaksi::where('name',$user->name)->get();
+        $pesanan = Pesanan::where('name',$user->name)->get();
+
+        return view('landingpage.pesanan', compact('user','transaksi','pesanan'));
     }
 
     public function store(Request $request){

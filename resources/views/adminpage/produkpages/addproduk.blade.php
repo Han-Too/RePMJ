@@ -156,7 +156,6 @@
                                             <!--end::Col-->
                                         </div>
                                         <!--end::Input group-->
-                                        <!--begin::Input group-->
                                         <div class="row mb-6">
                                             <!--begin::Label-->
                                             <label
@@ -169,6 +168,20 @@
                                             </div>
                                             <!--end::Col-->
                                         </div>
+                                        <div class="row mb-6">
+                                            <!--begin::Label-->
+                                            <label
+                                                class="col-lg-4 col-form-label required fw-semibold fs-6">Bahan</label>
+                                            <!--end::Label-->
+                                            <!--begin::Col-->
+                                            <div class="col-lg-8 fv-row">
+                                                <textarea onInput="handleInput(event)" name="bahan"
+                                                            class="form-control form-control-lg form-control-solid" rows="10" placeholder="Isikan Jenis Bahan"
+                                                            value=""></textarea>
+                                            </div>
+                                            <!--end::Col-->
+                                        </div>
+                                        
                                         <!--end::Input group-->
                                         <!--begin::Input group-->
                                         <div class="row mb-6">
@@ -244,6 +257,22 @@
             var nilai_2 = nilai_1.replace(/,/g, "");
             var nilai_3 = formatNumber(nilai_2);
             objek.value = nilai_3;
+        }
+    </script>
+    <script>
+        let previousLength = 0;
+        const handleInput = (event) => {
+            const bullet = "\u2022";
+            const newLength = event.target.value.length;
+            const characterCode = event.target.value.substr(-1).charCodeAt(0);
+            if (newLength > previousLength) {
+                if (characterCode === 10) {
+                    event.target.value = `${event.target.value}${bullet} `;
+                } else if (newLength === 1) {
+                    event.target.value = `${bullet} ${event.target.value}`;
+                }
+            }
+            previousLength = newLength;
         }
     </script>
 @endsection

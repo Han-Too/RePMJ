@@ -70,15 +70,19 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
+        // dd($request->bahan);
         $filename = time() . $request->file('foto')->getClientOriginalName();
         // $path = $request->file('foto')->storeAs('Images/uploads/canopy', $filename);
         // $path = public_path() . '/uploads/canopy';
         // $request->foto->move($path, $filename);
         $request->foto->move('Images/uploads/produk/', $filename);
+        
+        $bahan = $request->bahan;
+        $bahannew = str_replace('•','<br>•',$bahan);
 
         $postcanopy = Produk::create([
             "nama_produk" => $request["judul"],
+            "bahan" => $bahannew,
             "foto" => $filename,
             "jenis_produk" => $request["jenis_produk"],
             "harga" => str_replace(',', '', $request["harga"]),
@@ -111,8 +115,9 @@ class ProdukController extends Controller
     public function edit($id)
     {
         $produk = Produk::where("id_produk", $id)->first();
+        $bahan = str_replace("<br>", "", $produk->bahan);
         // dd($produk);
-        return view('adminpage.produkpages.editproduk', compact('produk'));
+        return view('adminpage.produkpages.editproduk', compact('produk','bahan'));
     }
 
     /**
@@ -141,8 +146,12 @@ class ProdukController extends Controller
             $filename = $gambar->foto;
         }
 
+        
+        $bahan = $request->bahan;
+        $bahannew = str_replace('•','<br>•',$bahan);
         $postcanopy = Produk::where("id_produk", $id)->update([
             "nama_produk" => $request["judul"],
+            "bahan" => $bahannew,
             "foto" => $filename,
             "jenis_produk" => $request["jenis_produk"],
             "harga" => str_replace(',', '', $request["harga"]),

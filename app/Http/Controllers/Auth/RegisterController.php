@@ -94,11 +94,11 @@ class RegisterController extends Controller
                 'role' => "user"
             ]);
             // Alert::success('Akun Dibuat', 'Silahkan Login Kembali');
-            return redirect('login')->with('success','Silahkan Login Kembali');
+            return redirect('login')->with('alert','Silahkan Login Kembali');
         }
         else {
             // Alert::error('error', 'Isi Data Tidak Valid');
-            return redirect('register')->withErrors(['msg' => 'Isi Data Tidak Valid']);
+            return redirect('register')->with('alert', 'Isi Data Tidak Valid');
         }
 
     }

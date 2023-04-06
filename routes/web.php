@@ -121,33 +121,6 @@ Route::get('/admin/user/{id}/preview', [UserProfileController::class, 'adminshow
 Route::get('/admin/user/cetak', [UserProfileController::class, 'cetak_pdf'])->name('admin.user.print')->middleware('is_admin');
 
 
-// ------------------------LAPORAN------------------------
-Route::get('/laporan/index', [LaporanPekerjaanController::class, 'index'])->name('laporan')->middleware('is_admin');
-Route::get('/laporan/add', [LaporanPekerjaanController::class, 'create'])->name('laporan.add')->middleware('is_admin');
-Route::post('/laporan/store', [LaporanPekerjaanController::class, 'store'])->name('laporan.store')->middleware('is_admin');
-Route::post('/laporan/kolomstore', [LaporanPekerjaanController::class, 'kolomstore'])->name('laporan.kolomstore')->middleware('is_admin');
-
-// ------------------------LAPORAN------------------------
-Route::get('/suratjalan/index', [SuratJalanController::class, 'index'])->name('suratjalan')->middleware('is_admin');
-Route::get('/suratjalan/add', [SuratJalanController::class, 'create'])->name('suratjalan.add')->middleware('is_admin');
-Route::post('/suratjalan/store', [SuratJalanController::class, 'store'])->name('suratjalan.store')->middleware('is_admin');
-Route::post('/suratjalan/kolomstore', [SuratJalanController::class, 'kolomstore'])->name('suratjalan.kolomstore')->middleware('is_admin');
-
-
-// --------------------------GAJI------------------------
-Route::get('/gaji/index', [GajiKaryawanController::class, 'index'])->name('gaji')->middleware('is_admin');
-Route::post('/gaji/{id}/edit', [GajiKaryawanController::class, 'edit'])->name('gaji.edit')->middleware('is_admin');
-Route::post('/gaji/cetak', [GajiKaryawanController::class, 'cetak'])->name('gaji.store')->middleware('is_admin');
-
-Route::get('/admin/notapekerjaan', function () {
-    return view('adminpage.laporanpages.notapekerjaan.notapekerjaan');
-})->name('nota');
-
-Route::get('/admin/settinglanding', function () {
-    return view('adminpage.settinglandingpages.settinglanding');
-})->name('settinglanding');
-
-
 
 // ---------------------LANDING NAVBAR--------------------
 Route::get('/', function(){
@@ -166,6 +139,7 @@ Route::post('/signup', [RegisterController::class, 'signup'])->name('signup');
 Route::get('/userprofile', [UserProfileController::class, 'index'])->name('userprofile');
 Route::get('/edituserprofile', [UserProfileController::class, 'edit'])->name('edituserprofile');
 Route::post('/storeuserprofile', [UserProfileController::class, 'store'])->name('storeuserprofile');
+Route::get('/cekpesanan', [UserProfileController::class, 'cekpesanan'])->name('cekpesanan');
 
 Route::get('/testing', function () {
     return view('landingpage.test');
