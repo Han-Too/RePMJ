@@ -101,7 +101,7 @@
                                             <!--begin::Col-->
                                             <div class="col-lg-8 fv-row">
                                                 <input type="text" name="jumlah" required
-                                                    class="form-control form-control-lg form-control-solid"
+                                                    class="form-control form-control-lg form-control-solid" readonly
                                                     placeholder="Isikan Jumlah" value="{{ $pesanan->jumlah_pesanan }}" />
                                             </div>
                                             <!--end::Col-->
@@ -114,7 +114,7 @@
                                             <!--end::Label-->
                                             <!--begin::Col-->
                                             <div class="col-lg-8 fv-row">
-                                                <input type="text" name="jumlah" required
+                                                <input type="text" name="jumlah" required readonly
                                                     class="form-control form-control-lg form-control-solid"
                                                     placeholder="Isikan Jumlah" value="{{ $pesanan->total_harga }}" />
                                             </div>

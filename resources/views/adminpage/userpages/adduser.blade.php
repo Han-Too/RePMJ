@@ -139,9 +139,9 @@
                                     <!--end::Card body-->
                                     <!--begin::Actions-->
                                     <div class="card-footer d-flex justify-content-end px-9">
-                                        <button type="reset"
-                                            class="btn btn-light btn-active-light-primary me-2">Batal</button>
-                                        <button type="submit" class="btn btn-primary"
+                                        {{-- <button type="reset"
+                                            class="btn btn-light btn-active-light-primary me-2">Batal</button> --}}
+                                        <button type="submit" class="btn btn-success"
                                             id="kt_account_profile_details_submit">Simpan</button>
                                     </div>
                                     <!--end::Actions-->

@@ -48,7 +48,7 @@
                             <!--begin::Card toolbar-->
                             <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
                                 <!--begin::Add product-->
-                                <a href="{{ route('admin.produk.create') }}" class="btn btn-success">Tambah Produk</a>
+                                <a href="{{ route('admin.produk.create') }}" class="btn btn-primary">Tambah</a>
                                 <!--end::Add product-->
                             </div>
                             <!--end::Card toolbar-->

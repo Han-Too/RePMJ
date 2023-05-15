@@ -38,7 +38,7 @@
                                 <div class="d-flex flex-row">
                                     <div class="p-2">
                                         <a href="/admin/pegawai/create"
-                                            class="btn btn-success btn-active-color-primary justify-content-center">
+                                            class="btn btn-primary justify-content-center">
                                             Tambah
                                             <!--end::Svg Icon-->
                                         </a>
@@ -129,7 +129,7 @@
                                                 <td class="text-center">
                                                     <div class="d-flex flex-row justify-content-center">
                                                         <div class="p-2"><a href="/admin/pegawai/{{ $pegawai->id_pegawai }}/edit"
-                                                            class="btn btn-success btn-lg">Edit</a></div>
+                                                            class="btn btn-success btn-lg">Ubah</a></div>
                                                         <div class="p-2"><a onclick="deleteConfirmation({{ $pegawai->id_pegawai }})"
                                                             id="delete-canopy" class="btn btn-danger btn-lg"
                                                             data-kt-ecommerce-product-filter="delete_row">Hapus</a></div>
@@ -191,7 +191,7 @@
                 width: '350px',
             })
             Swal.fire({
-                title: 'Are you sure ?',
+                title: 'Hapus Data ?',
                 text: "Data Yang Telah Dihapus Tidak Akan Bisa DiKembalikan !",
                 icon: 'warning',
                 showCancelButton: true,

@@ -137,13 +137,13 @@
                             <span class="bullet bullet-dot"></span>
                         </span>
 
-                        <span class="menu-title">Data Karyawan</span>
+                        <span class="menu-title">Data Pegawai</span>
                         {{-- <span class="menu-arrow"></span> --}}
                     </a>
                     <!--end:Menu link-->
                 </div>
                 {{-- //////////////////////////////////////////////////////// --}}
-                <div class="menu-item pt-5">
+                {{-- <div class="menu-item pt-5">
                     <!--begin:Menu content-->
                     <div class="menu-content">
                         <span class="menu-heading fw-bold text-uppercase fs-7">Halaman Laporan</span>
@@ -161,7 +161,7 @@
                     </a>
 
                     <!--end:Menu link-->
-                </div>
+                </div> --}}
                 {{-- <div class="menu-item">
                     <!--begin:Menu link-->
                     <a class="menu-link" href="{{ route('gaji') }}">
@@ -200,7 +200,7 @@
                         <span class="menu-bullet">
                             <span class="bullet bullet-dot"></span>
                         </span>
-                        <span class="menu-title">Galeri</span>
+                        <span class="menu-title">Data Galeri</span>
                     </a>
                     <!--end:Menu link-->
                 </div>

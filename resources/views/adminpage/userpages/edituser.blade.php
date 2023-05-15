@@ -112,7 +112,7 @@
                                     <!--end::Card body-->
                                     <!--begin::Actions-->
                                     <div class="card-footer d-flex justify-content-end px-9">
-                                        <a href="{{ route('admin.user.index') }}" class="btn btn-light btn-active-light-primary me-2">Batal</a>
+                                        {{-- <a href="{{ route('admin.user.index') }}" class="btn btn-light btn-active-light-primary me-2">Batal</a> --}}
                                         <button type="submit" class="btn btn-success"
                                             id="kt_account_profile_details_submit">Simpan</button>
                                     </div>

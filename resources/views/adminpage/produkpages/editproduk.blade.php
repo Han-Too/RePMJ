@@ -239,7 +239,7 @@
                                     <!--end::Card body-->
                                     <!--begin::Actions-->
                                     <div class="card-footer d-flex justify-content-end px-9">
-                                        <a href="{{ route('admin.produk.index') }}" class="btn btn-danger me-2">Batal</a>
+                                        {{-- <a href="{{ route('admin.produk.index') }}" class="btn btn-danger me-2">Batal</a> --}}
                                         <button type="submit" class="btn btn-success"
                                             id="kt_account_profile_details_submit">Simpan</button>
                                     </div>

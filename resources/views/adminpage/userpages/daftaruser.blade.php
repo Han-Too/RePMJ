@@ -38,7 +38,7 @@
                                 <div class="d-flex flex-row">
                                     <div class="p-2">
                                         <a href="/admin/user/create"
-                                            class="btn btn-success btn-active-color-primary justify-content-center">
+                                            class="btn btn-primary justify-content-center">
                                             <!--begin::Svg Icon | path: icons/duotune/general/gen023.svg-->
                                             <span>
                                                 Tambah
@@ -156,7 +156,7 @@
                                                         <div class="d-flex flex-row justify-content-center">
                                                             <div class="p-2"><a
                                                                     href="/admin/user/{{ $user->id }}/edit"
-                                                                    class="btn btn-success btn-lg">Edit</a></div>
+                                                                    class="btn btn-success btn-lg">Ubah</a></div>
                                                             <div class="p-2"><a
                                                                     onclick="deleteConfirmation({{ $user->id }})"
                                                                     id="delete-canopy" class="btn btn-danger btn-lg"

@@ -57,9 +57,10 @@ class GaleriController extends Controller
 
         $postpagar = Galeri::create([
             "foto" => $filename,
-            "judul" => $request["judul"],
+            "nama_produk" => $request->judul,
         ]);
-        Alert::success('Success', 'Galeri has been uploaded !');
+        // Alert::success('Success', 'Galeri has been uploaded !');
+        toast('Galeri Berhasil Ditambahkan !', 'success')->autoClose(1500)->width('400px');
         return redirect('/admin/galeri');
     }
 
@@ -71,7 +72,7 @@ class GaleriController extends Controller
      */
     public function show($id)
     {
-        $galeri = Galeri::find($id);
+        $galeri = Galeri::where('id_galeri', $id)->first();
         return view('adminpage.galeri.editgaleri', compact('galeri'));
     }
 
@@ -83,7 +84,7 @@ class GaleriController extends Controller
      */
     public function edit($id)
     {
-        $galeri = Galeri::find($id);
+        $galeri = Galeri::where('id_galeri', $id)->first();
         return view('adminpage.galeri.editgaleri', compact('galeri'));
     }
 
@@ -101,19 +102,19 @@ class GaleriController extends Controller
             $request->foto->move('Images/uploads/galeri/', $filename);
 
             // hapus file
-            $gambar = Galeri::where('id', $id)->first();
+            $gambar = Galeri::where('id_galeri', $id)->first();
             File::delete($gambar->foto);
 
             // upload file
-            $update = Galeri::where("id", $id)->update([
+            $update = Galeri::where("id_galeri", $id)->update([
                 "foto" => $filename,
             ]);
         }
 
-        $postcanopy = Galeri::where("id", $id)->update([
-            "judul" => $request["judul"],
+        $postcanopy = Galeri::where("id_galeri", $id)->update([
+            "nama_produk" => $request["judul"],
         ]);
-        toast('Galeri has been edited !', 'success')->autoClose(1500)->width('400px');
+        toast('Galeri Telah Diedit !', 'success')->autoClose(1500)->width('400px');
         return redirect('/admin/galeri');
     }
 
@@ -125,11 +126,11 @@ class GaleriController extends Controller
      */
     public function destroy($id)
     {
-        $gambar = Galeri::where('id', $id)->first();
+        $gambar = Galeri::where('id_galeri', $id)->first();
         File::delete($gambar->foto);
 
         // hapus data
-        Galeri::where('id', $id)->delete();
+        Galeri::where('id_galeri', $id)->delete();
         return redirect()->back();
     }
 }

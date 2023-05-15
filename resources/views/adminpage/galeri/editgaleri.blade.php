@@ -107,7 +107,7 @@
                                             <div class="col-lg-8 fv-row">
                                                 <input type="text" name="judul"
                                                     class="form-control form-control-lg form-control-solid"
-                                                    placeholder="Isikan Judul Galeri" value="{{old('judul', $galeri->judul)}}" />
+                                                    placeholder="Isikan Judul Galeri" value="{{old('judul', $galeri->nama_produk)}}" />
                                             </div>
                                             <!--end::Col-->
                                         </div>
@@ -117,8 +117,8 @@
                                     <!--end::Card body-->
                                     <!--begin::Actions-->
                                     <div class="card-footer d-flex justify-content-end px-9">
-                                        <a href="{{ route('admin.galeri.index') }}"
-                                            class="btn btn-light btn-active-light-primary me-2">Batal</a>
+                                        {{-- <a href="{{ route('admin.galeri.index') }}"
+                                            class="btn btn-light btn-active-light-primary me-2">Batal</a> --}}
                                         <button type="submit" class="btn btn-primary"
                                             id="kt_account_profile_details_submit">Simpan</button>
                                     </div>
