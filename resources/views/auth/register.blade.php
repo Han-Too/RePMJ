@@ -263,7 +263,7 @@
                             <div class="d-grid mb-10 mt-20">
                                 <button type="submit" id="kt_sign_in_submit" class="btn btn-primary py-6">
                                     <!--begin::Indicator label-->
-                                    <span class="indicator-label">Sign In</span>
+                                    <span class="indicator-label">Register</span>
                                     <!--end::Indicator label-->
                                     <!--begin::Indicator progress-->
                                     <span class="indicator-progress">Please wait...

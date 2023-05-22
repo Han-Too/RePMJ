@@ -60,7 +60,7 @@
                                         <tr style="line-height: 40px" class="text-start text-light fw-bold fs-7 text-uppercase gs-0">
                                             <th class="p-0 min-w-350px text-center">Judul</th>
                                             <th class="p-0 min-w-400px text-center">Foto</th>
-                                            <th class="p-0 min-w-150px text-center">Tools</th>
+                                            <th class="p-0 min-w-150px text-center">Aksi</th>
                                         </tr>
                                     </thead>
                                     <!--end::Table head-->

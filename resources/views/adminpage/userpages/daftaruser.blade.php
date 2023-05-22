@@ -70,7 +70,7 @@
                                             <th class="p-0 min-w-200px text-center">Email</th>
                                             <th class="p-0 min-w-150px text-center">Telepon</th>
                                             <th class="p-0 min-w-100px text-center">Alamat</th>
-                                            <th class="p-0 min-w-150px text-center">Tools</th>
+                                            <th class="p-0 min-w-150px text-center">Aksi</th>
                                         </tr>
                                     </thead>
                                     <!--end::Table head-->

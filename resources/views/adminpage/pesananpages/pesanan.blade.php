@@ -73,7 +73,7 @@
                                             <th class="text-center min-w-70px">Jumlah</th>
                                             <th class="text-center min-w-70px">Total Harga</th>
                                             <th class="text-center min-w-100px">Status</th>
-                                            <th class="text-center min-w-70px">Actions</th>
+                                            <th class="text-center min-w-70px">Aksi</th>
                                         </tr>
                                         <!--end::Table row-->
                                     </thead>
