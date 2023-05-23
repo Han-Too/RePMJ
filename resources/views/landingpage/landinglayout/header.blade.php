@@ -17,10 +17,6 @@
         </div>
         <div class="col-lg-5 px-5 text-end">
             <div class="h-100 d-inline-flex align-items-center">
-                {{-- <a class="btn btn-square border-end border-start" href=""><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-square border-end" href=""><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-square border-end" href=""><i class="fab fa-linkedin-in"></i></a>
-                <a class="btn btn-square border-end" href=""><i class="fab fa-instagram"></i></a> --}}
             </div>
         </div>
     </div>
@@ -57,34 +53,22 @@
                     </li>
                 @endif --}}
             @else
-                {{-- <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        Menu
-                    </a> --}}
-                @if (auth()->user()->is_admin == 1)
+                @if (auth()->user()->role == 'admin')
                     <a class="nav-item nav-link" href="{{ route('admin') }}">Admin Panel</a>
-                    <a class="nav-item nav-link" href="{{ route('logout') }}"
+                    <a class="nav-item nav-link" href="{{ route('keluar') }}">Logout</a>
+                    {{-- <a class="nav-item nav-link" href="{{ route('logout') }}"
                         onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
                     </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    <form id="logout-form" action="{{ route('keluar') }}" method="GET" class="d-none">
                         @csrf
-                    </form>
-                    {{-- <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('admin') }}">
-                                Admin Panel
-                            </a>
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-                        </div> --}}
+                        @method('GET')
+                    </form> --}}
                 @else
                     <a class="nav-item nav-link" href="{{ route('cekpesanan') }}">Pesanan</a>
-                    <a onclick="event.preventDefault();document.getElementById('logout-form').submit();"
-                        class="nav-item nav-link" href="{{ route('logout') }}">Logout</a>
+                    <a class="nav-item nav-link" href="{{ route('keluar') }}">Logout</a>
+                    {{-- <a onclick="event.preventDefault();document.getElementById('logout-form').submit();"
+                        class="nav-item nav-link" href="{{ route('keluar') }}">Logout</a> --}}
                     {{-- <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item"  href="{{ route('userprofile') }}">
                                 Profil Saya
@@ -94,8 +78,9 @@
                                 {{ __('Logout') }}
                             </a>
 --}}
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    <form id="logout-form" action="{{ route('keluar') }}" method="GET" class="d-none">
                         @csrf
+                        @method('GET')
                     </form>
             </div>
             {{-- </li> --}}

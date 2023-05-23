@@ -34,7 +34,7 @@ Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home
 Route::get('/admin', function () {
     return view('adminpage.dashboard');
 })->name('admin')->middleware('is_admin');
-
+Route::get('/keluar', [HomeController::class, 'keluar'])->name('keluar');
 // Route::get('/back', function () {
 //     return redirect()->back();
 // })->name('back');

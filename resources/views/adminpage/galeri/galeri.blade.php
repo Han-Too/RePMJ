@@ -70,7 +70,7 @@
                                             <tr>
                                                 <td class="text-center">
                                                     <span class="text-dark fw-bold  d-block mb-1 fs-6">
-                                                        {{ $galeri->judul }}
+                                                        {{ $galeri->nama_produk }}
                                                     </span>
                                                 </td>
                                                 <td class="text-start">

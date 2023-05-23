@@ -39,7 +39,7 @@
                         <div class="card-body pt-3">
                             <div id="kt_account_settings_profile_details" class="collapse show">
                                 <!--begin::Form-->
-                                <form id="" class="form" action='/admin/galeri/{{$galeri->id}}/update' method='post'
+                                <form id="" class="form" action='/admin/galeri/{{$galeri->id_galeri}}/update' method='post'
                                     enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')

@@ -1,6 +1,6 @@
 
 <!--begin::Footer-->
-<div id="kt_app_footer" class="app-footer mt-10" style="background-color: white">
+<div id="kt_app_footer" class="app-footer mt-10" style="background-color: white;bottom:0">
     <!--begin::Footer container-->
     <div class="app-container container-fluid d-flex flex-column flex-md-row flex-center flex-md-stack">
         <!--begin::Copyright-->

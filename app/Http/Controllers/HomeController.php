@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class HomeController extends Controller
@@ -41,6 +42,13 @@ class HomeController extends Controller
 
     public function first(){
         return view('landingpage.home');
+    }
+
+    public function keluar(){
+        Auth::logout();
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+        return redirect('/');
     }
 
 }

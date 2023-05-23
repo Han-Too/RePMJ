@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class LoginController extends Controller
@@ -51,10 +52,13 @@ class LoginController extends Controller
         if (auth()->attempt(array('email' => $input['email'], 'password' => $input['password']))) {
             if (auth()->user()->role == 'admin') {
                 // Alert::success('ADMIN', 'Berhasil Login');
+                $request->session()->regenerate();
                 toast('Berhasil Login','success')->autoClose(1500);
                 return redirect()->route('admin');
             } else if (auth()->user()->role === 'user') {
                 // Alert::success('USER', 'You\'ve Successfully Registered');
+                $request->session()->regenerate();
+                // dd($request->session());
                 return redirect('/')->with('alert','Berhasil Login');;
             } 
             else {
@@ -67,4 +71,6 @@ class LoginController extends Controller
         }
 
     }
+
+    
 }

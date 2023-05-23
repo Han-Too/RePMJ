@@ -229,7 +229,8 @@
             <!--end::Svg Icon-->
         </button>
 
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+        <form id="logout-form" action="{{ route('keluar') }}" method="GET" class="d-none">
+            @method('GET')
             @csrf
         </form>
 

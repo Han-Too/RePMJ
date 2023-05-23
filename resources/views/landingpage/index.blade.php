@@ -14,7 +14,9 @@
         var msg = '{{ Session::get('alert') }}';
         var exist = '{{ Session::has('alert') }}';
         if (exist) {
-            alert(msg);
+            setTimeout(function() {
+                alert(msg);
+            }, 5000);
         }
     </script>
 </body>
