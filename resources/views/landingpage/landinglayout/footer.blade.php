@@ -31,11 +31,12 @@
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             <div class="col-lg-2 col-md-6">
-                <h4 class="text-light mb-4">Quick Links</h4>
-                <a class="btn btn-link" href="">Home</a>
-                <a class="btn btn-link" href="">Profile</a>
-                <a class="btn btn-link" href="">Galeri</a>
-                <a class="btn btn-link" href="">Kontak Kami</a>
+                <h4 class="text-light mb-4">Menu</h4>
+                <a class="btn btn-link" href="{{ route('/') }}">Home</a>
+                <a class="btn btn-link" href="{{ route('galeri') }}">Galeri</a>
+                <a class="btn btn-link" href="{{ route('profile') }}">Tentang Kami</a>
+                <a class="btn btn-link" href="{{ route('kontak') }}">Kontak Kami</a>
+                <a class="btn btn-link" href="{{ route('layanan') }}">Layanan Kami</a>
             </div>
 
         </div>

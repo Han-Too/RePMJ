@@ -2,7 +2,7 @@
 <html>
 
 @include('adminpage.adminlayout.headhtml')
-{{-- background-image: url('/landing/img/bg.jpg');background-size: cover;background-repeat: no-repeat; --}}
+{{-- style="background-image: url('/landing/img/bg.jpg');background-size: cover;background-repeat: no-repeat;"; --}}
 <body style="overflow-x: hidden;height:100%;">
     <div id="kt_app_body" data-kt-app-layout="dark-sidebar" data-kt-app-header-fixed="true"
     data-kt-app-sidebar-enabled="true" data-kt-app-sidebar-fixed="true" data-kt-app-sidebar-hoverable="true"

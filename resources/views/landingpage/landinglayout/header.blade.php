@@ -24,7 +24,7 @@
 <!-- Topbar End -->
 
 <!-- Navbar Start -->
-<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0 shadow-sm">
+<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0 shadow-sm" >
     <a href="{{ route('/') }}" class="navbar-brand d-flex align-items-center">
         <h1 class="m-0">
             {{-- <i class="fa fa-building text-primary me-3"></i>Putra Mandiri Jaya --}}
