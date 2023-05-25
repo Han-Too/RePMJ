@@ -66,11 +66,11 @@
                                     <!--begin::Table head-->
                                     <thead class="fw-bold bg-success">
                                         <tr style="line-height: 40px" class="text-start text-light fw-bold fs-7 text-uppercase gs-0">
-                                            <th class="p-0 min-w-150px text-center">Nama</th>
-                                            <th class="p-0 min-w-200px text-center">Email</th>
-                                            <th class="p-0 min-w-150px text-center">Telepon</th>
-                                            <th class="p-0 min-w-100px text-center">Alamat</th>
-                                            <th class="p-0 min-w-150px text-center">Aksi</th>
+                                            <th class="min-w-150px text-center">Nama</th>
+                                            <th class="min-w-200px text-center">Email</th>
+                                            <th class="min-w-150px text-center">Telepon</th>
+                                            <th class="min-w-100px text-center">Alamat</th>
+                                            <th class="min-w-150px text-center">Aksi</th>
                                         </tr>
                                     </thead>
                                     <!--end::Table head-->
@@ -184,9 +184,7 @@
                             <!--end::Table container-->
                         </div>
                         <!--end: Card Body-->
-                        <div class="card-footer border-top p-9">
-
-                        </div>
+                    
                     </div>
 
                 </div>

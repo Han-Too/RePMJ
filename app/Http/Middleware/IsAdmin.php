@@ -26,12 +26,14 @@ class IsAdmin
             }
             else
             {
-                return redirect('/')->with('alert','Anda Bukan Admin');
+                return redirect('/');
+                // return redirect('/')->with('alert','Anda Bukan Admin');
             }
         }
         else
         {
-            return redirect('/')->with('alert','Login Dulu Masbro');
+            return redirect('/');
+            // return redirect('/')->with('alert','Login Dulu Masbro');
         }
         // if (auth()->check() && auth()->user()->role == 'admin') {
         //     return $next($request);

@@ -57,12 +57,12 @@
         <!--begin::Page bg image-->
         <style>
             body {
-                background-image: url('adminpanel/media/auth/bg7.jpg');
+                background-image: url('landing/img/bglaku2.jpg');
             }
 
-            [data-theme="dark"] body {
+            /* [data-theme="dark"] body {
                 background-image: url('adminpanel/media/auth/bg7-dark.jpg');
-            }
+            } */
         </style>
         <!--end::Page bg image-->
         <!--begin::Authentication - Sign-in -->
@@ -78,10 +78,10 @@
                         src="{{ asset('landing/img/LOGO-DARK.png') }}" alt="" />
                     <!--end::Image-->
                     <!--begin::Title-->
-                    <h1 class="text-dark fs-2qx fw-bold text-center mb-7">Putra Mandiri Jaya</h1>
+                    <h1 class="text-light fs-2qx fw-bold text-center mb-7">Putra Mandiri Jaya</h1>
                     <!--end::Title-->
                     <!--begin::Text-->
-                    <div class="text-dark fs-base text-center fw-semibold">
+                    <div class="text-light fs-base text-center fw-semibold">
                         Putra Mandiri Jaya adalah penyedia jasa las murah di
                         Kota Depok dengan pelayanan terbaik. di samping dengan kualitas pelayanan terbaik, Putra Mandiri
                         Jaya
@@ -146,9 +146,9 @@
                             <!--end::Input group=-->
                             <!--begin::Submit button-->
                             <div class="d-grid mb-10 mt-20">
-                                <button type="submit" id="kt_sign_in_submit" class="btn btn-primary py-6">
+                                <button type="submit" id="kt_sign_in_submit" class="btn py-6" style="background-image: url('landing/img/bglaku2.jpg');">
                                     <!--begin::Indicator label-->
-                                    <span class="indicator-label">Login</span>
+                                    <span class="text-light indicator-label">Login</span>
                                     <!--end::Indicator label-->
                                     <!--begin::Indicator progress-->
                                     <span class="indicator-progress">Please wait...

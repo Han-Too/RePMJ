@@ -73,12 +73,12 @@
                                 <table class='table table-bordered table-condensed table-striped table-hover'>
                                     <!--begin::Table head-->
                                     <thead class="fw-bold bg-success">
-                                        <tr style="line-height: 40px">
-                                            <th class="p-0 min-w-150px text-center">Nama</th>
-                                            <th class="p-0 min-w-150px text-center">Telepon</th>
-                                            <th class="p-0 min-w-200px text-center">Email</th>
-                                            <th class="p-0 min-w-100px text-center">Jabatan</th>
-                                            <th class="p-0 min-w-150px text-center">Aksi</th>
+                                        <tr  style="line-height: 40px" class="text-start text-light fw-bold fs-7 text-uppercase gs-0">
+                                            <th class="min-w-150px text-center">Nama</th>
+                                            <th class="min-w-150px text-center">Telepon</th>
+                                            <th class="min-w-200px text-center">Email</th>
+                                            <th class="min-w-100px text-center">Jabatan</th>
+                                            <th class="min-w-150px text-center">Aksi</th>
                                         </tr>
                                     </thead>
                                     <!--end::Table head-->

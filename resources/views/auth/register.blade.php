@@ -135,12 +135,12 @@
         <!--begin::Page bg image-->
         <style>
             body {
-                background-image: url('adminpanel/media/auth/bg7.jpg');
+                background-image: url('landing/img/bglaku2.jpg');
             }
 
-            [data-theme="dark"] body {
+            /* [data-theme="dark"] body {
                 background-image: url('adminpanel/media/auth/bg7-dark.jpg');
-            }
+            } */
         </style>
         <!--end::Page bg image-->
         <!--begin::Authentication - Sign-in -->
@@ -155,12 +155,12 @@
                         <form method="POST" class="form w-100" action="{{ route('signup') }}">
                             @csrf
                             <!--begin::Heading-->
-                            <div class="text-center mb-11">
+                            <div class="text-center mb-6">
                                 <!--begin::Title-->
-                                <div class="text-dark fs-2hx fw-bolder mb-18">Register</div>
+                                <div class="text-dark fs-2hx fw-bolder">Register</div>
                                 <!--end::Title-->
                             </div>
-                            <div class="fv-row mb-8">
+                            <div class="fv-row mb-6">
                                 <!--begin::Email-->
                                 <div class="form-floating">
                                     <input type="text"
@@ -176,7 +176,7 @@
                                 </div>
                                 <!--end::Email-->
                             </div>
-                            <div class="fv-row mb-8">
+                            <div class="fv-row mb-6">
                                 <!--begin::Email-->
                                 <div class="form-floating">
                                     <input type="text"
@@ -188,7 +188,7 @@
                                 </div>
                                 <!--end::Email-->
                             </div>
-                            <div class="fv-row mb-8">
+                            <div class="fv-row mb-6">
                                 <!--begin::Email-->
                                 <div class="form-floating">
                                     <input type="number"
@@ -200,7 +200,7 @@
                                 </div>
                                 <!--end::Email-->
                             </div>
-                            <div class="fv-row mb-8">
+                            <div class="fv-row mb-6">
                                 <!--begin::Email-->
                                 <div class="form-floating">
                                     <input type="email"
@@ -217,7 +217,7 @@
                                 <!--end::Email-->
                             </div>
                             <!--end::Input group=-->
-                            <div class="fv-row mb-8">
+                            <div class="fv-row mb-6">
                                 <!--begin::Password-->
                                 <div class="form-floating">
                                     <input type="password"
@@ -233,7 +233,7 @@
                                 </div>
                                 <!--end::Password-->
                             </div>
-                            <div class="fv-row mb-8">
+                            <div class="fv-row mb-6">
                                 <!--begin::Password-->
                                 <div class="form-floating">
                                     <input type="password"
@@ -260,10 +260,10 @@
                             </div> --}}
                             <!--end::Input group=-->
                             <!--begin::Submit button-->
-                            <div class="d-grid mb-10 mt-20">
-                                <button type="submit" id="kt_sign_in_submit" class="btn btn-primary py-6">
+                            <div class="d-grid mb-6 mt-6">
+                                <button type="submit" id="kt_sign_in_submit" class="btn py-6" style="background-image: url('landing/img/bglaku2.jpg');">
                                     <!--begin::Indicator label-->
-                                    <span class="indicator-label">Register</span>
+                                    <span class="text-light indicator-label">Register</span>
                                     <!--end::Indicator label-->
                                     <!--begin::Indicator progress-->
                                     <span class="indicator-progress">Please wait...
@@ -294,10 +294,10 @@
                         src="{{ asset('landing/img/LOGO-DARK.png') }}" alt="" />
                     <!--end::Image-->
                     <!--begin::Title-->
-                    <h1 class="text-dark fs-2qx fw-bold text-center mb-7">Putra Mandiri Jaya</h1>
+                    <h1 class="text-light fs-2qx fw-bold text-center mb-7">Putra Mandiri Jaya</h1>
                     <!--end::Title-->
                     <!--begin::Text-->
-                    <div class="text-dark fs-base text-center fw-semibold">
+                    <div class="text-light fs-base text-center fw-semibold">
                         Putra Mandiri Jaya adalah penyedia jasa las murah di
                         Kota Depok dengan pelayanan terbaik. di samping dengan kualitas pelayanan terbaik, Putra Mandiri
                         Jaya
@@ -318,12 +318,12 @@
     </div>
     <!--end::Root-->
     <!--begin::Javascript-->
-    <script>
+    {{-- <script>
         var hostUrl = "adminpanel/";
     </script>
     <!--begin::Global Javascript Bundle(used by all pages)-->
     <script src="adminpanel/plugins/global/plugins.bundle.js"></script>
-    <script src="adminpanel/js/scripts.bundle.js"></script>
+    <script src="adminpanel/js/scripts.bundle.js"></script> --}}
     <!--end::Global Javascript Bundle-->
     <!--begin::Custom Javascript(used by this page)-->
     <script src="adminpanel/js/custom/authentication/sign-in/general.js"></script>
