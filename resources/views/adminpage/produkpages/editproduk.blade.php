@@ -177,7 +177,9 @@
                                                     <option <?php if ($produk->jenis_produk == 'menaraair') {
                                                         echo 'selected';
                                                     } ?> value="menaraair">Menara Air</option>
-
+                                                    <option <?php if ($produk->jenis_produk == 'lainnya') {
+                                                        echo 'selected';
+                                                    } ?> value="lainnya">Lainnya</option>
                                                 </select>
                                                 {{-- <input type="text" name="jenis_produk"
                                                     class="form-control form-control-lg form-control-solid"

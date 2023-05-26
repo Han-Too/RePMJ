@@ -147,7 +147,7 @@
                                                     <option value="tangga">Tangga</option>
                                                     <option value="pintu">Pintu</option>
                                                     <option value="menaraair">Menara Air</option>
-                                                    
+                                                    <option value="lainnya">Lainnya</option>
                                                 </select>
                                                 {{-- <input type="text" name="jenis_produk"
                                                     class="form-control form-control-lg form-control-solid"
