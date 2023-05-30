@@ -109,7 +109,9 @@
                                                     <td class="text-center ">
                                                         <div class="d-flex flex-row justify-content-center">
                                                             <div class="p-4">
-                                                                {{ $user->alamat }}
+                                                                <span class="text-danger fw-bold  d-block mb-1 fs-6">
+                                                                    {{ $user->alamat }}
+                                                                </span>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -148,7 +150,9 @@
                                                     <td class="text-center">
                                                         <div class="d-flex flex-row justify-content-center">
                                                             <div class="p-4">
-                                                                {{ $user->alamat }}
+                                                                <span class="text-dark fw-bold  d-block mb-1 fs-6">
+                                                                    {{ $user->alamat }}
+                                                                </span>
                                                             </div>
                                                         </div>
                                                     </td>

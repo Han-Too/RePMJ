@@ -73,8 +73,12 @@
                                                         {{ $galeri->nama_produk }}
                                                     </span>
                                                 </td>
-                                                <td class="text-start">
-                                                    <img alt="Pic" width="500" height="auto" src="{{ asset('Images/uploads/galeri') }}/{{ $galeri->foto }}" />
+                                                <td class="text-center">
+                                                    <span class="symbol symbol-100px">
+                                                        <span class="symbol-label"
+                                                            style="background-image:url({{ asset('Images/uploads/galeri') }}/{{ $galeri->foto }});"></span>
+                                                    </span>
+                                                    {{-- <img alt="Pic" width="500" height="auto" src="{{ asset('Images/uploads/galeri') }}/{{ $galeri->foto }}" /> --}}
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="d-flex flex-row justify-content-center">

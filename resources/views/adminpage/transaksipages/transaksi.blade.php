@@ -152,8 +152,10 @@
                                             </tr>
                                         @empty
                                             <tr>
-                                                <td colspan="6" class="text-center">
-                                                    Data Masih Kosong
+                                                <td colspan="8" class="text-center">
+                                                    <div class="fw-bold text-dark">
+                                                        Data Masih Kosong
+                                                    </div>
                                                 </td>
                                             </tr>
                                         @endforelse

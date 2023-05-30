@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 @include('landingpage.landinglayout.headhtml')
 @include('landingpage.landinglayout.header')
 

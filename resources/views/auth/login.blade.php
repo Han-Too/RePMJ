@@ -30,28 +30,6 @@
 <!--begin::Body-->
 
 <body id="kt_body" class="app-blank app-blank bgi-size-cover bgi-position-center bgi-no-repeat">
-    
-    <!--begin::Theme mode setup on page load-->
-    <script>
-        var defaultThemeMode = "light";
-        var themeMode;
-        if (document.documentElement) {
-            if (document.documentElement.hasAttribute("data-theme-mode")) {
-                themeMode = document.documentElement.getAttribute("data-theme-mode");
-            } else {
-                if (localStorage.getItem("data-theme") !== null) {
-                    themeMode = localStorage.getItem("data-theme");
-                } else {
-                    themeMode = defaultThemeMode;
-                }
-            }
-            if (themeMode === "system") {
-                themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-            }
-            document.documentElement.setAttribute("data-theme", themeMode);
-        }
-    </script>
-    <!--end::Theme mode setup on page load-->
     <!--begin::Root-->
     <div class="d-flex flex-column flex-root" id="kt_app_root">
         <!--begin::Page bg image-->
@@ -158,8 +136,8 @@
                             </div>
                             <!--end::Submit button-->
                             <!--begin::Sign up-->
-                            <div class="text-gray-500 text-center fw-semibold fs-6">Belum Punya Akun?
-                                <a href="{{ route('register') }}" class="link-primary">Register</a>
+                            <div class="text-gray-500 text-center fw-semibold fs-6">Belum Punya Akun?&nbsp;<b>REGISTER DULU</b>
+                                {{-- <a href="{{ route('register') }}" class="link-primary">Register</a> --}}
                             </div>
                             <!--end::Sign up-->
                         </form>
@@ -174,14 +152,7 @@
         <!--end::Authentication - Sign-in-->
     </div>
     <!--end::Root-->
-    <!--begin::Javascript-->
-    <script>
-        var hostUrl = "adminpanel/";
-    </script>
-    <!--begin::Global Javascript Bundle(used by all pages)-->
-    <script src="adminpanel/plugins/global/plugins.bundle.js"></script>
-    <script src="adminpanel/js/scripts.bundle.js"></script>
-    <!--end::Global Javascript Bundle-->
+    
     <!--begin::Custom Javascript(used by this page)-->
     <script src="adminpanel/js/custom/authentication/sign-in/general.js"></script>
     <!--end::Custom Javascript-->
@@ -189,94 +160,6 @@
     
 </body>
 <!--end::Body-->
-<script>
-    var msg = '{{ Session::get('alert') }}';
-    var exist = '{{ Session::has('alert') }}';
-    if (exist) {
-        alert(msg);
-    }
-</script>
+
 </html>
 
-
-{{-- @extends('layouts.app')
-
-@section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Login') }}</div>
-
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('login') }}">
-                            @csrf
-
-                            <div class="row mb-3">
-                                <label for="email"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="email" type="email"
-                                        class="form-control @error('email') is-invalid @enderror" name="email"
-                                        value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                    @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <label for="password"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="password" type="password"
-                                        class="form-control @error('password') is-invalid @enderror" name="password"
-                                        required autocomplete="current-password">
-
-                                    @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <div class="col-md-6 offset-md-4">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="remember" id="remember"
-                                            {{ old('remember') ? 'checked' : '' }}>
-
-                                        <label class="form-check-label" for="remember">
-                                            {{ __('Remember Me') }}
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row mb-0">
-                                <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Login') }}
-                                    </button>
-
-                                    @if (Route::has('password.request'))
-                                        <a class="btn btn-link" href="{{ route('password.request') }}">
-                                            {{ __('Forgot Your Password?') }}
-                                        </a>
-                                    @endif
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    @include('sweetalert::alert')
-@endsection --}}
