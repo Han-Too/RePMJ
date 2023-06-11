@@ -3,8 +3,13 @@
 @extends('landingpage.landinglayout.headhtml')
 
 @section('content')
-    <!-- Contact Start -->
-    <div class="container-xxl py-5 mt-5">
+<style>
+    td{
+        vertical-align:middle;
+    }
+</style>
+<!-- Contact Start -->
+    <div class="container-xxl py-2 mt-5">
         <div class="row">
             <div class="col">
 
@@ -19,7 +24,7 @@
                     </div>
                     <!--begin::Card header-->
                     <!--begin::Card body-->
-                    <div class="card-body p-9">
+                    <div class="card-body">
                         <!--begin::Row-->
                         <div class="table-responsive">
                             <table class="table">
@@ -29,6 +34,7 @@
                                     <th class="text-center ">Jumlah Pesanan</th>
                                     <th class="text-center ">Total Harga</th>
                                     <th class="text-center ">Status</th>
+                                    <th class="text-center ">Aksi</th>
                                 </thead>
                                 <tbody>
                                     @forelse ($pesanan as $pesanan)
@@ -47,19 +53,32 @@
                                             </td>
                                             <td class="text-center ">
                                                 @if ($pesanan->status_pesanan == 'pending')
-                                                    <span style="background:  #ffc107 " class="p-2 text-light">Pending</span>
+                                                    <span style="background:  #ffc107 "
+                                                        class="p-2 text-light">Pending</span>
                                                 @elseif ($pesanan->status_pesanan == 'terima')
                                                     <span style="background: #28a745" class="p-2 text-light">Selesai</span>
                                                 @endif
                                             </td>
+                                            <td class="text-center ">
+                                                <div class="d-flex flex-row justify-content-center">
+                                                    <div class="p-2">
+                                                        <a href="/ubahpesanan/{{ $pesanan->id_pesanan }}"
+                                                            class="btn btn-success">Ubah</a>
+                                                        </div>
+                                                    <div class="p-2">
+                                                        <a href="/hapuspesanan/{{ $pesanan->id_pesanan }}"
+                                                            class="btn btn-danger">Hapus</a>
+                                                    </div>
+                                                </div>
+                                            </td>
                                         </tr>
                                     @empty
-                                    <tr>
+                                        <tr>
 
-                                        <td class="text-center " colspan="5">
-                                            Tidak Ada Pesanan
-                                        </td>
-                                    </tr>
+                                            <td class="text-center " colspan="5">
+                                                Tidak Ada Pesanan
+                                            </td>
+                                        </tr>
                                     @endforelse
                                 </tbody>
                             </table>
@@ -111,11 +130,11 @@
                                             </td>
                                         </tr>
                                     @empty
-                                    <tr>
-                                        <td class="text-center " colspan="3">
-                                            Tidak Ada Transaksi
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td class="text-center " colspan="3">
+                                                Tidak Ada Transaksi
+                                            </td>
+                                        </tr>
                                     @endforelse
                                 </tbody>
                             </table>

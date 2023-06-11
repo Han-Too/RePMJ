@@ -66,7 +66,7 @@
                                                         title="Change avatar">
                                                         <i class="bi bi-pencil-fill fs-7"></i>
                                                         <!--begin::Inputs-->
-                                                        <input type="file" name="foto" accept=".png, .jpg, .jpeg" />
+                                                        <input required type="file" name="foto" accept=".png, .jpg, .jpeg" />
                                                         <input type="hidden" name="foto_remove" />
                                                         <!--end::Inputs-->
                                                     </label>
@@ -105,7 +105,7 @@
                                             <!--end::Label-->
                                             <!--begin::Col-->
                                             <div class="col-lg-8 fv-row">
-                                                <input type="text" name="judul"
+                                                <input type="text" name="judul"  required
                                                     class="form-control form-control-lg form-control-solid"
                                                     placeholder="Isikan Nama Produk" value="" />
                                             </div>
@@ -121,7 +121,7 @@
                                             <!--end::Label-->
                                             <!--begin::Col-->
                                             <div class="col-lg-8 fv-row">
-                                                <input type="tel" name="harga" onKeyUp="rupiahrp(this)" onKeyPress="return isNumber(event)"
+                                                <input required type="tel" name="harga" onKeyUp="rupiahrp(this)" onKeyPress="return isNumber(event)"
                                                     class="form-control form-control-lg form-control-solid"
                                                     placeholder="Isikan Harga" value=""  id="inputBiayaDonasi" />
                                             </div>
@@ -136,7 +136,7 @@
                                             <!--end::Label-->
                                             <!--begin::Col-->
                                             <div class="col-lg-8 fv-row">
-                                                <select name="jenis_produk" aria-label="Jenis Produk" data-control="select2"
+                                                <select required name="jenis_produk" aria-label="Jenis Produk" data-control="select2"
                                                     data-placeholder="Pilih Jenis Produk"
                                                     class="form-select form-select-solid form-select-lg">
                                                     <option hidden disabled selected value="">Pilih Jenis Produk</option>
@@ -163,7 +163,7 @@
                                             <!--end::Label-->
                                             <!--begin::Col-->
                                             <div class="col-lg-8 fv-row">
-                                                <textarea name="deskripsi" class="form-control form-control-lg form-control-solid" placeholder="Jelaskan Deskripsi"
+                                                <textarea required name="deskripsi" class="form-control form-control-lg form-control-solid" placeholder="Jelaskan Deskripsi"
                                                     value=""></textarea>
                                             </div>
                                             <!--end::Col-->
@@ -175,7 +175,7 @@
                                             <!--end::Label-->
                                             <!--begin::Col-->
                                             <div class="col-lg-8 fv-row">
-                                                <textarea onInput="handleInput(event)" name="bahan"
+                                                <textarea required onInput="handleInput(event)" name="bahan"
                                                             class="form-control form-control-lg form-control-solid" rows="10" placeholder="Isikan Jenis Bahan"
                                                             value=""></textarea>
                                             </div>
@@ -191,7 +191,7 @@
                                             <!--begin::Col-->
                                             <div class="col-lg-8 fv-row">
                                                 <!--begin::Input-->
-                                                <select id="statuselect" name="status" aria-label="Status" data-control="select"
+                                                <select required id="statuselect" name="status" aria-label="Status" data-control="select"
                                                     data-placeholder="Pilih Status"
                                                     class="form-select form-select-solid form-select-lg">
                                                     <option hidden disabled selected value="">Pilih Status</option>

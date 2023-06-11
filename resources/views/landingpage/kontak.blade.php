@@ -36,14 +36,15 @@
                 <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="row g-4 align-items-center">
                         <div class="col-sm-6">
-                            <img class="img-fluid" src="{{ asset('landing/img/team-1.jpg') }}" alt="" />
+                            <img class="img-fluid" src="{{ asset('landing/img/pemimpin.jpg') }}" alt="fotopemimpin" />
                         </div>
                         <div class="col-sm-6">
-                            <h3 class="mb-0 fs-1">Full Name</h3>
-                            <p class="fs-3">Pimpinan Perusahaan</p>
-                            <h6>Contact Details</h6>
-                            <p class="mb-0">Call: +62 8138 5291 423</p>
-                            <p class="mb-0">Email: putramandirijayalas01@gmail.com</p>
+                            <h3 class="mb-0 fs-1">Mamat</h3>
+                            <p class="fs-5">( Pimpinan Perusahaan )</p><br><br>
+                            <p class="fs-4 fw-bolder text-dark">Kontak Perusahaan</p>
+                            <p class="mb-0 text-dark fs-5"><i class="fa fa-phone"></i> : +62 8138 5291 423</p>
+                            <p class="mb-0 text-dark fs-5"><i class="fa fa-whatsapp"></i> : +62 8138 5291 423</p>
+                            <p class="mb-0 text-dark fs-5"><i class="fa fa-envelope"></i> : putramandirijayalas01@gmail.com</p>
                             {{-- {!! QrCode::size(300)->generate(''.$user->name.'') !!} --}}
                         </div>
                     </div>
@@ -93,14 +94,14 @@
                         <div class="row g-3">
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control border-0 bg-light" id="subject"
+                                    <input type="text" class="form-control border-0 bg-light" id="subject" required 
                                         placeholder="Nama" readonly name="nama" value="{{ $user->name }}"/>
                                     <label for="subject">Nama Anda</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control border-0 bg-light" id="subject"
+                                    <input type="text" class="form-control border-0 bg-light" id="subject" required
                                         placeholder="Alamat" name="alamat"/>
                                     <label for="subject">Alamat</label>
                                 </div>
@@ -109,7 +110,7 @@
                                 <div class="form-floating">
                                     {{-- <textarea name="pesan" class="form-control border-0 bg-light" placeholder="Leave a message here" id="message"
                                         style="height: 150px"></textarea> --}}
-                                        <input type="text" class="form-control border-0 bg-light" id="subject"
+                                        <input type="text" class="form-control border-0 bg-light" id="subject" required
                                         placeholder="Pesan" name="pesan"/>
                                     <label for="message">Pesan</label>
                                 </div>
@@ -126,14 +127,14 @@
                         <div class="row g-3">
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control border-0 bg-light" id="subject"
+                                    <input type="text" class="form-control border-0 bg-light" id="subject" required
                                         placeholder="Nama" name="nama"/>
                                     <label for="subject">Nama Anda</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control border-0 bg-light" id="subject"
+                                    <input type="text" class="form-control border-0 bg-light" id="subject" required
                                         placeholder="Alamat" name="alamat"/>
                                     <label for="subject">Alamat</label>
                                 </div>
@@ -142,7 +143,7 @@
                                 <div class="form-floating">
                                     {{-- <textarea name="pesan" class="form-control border-0 bg-light" placeholder="Leave a message here" id="message"
                                         style="height: 150px"></textarea> --}}
-                                        <input type="text" class="form-control border-0 bg-light" id="subject"
+                                        <input type="text" class="form-control border-0 bg-light" id="subject" required
                                         placeholder="Pesan" name="pesan"/>
                                     <label for="message">Pesan</label>
                                 </div>

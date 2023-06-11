@@ -139,7 +139,13 @@ Route::post('/signup', [RegisterController::class, 'signup'])->name('signup');
 Route::get('/userprofile', [UserProfileController::class, 'index'])->name('userprofile');
 Route::get('/edituserprofile', [UserProfileController::class, 'edit'])->name('edituserprofile');
 Route::post('/storeuserprofile', [UserProfileController::class, 'store'])->name('storeuserprofile');
+
 Route::get('/cekpesanan', [UserProfileController::class, 'cekpesanan'])->name('cekpesanan');
+Route::get('/ubahpesanan/{id}', [UserProfileController::class, 'ubahpesanan'])->name('ubahpesanan');
+Route::post('/updatepesanan', [UserProfileController::class, 'updatepesanan'])->name('updatepesanan');
+Route::get('/hapuspesanan/{id}', [UserProfileController::class, 'hapuspesanan'])->name('hapuspesanan');
+
+
 
 Route::get('/testing', function () {
     return view('landingpage.test');

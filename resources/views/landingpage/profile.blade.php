@@ -137,7 +137,7 @@
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="position-relative overflow-hidden ps-5 pt-5 h-100" style="min-height: 400px">
-                        <img class="position-absolute w-100 h-100" src="landing/img/feature.jpg" alt=""
+                        <img class="position-absolute w-100 h-100" src="{{ asset("landing/img/pemimpin.jpg") }}" alt=""
                             style="object-fit: cover" />
                         <div class="position-absolute top-0 start-0 bg-white pe-3 pb-3" style="width: 200px; height: 200px">
                             <div class="d-flex flex-column justify-content-center text-center bg-primary h-100 p-3">
@@ -162,7 +162,7 @@
                         <h6 class="text-body text-uppercase mb-2">Testimoni</h6>
                         <h1 class="display-6 mb-0">Apa Pendapat Pelanggan Tentang Putra Mandiri Jaya?</h1>
                     </div>
-                    {{-- <div class="row g-4">
+                    <div class="row g-4">
                         <div class="col-sm-6">
                             <div class="d-flex align-items-center mb-2">
                                 <i class="fa fa-users fa-2x text-primary flex-shrink-0"></i>
@@ -177,7 +177,7 @@
                             </div>
                             <h5 class="mb-0">Proyek Selesai</h5>
                         </div>
-                    </div> --}}
+                    </div>
                 </div>
                 <div class="col-lg-7 wow fadeInUp" data-wow-delay="0.3s">
                     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -191,30 +191,30 @@
                         </div>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img class="img-fluid mb-4" src="{{ asset('landing/img/testimonial-2.jpg') }}"
+                                <img class="img-fluid mb-4" src="{{ asset('landing/img/testawal.jpg') }}"
                                     alt="" />
                                 <p class="fs-5">
-                                    Bagus, Pekerjaan Baik dan Rapih ditambah Waktu penyelesaian tepat waktu
+                                    Pembuatan Barang Cepat dan Barang Sangat Berkualitas dan Ada Garansinya juga.
                                 </p>
                                 <div class="bg-primary mb-3" style="width: 60px; height: 5px"></div>
-                                <h5>Agus</h5>
-                                <span>Orang Sawah</span>
+                                <h5>Waldiyono</h5>
+                                <span>Pelanggan</span>
                             </div>
                             <div class="carousel-item">
-                                <img class="img-fluid mb-4" src="{{ asset('landing/img/testimonial-2.jpg') }}"
+                                <img class="img-fluid mb-4" src="{{ asset('landing/img/testdedi.jpg') }}"
                                     alt="" />
                                 <p class="fs-5">
-                                    Bagus, Pekerjaan Baik dan Rapih ditambah Waktu penyelesaian tepat waktu
+                                    Barang dibuat dengan Bahan yang Berkualitas dan Pengerjaan Tepat Waktu
                                 </p>
                                 <div class="bg-primary mb-3" style="width: 60px; height: 5px"></div>
-                                <h5>Agus</h5>
-                                <span>Orang Sawah</span>
+                                <h5>Dedi</h5>
+                                <span>Pelanggan</span>
                             </div>
                             <div class="carousel-item">
-                                <img class="img-fluid mb-4" src="{{ asset('landing/img/testimonial-2.jpg') }}"
+                                <img class="img-fluid mb-4" src="{{ asset('landing/img/testoneng.jpg') }}"
                                     alt="" />
                                 <p class="fs-5">
-                                    Bagus, Pekerjaan Baik dan Rapih ditambah Waktu penyelesaian tepat waktu
+                                    Pelayanan Bagus dan Bisa Memesan Barang Kemauan Kita Sendiri tanpa Mengurangi Kualitas Barang
                                 </p>
                                 <div class="bg-primary mb-3" style="width: 60px; height: 5px"></div>
                                 <h5>Agus</h5>

@@ -92,7 +92,7 @@
                                 </svg>
                             </span>
                         </span>
-                        <span class="menu-title">Data Barang</span>
+                        <span class="menu-title">Data Produk</span>
                     </a>
                     <!--end:Menu link-->
                 </div>

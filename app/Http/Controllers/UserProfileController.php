@@ -34,6 +34,42 @@ class UserProfileController extends Controller
         return view('landingpage.pesanan', compact('user','transaksi','pesanan'));
     }
 
+    public function ubahpesanan($id){
+        $user = Auth::user();
+        $pesanan = Pesanan::where('id_pesanan',$id)->first();
+        $produk = Produk::where('id_produk', $pesanan->id_produk)->first();
+        // dd($produk);
+        return view('landingpage.editpesanan', compact('user','pesanan','produk'));
+    }
+
+    public function updatepesanan(Request $request){
+        $info = $request->all();
+        // dd($info);
+        $user = Auth::user();
+        $produk = Produk::where('id_produk', $request->idproduk)->first();
+        $harga = $request->jumlah*$produk->harga;
+        Pesanan::where("id_pesanan", $request->idpesanan)->update([
+            "id_pesanan" => $request->idpesanan,
+            "name" => $request->nama,
+            "nama_produk" => $request->namaproduk,
+            "jumlah_pesanan" => $request->jumlah,
+            "tanggal_pesanan" => $request->tanggal,
+            "status_pesanan" => $request->status,
+            "total_harga" => $harga,
+        ]);
+        $transaksi = Transaksi::where('name',$user->name)->get();
+        $pesanan = Pesanan::where('name',$user->name)->get();
+        return view('landingpage.pesanan', compact('user','pesanan','transaksi'));
+    }
+
+    public function hapuspesanan($id){
+        Pesanan::where('id_pesanan', $id)->delete();
+        $user = Auth::user();
+        $transaksi = Transaksi::where('name',$user->name)->get();
+        $pesanan = Pesanan::where('name',$user->name)->get();
+        return view('landingpage.pesanan', compact('user','pesanan','transaksi'));
+    }
+
     public function store(Request $request){
         $info = $request->all();
         $id = $request->id;

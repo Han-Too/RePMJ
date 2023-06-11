@@ -224,10 +224,10 @@ class ProdukController extends Controller
             "status_pesanan" => $request->status,
             "total_harga" => (int)$request->jumlah * (int)$produk->harga,
         ]);
-            return redirect('/')->with('alert', 'Pesanan Telah Dibuat!');
+            return redirect('cekpesanan')->with('alert', 'Pesanan Telah Dibuat!');
         }
         else{
-            return redirect()->route('layanan')->with('alert', 'Pesanan Sebelumnya Sudah Terbuat!');
+            return redirect()->route('cekpesanan')->with('alert', 'Pesanan Sebelumnya Sudah Terbuat!');
         }
     }
 

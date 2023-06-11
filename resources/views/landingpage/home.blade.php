@@ -154,70 +154,6 @@
 
 
 
-    <!-- Facts Start -->
-    {{-- <div class="container-fluid my-5 p-0">
-        <div class="row g-0">
-            <div class="col-xl-3 col-sm-6 wow fadeIn" data-wow-delay="0.1s">
-                <div class="position-relative">
-                    <img class="img-fluid w-100" src="landing/img/fact-1.jpg" alt="" />
-                    <div class="facts-overlay">
-                        <h1 class="display-1">01</h1>
-                        <h4 class="text-white mb-3">Construction</h4>
-                        <p class="text-white">
-                            Aliqu diam amet diam et eos erat ipsum lorem stet lorem sit
-                            clita duo justo erat amet
-                        </p>
-                        <a class="text-white small" href="">READ MORE<i class="fa fa-arrow-right ms-3"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 wow fadeIn" data-wow-delay="0.3s">
-                <div class="position-relative">
-                    <img class="img-fluid w-100" src="landing/img/fact-2.jpg" alt="" />
-                    <div class="facts-overlay">
-                        <h1 class="display-1">02</h1>
-                        <h4 class="text-white mb-3">Mechanical</h4>
-                        <p class="text-white">
-                            Aliqu diam amet diam et eos erat ipsum lorem stet lorem sit
-                            clita duo justo erat amet
-                        </p>
-                        <a class="text-white small" href="">READ MORE<i class="fa fa-arrow-right ms-3"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 wow fadeIn" data-wow-delay="0.5s">
-                <div class="position-relative">
-                    <img class="img-fluid w-100" src="landing/img/fact-3.jpg" alt="" />
-                    <div class="facts-overlay">
-                        <h1 class="display-1">03</h1>
-                        <h4 class="text-white mb-3">Architecture</h4>
-                        <p class="text-white">
-                            Aliqu diam amet diam et eos erat ipsum lorem stet lorem sit
-                            clita duo justo erat amet
-                        </p>
-                        <a class="text-white small" href="">READ MORE<i class="fa fa-arrow-right ms-3"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 wow fadeIn" data-wow-delay="0.7s">
-                <div class="position-relative">
-                    <img class="img-fluid w-100" src="landing/img/fact-4.jpg" alt="" />
-                    <div class="facts-overlay">
-                        <h1 class="display-1">04</h1>
-                        <h4 class="text-white mb-3">Interior Design</h4>
-                        <p class="text-white">
-                            Aliqu diam amet diam et eos erat ipsum lorem stet lorem sit
-                            clita duo justo erat amet
-                        </p>
-                        <a class="text-white small" href="">READ MORE<i class="fa fa-arrow-right ms-3"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-    <!-- Facts End -->
-
-
     <!-- Service Start -->
     <div class="container-xxl py-5">
         <div class="container">
@@ -355,28 +291,28 @@
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item position-relative">
-                        <img class="img-fluid" src="landing/img/team-1.jpg" alt="" />
+                        <img class="img-fluid" src="{{ asset('landing/img/buser.jpg') }}" alt="" />
                         <div class="team-text bg-white p-4">
-                            <h5>Full Name</h5>
-                            <span>Engineer</span>
+                            <h5>Buser</h5>
+                            <span>Karyawan</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="team-item position-relative">
-                        <img class="img-fluid" src="landing/img/team-2.jpg" alt="" />
+                        <img class="img-fluid" src="{{ asset('landing/img/agus.jpg') }}" alt="" />
                         <div class="team-text bg-white p-4">
-                            <h5>Full Name</h5>
-                            <span>Engineer</span>
+                            <h5>Agus</h5>
+                            <span>Karyawan</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="team-item position-relative">
-                        <img class="img-fluid" src="landing/img/team-3.jpg" alt="" />
+                        <img class="img-fluid" src="{{ asset('landing/img/akim.jpg') }}" alt="" />
                         <div class="team-text bg-white p-4">
-                            <h5>Full Name</h5>
-                            <span>Engineer</span>
+                            <h5>Asul</h5>
+                            <span>Karyawan</span>
                         </div>
                     </div>
                 </div>
@@ -424,30 +360,30 @@
                         </div>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img class="img-fluid mb-4" src="{{ asset('landing/img/testimonial-2.jpg') }}"
+                                <img class="img-fluid mb-4" src="{{ asset('landing/img/testawal.jpg') }}"
                                     alt="" />
                                 <p class="fs-5">
-                                    Bagus, Pekerjaan Baik dan Rapih ditambah Waktu penyelesaian tepat waktu
+                                    Pembuatan Barang Cepat dan Barang Sangat Berkualitas dan Ada Garansinya juga.
                                 </p>
                                 <div class="bg-primary mb-3" style="width: 60px; height: 5px"></div>
-                                <h5>Agus</h5>
-                                <span>Orang Sawah</span>
+                                <h5>Waldiyono</h5>
+                                <span>Pelanggan</span>
                             </div>
                             <div class="carousel-item">
-                                <img class="img-fluid mb-4" src="{{ asset('landing/img/testimonial-2.jpg') }}"
+                                <img class="img-fluid mb-4" src="{{ asset('landing/img/testdedi.jpg') }}"
                                     alt="" />
                                 <p class="fs-5">
-                                    Bagus, Pekerjaan Baik dan Rapih ditambah Waktu penyelesaian tepat waktu
+                                    Barang dibuat dengan Bahan yang Berkualitas dan Pengerjaan Tepat Waktu
                                 </p>
                                 <div class="bg-primary mb-3" style="width: 60px; height: 5px"></div>
-                                <h5>Agus</h5>
-                                <span>Orang Sawah</span>
+                                <h5>Dedi</h5>
+                                <span>Pelanggan</span>
                             </div>
                             <div class="carousel-item">
-                                <img class="img-fluid mb-4" src="{{ asset('landing/img/testimonial-2.jpg') }}"
+                                <img class="img-fluid mb-4" src="{{ asset('landing/img/testoneng.jpg') }}"
                                     alt="" />
                                 <p class="fs-5">
-                                    Bagus, Pekerjaan Baik dan Rapih ditambah Waktu penyelesaian tepat waktu
+                                    Pelayanan Bagus dan Bisa Memesan Barang Kemauan Kita Sendiri tanpa Mengurangi Kualitas Barang
                                 </p>
                                 <div class="bg-primary mb-3" style="width: 60px; height: 5px"></div>
                                 <h5>Agus</h5>
