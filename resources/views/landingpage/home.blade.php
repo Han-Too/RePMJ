@@ -14,7 +14,7 @@
         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="w-100" src="{{ asset('Images/uploads/jumbotron/1.png')  }}"
+                        <img class="w-100" src="{{ asset('landing/img/jumbo1.jpg')  }}"
                             alt="jumbotron" />
                         <div class="carousel-caption">
                             <div class="container">
@@ -31,7 +31,7 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img class="w-100" src="{{ asset('Images/uploads/jumbotron/2.png')  }}"
+                        <img class="w-100" src="{{ asset('landing/img/jumbo2.jpg')  }}"
                             alt="jumbotron" />
                         <div class="carousel-caption">
                             <div class="container">
@@ -40,7 +40,7 @@
                                         <h1 class="display-2 text-light mb-3 animated slideInDown">
                                             Putra Mandiri Jaya
                                         </h1>
-                                        <div class="fs-4"> Dikerjakan Oleh Profesional Dibidangnya </div><br>
+                                        <div class="fs-4"> Barang Selesai Tepat Waktu </div><br>
                                         {{-- <a href="" class="btn btn-primary py-3 px-5">Selengkapnya</a> --}}
                                     </div>
                                 </div>
@@ -48,7 +48,7 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img class="w-100" src="{{ asset('Images/uploads/jumbotron/3.png')  }}"
+                        <img class="w-100" src="{{ asset('landing/img/jumbo3.jpg')  }}"
                             alt="jumbotron" />
                         <div class="carousel-caption">
                             <div class="container">
@@ -57,7 +57,7 @@
                                         <h1 class="display-2 text-light mb-3 animated slideInDown">
                                             Putra Mandiri Jaya
                                         </h1>
-                                        <div class="fs-4"> Dikerjakan Oleh Profesional Dibidangnya </div><br>
+                                        <div class="fs-4"> Menggunakan Bahan Yang Berkualitas </div><br>
                                         {{-- <a href="" class="btn btn-primary py-3 px-5">Selengkapnya</a> --}}
                                     </div>
                                 </div>
